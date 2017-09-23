@@ -10,36 +10,74 @@ import UIKit
 
 @IBDesignable class DesignCardView: UIView {
     
-    @IBInspectable var cornerRadius: CGFloat = 0
-    
-    @IBInspectable var shadowColor: UIColor? = UIColor.black
-    
-    @IBInspectable let shadowoffSetWidth: Int = 0
-    
-    @IBInspectable let shadowOffSetHeight: Int = 1
-    
-    @IBInspectable var shadowOpacity: Float = 0.2
-    
-    override func layoutSubviews() {
-        layer.cornerRadius = cornerRadius
+    @IBInspectable var cardViewCornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+            
+        }
         
-        layer.shadowColor = shadowColor?.cgColor
-        
-        layer.shadowOffset = CGSize(width: shadowoffSetWidth, height: shadowOffSetHeight)
-        
-        let shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius)
-        
-        layer.shadowPath = shadowPath.cgPath
-        
-        layer.shadowOpacity = shadowOpacity
+        set {
+            return layer.cornerRadius = newValue
+            
+        }
         
     }
     
+    @IBInspectable var shadowColor: UIColor? = UIColor.black
+    
+    @IBInspectable var shadowoffSetWidth: Int {
+        get {
+            return Int(layer.shadowOffset.width)
+            
+        }
+        
+        set {
+            return layer.shadowOffset.width = CGFloat(newValue)
+            
+        }
+        
+    }
+    
+    @IBInspectable var shadowoffSetHeight: Int {
+        get {
+            return Int(layer.shadowOffset.height)
+            
+        }
+        
+        set {
+            return layer.shadowOffset.height = CGFloat(Int(newValue))
+            
+        }
+        
+    }
+    
+    @IBInspectable var shadowOpacity: Float {
+        get {
+            return layer.shadowOpacity
+            
+        }
+        
+        set {
+            return layer.shadowOpacity = newValue
+            
+        }
+        
+    }
+    
+    override func layoutSubviews() {
+        layer.cornerRadius = cardViewCornerRadius
+
+        layer.shadowColor = shadowColor?.cgColor
+
+        let shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: cardViewCornerRadius)
+
+        layer.shadowPath = shadowPath.cgPath
+        
+        layer.shadowOpacity = shadowOpacity
+
+    }
+    
 }
-    
-    
-    
-    
     
     /*
     // Only override draw() if you perform custom drawing.
