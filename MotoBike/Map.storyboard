@@ -40,14 +40,6 @@
                                     <action selector="userDataView:" destination="u77-Z9-c5r" eventType="touchUpInside" id="1pj-aP-qhT"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K22-mV-VMt">
-                                <rect key="frame" x="16" y="617" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="addNewEvent:" destination="u77-Z9-c5r" eventType="touchUpInside" id="U3N-63-K3W"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DGH-7S-NSa" customClass="PinDetailView" customModule="MotoBike" customModuleProvider="target">
                                 <rect key="frame" x="101" y="401" width="84" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -58,6 +50,15 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K22-mV-VMt">
+                                <rect key="frame" x="16" y="572" width="75" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="MessageBtn"/>
+                                <state key="highlighted" image="MotoBike Message Enable Button"/>
+                                <connections>
+                                    <action selector="addNewEvent:" destination="u77-Z9-c5r" eventType="touchUpInside" id="U3N-63-K3W"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -78,4 +79,8 @@
             <point key="canvasLocation" x="-90.400000000000006" y="164.16791604197903"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="MessageBtn" width="178" height="178"/>
+        <image name="MotoBike Message Enable Button" width="178" height="178"/>
+    </resources>
 </document>
