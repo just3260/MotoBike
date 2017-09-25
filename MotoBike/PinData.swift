@@ -27,7 +27,18 @@ struct selectPinData {
     }
 }
 
+    // pinMark 內容
+//name         街道地址
+//country      國家
+//province     省
+//locality     市
+//sublocality  縣.區
+//route        街道、路
+//streetNumber 門牌號碼
+//postalCode   郵遞區號
 
+
+    // MKAnnotationView 內容
 // coordinate : 經緯度信息
 // altitude : 海拔
 // horizontalAccuracy : 水平精確度,如果為負數,代表位置不可用,

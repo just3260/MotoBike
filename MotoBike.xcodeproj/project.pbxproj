@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		182990E61F6B88C600D34DCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 182990E51F6B88C600D34DCA /* Assets.xcassets */; };
-		182990E81F71069200D34DCA /* PinDetailTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182990E71F71069200D34DCA /* PinDetailTest.swift */; };
 		182990EE1F713B2A00D34DCA /* PinDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182990ED1F713B2A00D34DCA /* PinDetailView.xib */; };
 		182990F01F713B4600D34DCA /* PinDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182990EF1F713B4600D34DCA /* PinDetailView.swift */; };
 		182B58D81F678B82003D0ECB /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 182B58D71F678B82003D0ECB /* Map.storyboard */; };
@@ -34,7 +33,6 @@
 
 /* Begin PBXFileReference section */
 		182990E51F6B88C600D34DCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		182990E71F71069200D34DCA /* PinDetailTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinDetailTest.swift; sourceTree = "<group>"; };
 		182990ED1F713B2A00D34DCA /* PinDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PinDetailView.xib; sourceTree = "<group>"; };
 		182990EF1F713B4600D34DCA /* PinDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinDetailView.swift; sourceTree = "<group>"; };
 		182B58D71F678B82003D0ECB /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
@@ -83,7 +81,6 @@
 				5BDBA6911F5463C7006ECE3A /* Main.storyboard */,
 				182B58D71F678B82003D0ECB /* Map.storyboard */,
 				5BDBA6961F5463C7006ECE3A /* LaunchScreen.storyboard */,
-				182990E71F71069200D34DCA /* PinDetailTest.swift */,
 				182990ED1F713B2A00D34DCA /* PinDetailView.xib */,
 			);
 			name = View;
@@ -305,7 +302,6 @@
 				5BA0FCC61F6AC7C200E7E7C8 /* AddNewPostViewController.swift in Sources */,
 				5B84618C1F757E4000884339 /* PostViewDataManager.swift in Sources */,
 				182B58E61F68EB8A003D0ECB /* DispatchQueue+Once.swift in Sources */,
-				182990E81F71069200D34DCA /* PinDetailTest.swift in Sources */,
 				5BCC66C01F6D725700E312C5 /* DesignCardView.swift in Sources */,
 				187FFD961F6A7D5800C62593 /* MapDataManager.swift in Sources */,
 				182990F01F713B4600D34DCA /* PinDetailView.swift in Sources */,

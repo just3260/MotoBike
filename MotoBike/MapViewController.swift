@@ -42,6 +42,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         longPressGesture.minimumPressDuration = 1.0
         self.mainMapView.addGestureRecognizer(longPressGesture)
         
+        MKUserLocation.self
     }
     
     // 螢幕消失時，關閉定位功能（省電）
@@ -119,6 +120,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         
         mainMapView.setRegion(region, animated: false)
     }
+
+
     
     
     // 在地圖上插上大頭針
@@ -153,9 +156,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
         
         if views.last?.annotation is MKUserLocation {
+            // 關閉userLocation資訊
+            views.last?.canShowCallout = false
             return
         }
-        
+
         
         let visibleRect = mapView.annotationVisibleRect
         
