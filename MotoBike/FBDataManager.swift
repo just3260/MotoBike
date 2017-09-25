@@ -16,6 +16,8 @@ import FBSDKLoginKit
 
 class FBDataManager: NSObject {
     var FBLogin: FBKeyinDelegate!
+    
+    var aaa: selectPinData!
 
     func getUserData() {
         if(FBSDKAccessToken.current() != nil) {

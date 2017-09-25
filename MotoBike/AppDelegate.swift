@@ -48,6 +48,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
+        UINavigationBar.appearance().tintColor = UIColor.white
+        
+        
+        
         return true
         
     }

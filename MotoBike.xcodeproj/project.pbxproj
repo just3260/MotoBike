@@ -105,9 +105,9 @@
 				5BCDBBED1F624600005EC300 /* FBLoginViewController.swift */,
 				182B58D91F678BA6003D0ECB /* MapViewController.swift */,
 				182990EF1F713B4600D34DCA /* PinDetailView.swift */,
-				5BCC66BF1F6D725700E312C5 /* DesignCardView.swift */,
 				182B58DF1F67BC98003D0ECB /* PostViewController.swift */,
 				5BA0FCC51F6AC7C200E7E7C8 /* AddNewPostViewController.swift */,
+				5BCC66BF1F6D725700E312C5 /* DesignCardView.swift */,
 				5BCC66BD1F6D6F3A00E312C5 /* NewsFeedTableViewController.swift */,
 			);
 			name = Controller;

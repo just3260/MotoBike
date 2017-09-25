@@ -14,16 +14,29 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     @IBOutlet weak var areaLocation: UITextField!
     
-    let FinPostViewModel = PostViewDataManager()
+    @IBOutlet weak var updatePic: UIImageView!
+    
+    let AddFinPostViewModel = PostViewDataManager()
+    
+    let PinModel = selectPinData()
     
     let areaTagArray = ["無路況", "北北基路況", "桃竹苗路況", "中彰投路況", "雲嘉南路況", "高高屏路況", "車聚與揪跑", "協助與求救"]
     
-
+    var locationInput = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        FinPostViewModel.getPostItem = self
+        AddFinPostViewModel.getPostItem = self
+        
+        navigationController?.navigationBar.setBackgroundImage(allNavigationBarAttributes.allNavigationbarBg, for: .default)
+        
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        
+        updatePic.isUserInteractionEnabled = true
+        
+        updatePic.addGestureRecognizer(AddFinPostViewModel.imgTapGesture)
         
     }
 
@@ -35,66 +48,66 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBAction func Sunny(_ sender: UIButton) {
         let sun = "晴天地乾"
         
-        FinPostViewModel.weather.removeAll()
+        AddFinPostViewModel.weather.removeAll()
         
-        FinPostViewModel.weather.append(sun)
+        AddFinPostViewModel.weather.append(sun)
         
-        print(FinPostViewModel.weather)
+        print(AddFinPostViewModel.weather)
         
     }
     
     @IBAction func overcastCloudy(_ sender: UIButton) {
         let cloudy = "陰天有雲"
         
-        FinPostViewModel.weather.removeAll()
+        AddFinPostViewModel.weather.removeAll()
         
-        FinPostViewModel.weather.append(cloudy)
+        AddFinPostViewModel.weather.append(cloudy)
         
-        print(FinPostViewModel.weather)
+        print(AddFinPostViewModel.weather)
         
     }
     
     @IBAction func rainny(_ sender: UIButton) {
         let rain = "雨天地濕"
         
-        FinPostViewModel.weather.removeAll()
+        AddFinPostViewModel.weather.removeAll()
         
-        FinPostViewModel.weather.append(rain)
+        AddFinPostViewModel.weather.append(rain)
         
-        print(FinPostViewModel.weather)
+        print(AddFinPostViewModel.weather)
         
     }
     
     @IBAction func normalDriving(_ sender: UIButton) {
         let normal = "正常行駛"
         
-        FinPostViewModel.traffic.removeAll()
+        AddFinPostViewModel.traffic.removeAll()
         
-        FinPostViewModel.traffic.append(normal)
+        AddFinPostViewModel.traffic.append(normal)
         
-        print(FinPostViewModel.traffic)
+        print(AddFinPostViewModel.traffic)
         
     }
     
     @IBAction func takeDanger(_ sender: UIButton) {
         let danger = "注意危險"
         
-        FinPostViewModel.traffic.removeAll()
+        AddFinPostViewModel.traffic.removeAll()
         
-        FinPostViewModel.traffic.append(danger)
+        AddFinPostViewModel.traffic.append(danger)
         
-        print(FinPostViewModel.traffic)
+        print(AddFinPostViewModel.traffic)
         
     }
     
     @IBAction func noPassing(_ sender: UIButton) {
         let stop = "禁止通行"
         
-        FinPostViewModel.traffic.removeAll()
+        AddFinPostViewModel.traffic.removeAll()
         
-        FinPostViewModel.traffic.append(stop)
+        AddFinPostViewModel.traffic.append(stop)
         
-        print(FinPostViewModel.traffic)
+        print(AddFinPostViewModel.traffic)
         
     }
     
@@ -104,32 +117,52 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     @IBAction func confirmLocation(_ sender: UIButton) {
+        if(areaLocation.text == nil) {
+            AddFinPostViewModel.location = "無地址"
+            
+            print("areaLocation is nil")
+            
+        }
+        
+        // areaLocation.text = selectPinData.getAddress()
+        
+        locationInput = areaLocation.text!
+        
+        AddFinPostViewModel.location = locationInput
+        
+        print(AddFinPostViewModel.location)
         
     }
     
     @IBAction func takePicture(_ sender: UIButton) {
         
+        
+        
     }
     
     @IBAction func FinPostViewBarBtn(_ sender: UIBarButtonItem) {
-        if(FinPostViewModel.decideTag.isEmpty) {
-            FinPostViewModel.decideTag = areaTagArray[0]
+        if(AddFinPostViewModel.decideTag.isEmpty) {
+            AddFinPostViewModel.decideTag = areaTagArray[0]
             
         }
         
-        FinPostViewModel.getPostViewData()
+        if(AddFinPostViewModel.location.isEmpty) {
+            AddFinPostViewModel.location = "無地址"
+            
+        }
+        
+        AddFinPostViewModel.getPostViewData()
         
     }
     
     @IBAction func CancelPostViewBtn(_ sender: UIBarButtonItem) {
-        FinPostViewModel.postItem.removeAll()
+        AddFinPostViewModel.postItem.removeAll()
         
         self.modalTransitionStyle = .crossDissolve
         
         dismiss(animated: true, completion: nil)
         
     }
-    
     
     func getPickerView() {
         let areaTagVC = UIViewController()
@@ -172,13 +205,14 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        FinPostViewModel.decideTag = areaTagArray[row]
+        AddFinPostViewModel.decideTag = areaTagArray[row]
         
-        pickerItemLabel.text = FinPostViewModel.decideTag
+        pickerItemLabel.text = AddFinPostViewModel.decideTag
         
-        print(FinPostViewModel.decideTag)
+        print(AddFinPostViewModel.decideTag)
         
     }
+
     
 
     /*
