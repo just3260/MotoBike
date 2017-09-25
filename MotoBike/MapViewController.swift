@@ -44,6 +44,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         
     }
     
+    // 螢幕消失時，關閉定位功能（省電）
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        
+        // 背景執行時關閉定位功能
+        mapManager.locationManager.stopUpdatingLocation()
+    }
+    
+    
     // 載入地圖完成時，移到當前位置
     func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
         let status = mapManager.locationSetting()
@@ -52,8 +61,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             mainMapView.showsUserLocation = true
         }
     }
-
-
+    
+    
+    // MARK: - Functions
+    
     // 選取到大頭針時動作
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         
@@ -75,16 +86,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         })
         
     }
-    
-    
-    // 螢幕消失時，關閉定位功能（省電）
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(true)
-        
-        // 背景執行時關閉定位功能
-        mapManager.locationManager.stopUpdatingLocation()
-    }
-    
     /// 長按時在地圖上新增事件
     func addNewMapEvent(sender: UIGestureRecognizer) {
         
@@ -102,6 +103,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         let touchCoordinate = mainMapView.convert(touchPoint, toCoordinateFrom: mainMapView)
         
         mapManager.addPinData(coordinate: touchCoordinate)
+        
+        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (MapViewController) in
+            // 跳轉至Post畫面
+            let postView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PostViewController")
+            postView.modalTransitionStyle = .crossDissolve
+            self.present(postView, animated: true, completion: nil)
+        }
+        
     }
     
     
@@ -140,7 +149,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     }
     
     
-    // 新增大頭針時呼叫的方法
+    // 新增大頭針時呼叫的方法(動畫)
     func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
         
         if views.last?.annotation is MKUserLocation {
@@ -175,15 +184,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     /// 在地圖上新增標籤
     @IBAction func addNewEvent(_ sender: Any) {
         
-        // 跳轉至Post畫面
-        let postView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PostViewController")
-        postView.modalTransitionStyle = .crossDissolve
-        present(postView, animated: true, completion: nil)
+        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (MapViewController) in
+            // 跳轉至Post畫面
+            let postView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PostViewController")
+            postView.modalTransitionStyle = .crossDissolve
+            self.present(postView, animated: true, completion: nil)
+        }
         
         // 在當前位置新增大頭針
         guard let userCoordinate = mapManager.locationManager.location?.coordinate else {
             return
         }
+        
         mapManager.addPinData(coordinate: userCoordinate)
         
     }

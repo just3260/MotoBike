@@ -14,10 +14,13 @@ struct selectPinData {
     /// 選取到的大頭針資料
     static var pinDetailData: MKAnnotationView!
     
+    /// 大頭針標記資料
+    static var pinMark: CLPlacemark!
+    
     /// 呼叫地址方法
     static func getAddress() -> String {
         
-        guard let address = self.pinDetailData.annotation?.subtitle as? String else {
+        guard let address = self.pinMark.name else {
             return "定位失敗"
         }
         return address
