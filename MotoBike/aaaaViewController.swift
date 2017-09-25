@@ -1,38 +1,26 @@
 //
-//  PostViewController.swift
+//  aaaaViewController.swift
 //  MotoBike
 //
-//  Created by XD.Mac on 2017/9/12.
+//  Created by 川口日成 on 2017/9/25.
 //  Copyright © 2017年 Cherry. All rights reserved.
 //
 
 import UIKit
 
-class PostViewController: UIViewController {
-    
+class aaaaViewController: UINavigationController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        navigationController?.navigationBar.setBackgroundImage(allNavigationBarAttributes.allNavigationbarBg, for: .default)
-        
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-        
     }
     
-    // 取消貼文，回到地圖畫面
-    @IBAction func cancelPostView(_ sender: Any) {
-        self.modalTransitionStyle = .crossDissolve
-        
-        dismiss(animated: true, completion: nil)
-        
-    }
 
     /*
     // MARK: - Navigation
