@@ -27,8 +27,7 @@ class MapDataManager: NSObject, CLLocationManagerDelegate, MKMapViewDelegate {
     var locationManager = CLLocationManager()
     
     /// 地理編碼加載
-    lazy var geoCoder : CLGeocoder = CLGeocoder()
-    
+    var geoCoder: CLGeocoder = CLGeocoder()
 
     /// locationManager 設定相關
     func locationSetting() -> CLAuthorizationStatus {
@@ -82,25 +81,44 @@ class MapDataManager: NSObject, CLLocationManagerDelegate, MKMapViewDelegate {
     /// 新增大頭針資料
     func addPinData(coordinate: CLLocationCoordinate2D) {
         
-        // 新增大頭針
+        /// 新增大頭針內容
         let annotation = PinData(coordinate:coordinate, title: "錯誤", subtitle: "無法判斷位置")
         
-        // 將經緯度轉為地址
+        /// 經緯度
         let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
-        
+
         geoCoder.reverseGeocodeLocation(location) { (address:[CLPlacemark]?, error:Error?) in
-            
+
             if error == nil {
                 let pinAddress = address?.first
                 print(pinAddress ?? "位置判斷錯誤")
-                
+
                 annotation.title = pinAddress?.locality
                 annotation.subtitle = pinAddress?.name
+
+                selectPinData.pinMark = pinAddress
             }
         }
+//        changeCoordinate(coordinate: coordinate)
         
         mapView.addMapPin(annotation: annotation)
     }
+    
+    
+    /// 將經緯度轉為地址 (因逃逸閉包問題，故不採用此Func)
+    func changeCoordinate(coordinate: CLLocationCoordinate2D) {
+
+        let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+
+        geoCoder.reverseGeocodeLocation (location) { (address: [CLPlacemark]?, error: Error?) in
+            if error == nil {
+                guard let addressData = address?.first else {
+                    return
+                }
+            }
+        }
+    }
+    
     
     
     
