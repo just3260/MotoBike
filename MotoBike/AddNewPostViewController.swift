@@ -33,10 +33,14 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
         navigationController?.navigationBar.setBackgroundImage(allNavigationBarAttributes.allNavigationbarBg, for: .default)
         
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+    
+        getselectPinDataAddress()
+        
+        let imgTapGesture = UITapGestureRecognizer(target: self, action: #selector(getImageTap(gesture:)))
         
         updatePic.isUserInteractionEnabled = true
         
-        updatePic.addGestureRecognizer(AddFinPostViewModel.imgTapGesture)
+        updatePic.addGestureRecognizer(imgTapGesture)
         
     }
 
@@ -117,26 +121,13 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     @IBAction func confirmLocation(_ sender: UIButton) {
-        if(areaLocation.text == nil) {
-            AddFinPostViewModel.location = "無地址"
-            
-            print("areaLocation is nil")
-            
-        }
-        
-        // areaLocation.text = selectPinData.getAddress()
+        getselectPinDataAddress()
         
         locationInput = areaLocation.text!
         
         AddFinPostViewModel.location = locationInput
         
         print(AddFinPostViewModel.location)
-        
-    }
-    
-    @IBAction func takePicture(_ sender: UIButton) {
-        
-        
         
     }
     
@@ -212,8 +203,42 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
         print(AddFinPostViewModel.decideTag)
         
     }
-
     
+    func getselectPinDataAddress() {
+        if(areaLocation.text == nil) {
+            AddFinPostViewModel.location = "無地址"
+            
+            print("areaLocation is nil")
+            
+        }
+        
+    }
+    
+    func getImageTap(gesture: UITapGestureRecognizer) {
+        print("image Tap")
+        
+        openActionSheet()
+        
+    }
+    
+    func openActionSheet() {
+        let picActionVC = UIAlertController(title: "功能選擇", message: "", preferredStyle: .actionSheet)
+        
+        let picCamera = UIAlertAction(title: "Camera", style: .default, handler: nil)
+        
+        let picGallery = UIAlertAction(title: "Gallery", style: .default, handler: nil)
+        
+        let picCancel = UIAlertAction(title: "Cacel", style: .default, handler: nil)
+        
+        picActionVC.addAction(picCamera)
+        
+        picActionVC.addAction(picGallery)
+        
+        picActionVC.addAction(picCancel)
+        
+        present(picActionVC, animated: true, completion: nil)
+        
+    }
 
     /*
     // MARK: - Navigation

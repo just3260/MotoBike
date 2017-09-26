@@ -227,7 +227,6 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="lKM-Le-l0C">
                             <connections>
                                 <action selector="FinPostViewBarBtn:" destination="iGb-bu-e8A" id="gfm-Ug-hhn"/>
-                                <segue destination="sfg-hy-CtK" kind="presentation" modalTransitionStyle="crossDissolve" id="Ze4-wn-1DG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -573,7 +572,7 @@
         <!--Navigation Controller-->
         <scene sceneID="ZUX-rz-IU4">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="au4-23-gmm" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="AddNewPostViewController" automaticallyAdjustsScrollViewInsets="NO" id="au4-23-gmm" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uFy-Ym-vxc">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
