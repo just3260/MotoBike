@@ -18,6 +18,7 @@
 		182B58E61F68EB8A003D0ECB /* DispatchQueue+Once.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B58E51F68EB8A003D0ECB /* DispatchQueue+Once.swift */; };
 		182B58E81F69123C003D0ECB /* PinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B58E71F69123C003D0ECB /* PinData.swift */; };
 		187FFD961F6A7D5800C62593 /* MapDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187FFD951F6A7D5800C62593 /* MapDataManager.swift */; };
+		5B56CA0A1F7A0737006B4744 /* UpdatePhpDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B56CA091F7A0737006B4744 /* UpdatePhpDataManager.swift */; };
 		5B84618C1F757E4000884339 /* PostViewDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B84618B1F757E4000884339 /* PostViewDataManager.swift */; };
 		5BA0FCC61F6AC7C200E7E7C8 /* AddNewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA0FCC51F6AC7C200E7E7C8 /* AddNewPostViewController.swift */; };
 		5BCC66BE1F6D6F3A00E312C5 /* NewsFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCC66BD1F6D6F3A00E312C5 /* NewsFeedTableViewController.swift */; };
@@ -44,6 +45,7 @@
 		182B58E71F69123C003D0ECB /* PinData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinData.swift; sourceTree = "<group>"; };
 		187FFD951F6A7D5800C62593 /* MapDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDataManager.swift; sourceTree = "<group>"; };
 		468AF3DC593D8C35AA20C39B /* Pods-MotoBike.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotoBike.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MotoBike/Pods-MotoBike.debug.xcconfig"; sourceTree = "<group>"; };
+		5B56CA091F7A0737006B4744 /* UpdatePhpDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePhpDataManager.swift; sourceTree = "<group>"; };
 		5B84618B1F757E4000884339 /* PostViewDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewDataManager.swift; sourceTree = "<group>"; };
 		5BA0FCC51F6AC7C200E7E7C8 /* AddNewPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewPostViewController.swift; sourceTree = "<group>"; };
 		5BCC66BD1F6D6F3A00E312C5 /* NewsFeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 		5BD427E31F63A11700450C1A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5B56CA091F7A0737006B4744 /* UpdatePhpDataManager.swift */,
 				5BD427E11F63A0E300450C1A /* FBDataManager.swift */,
 				5B84618B1F757E4000884339 /* PostViewDataManager.swift */,
 				182B58E51F68EB8A003D0ECB /* DispatchQueue+Once.swift */,

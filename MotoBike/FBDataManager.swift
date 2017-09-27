@@ -14,6 +14,11 @@ import FBSDKLoginKit
     
 }
 
+struct LoginPhpDataManager {
+    static let URL_ADD_FBLOGIN = "http://localhost/FBLogin.php?func=insert"
+    
+}
+
 class FBDataManager: NSObject {
     var FBLogin: FBKeyinDelegate!
     
@@ -72,7 +77,7 @@ class FBDataManager: NSObject {
                 let infoarray = [id, email, firstName, name, lastName, url]
                 
                 self.FBLogin.FBLoginData?(LoginKey: infoarray)
-                
+
             })
         }else {
             print("未登入帳號")
@@ -80,5 +85,5 @@ class FBDataManager: NSObject {
         }
         
     }
-
+    
 }
