@@ -91,7 +91,7 @@ class PostViewDataManager: NSObject {
         
         picActionVC.addAction(picCancel)
         
-        AddNewPostViewController.present()
+//        AddNewPostViewController.present()
         
     }
 
