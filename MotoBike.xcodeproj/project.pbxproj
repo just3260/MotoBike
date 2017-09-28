@@ -1,0 +1,499 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		182990E61F6B88C600D34DCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 182990E51F6B88C600D34DCA /* Assets.xcassets */; };
+		182990EE1F713B2A00D34DCA /* PinDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182990ED1F713B2A00D34DCA /* PinDetailView.xib */; };
+		182990F01F713B4600D34DCA /* PinDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182990EF1F713B4600D34DCA /* PinDetailView.swift */; };
+		182B58D81F678B82003D0ECB /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 182B58D71F678B82003D0ECB /* Map.storyboard */; };
+		182B58DA1F678BA6003D0ECB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B58D91F678BA6003D0ECB /* MapViewController.swift */; };
+		182B58E01F67BC98003D0ECB /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B58DF1F67BC98003D0ECB /* PostViewController.swift */; };
+		182B58E21F68EB23003D0ECB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182B58E11F68EB23003D0ECB /* MapKit.framework */; };
+		182B58E41F68EB31003D0ECB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 182B58E31F68EB31003D0ECB /* CoreLocation.framework */; };
+		182B58E61F68EB8A003D0ECB /* DispatchQueue+Once.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B58E51F68EB8A003D0ECB /* DispatchQueue+Once.swift */; };
+		182B58E81F69123C003D0ECB /* PinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B58E71F69123C003D0ECB /* PinData.swift */; };
+		187FFD961F6A7D5800C62593 /* MapDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187FFD951F6A7D5800C62593 /* MapDataManager.swift */; };
+		5B56CA0A1F7A0737006B4744 /* UpdatePhpDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B56CA091F7A0737006B4744 /* UpdatePhpDataManager.swift */; };
+		5B84618C1F757E4000884339 /* PostViewDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B84618B1F757E4000884339 /* PostViewDataManager.swift */; };
+		5BA0FCC61F6AC7C200E7E7C8 /* AddNewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA0FCC51F6AC7C200E7E7C8 /* AddNewPostViewController.swift */; };
+		5BCC66BE1F6D6F3A00E312C5 /* NewsFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCC66BD1F6D6F3A00E312C5 /* NewsFeedTableViewController.swift */; };
+		5BCC66C01F6D725700E312C5 /* DesignCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCC66BF1F6D725700E312C5 /* DesignCardView.swift */; };
+		5BCDBBEE1F624600005EC300 /* FBLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCDBBED1F624600005EC300 /* FBLoginViewController.swift */; };
+		5BD427E21F63A0E300450C1A /* FBDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD427E11F63A0E300450C1A /* FBDataManager.swift */; };
+		5BDBA68E1F5463C7006ECE3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDBA68D1F5463C7006ECE3A /* AppDelegate.swift */; };
+		5BDBA6931F5463C7006ECE3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BDBA6911F5463C7006ECE3A /* Main.storyboard */; };
+		5BDBA6981F5463C7006ECE3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BDBA6961F5463C7006ECE3A /* LaunchScreen.storyboard */; };
+		5BDBA6A01F5469E4006ECE3A /* firstStartAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDBA69F1F5469E4006ECE3A /* firstStartAppViewController.swift */; };
+		E54DEDA00CE63F73E0AAFF1C /* Pods_MotoBike.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81408D763E7135FA2B62458D /* Pods_MotoBike.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		182990E51F6B88C600D34DCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		182990ED1F713B2A00D34DCA /* PinDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PinDetailView.xib; sourceTree = "<group>"; };
+		182990EF1F713B4600D34DCA /* PinDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinDetailView.swift; sourceTree = "<group>"; };
+		182B58D71F678B82003D0ECB /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
+		182B58D91F678BA6003D0ECB /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		182B58DF1F67BC98003D0ECB /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		182B58E11F68EB23003D0ECB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		182B58E31F68EB31003D0ECB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		182B58E51F68EB8A003D0ECB /* DispatchQueue+Once.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Once.swift"; sourceTree = "<group>"; };
+		182B58E71F69123C003D0ECB /* PinData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinData.swift; sourceTree = "<group>"; };
+		187FFD951F6A7D5800C62593 /* MapDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDataManager.swift; sourceTree = "<group>"; };
+		468AF3DC593D8C35AA20C39B /* Pods-MotoBike.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotoBike.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MotoBike/Pods-MotoBike.debug.xcconfig"; sourceTree = "<group>"; };
+		5B56CA091F7A0737006B4744 /* UpdatePhpDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePhpDataManager.swift; sourceTree = "<group>"; };
+		5B84618B1F757E4000884339 /* PostViewDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewDataManager.swift; sourceTree = "<group>"; };
+		5BA0FCC51F6AC7C200E7E7C8 /* AddNewPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewPostViewController.swift; sourceTree = "<group>"; };
+		5BCC66BD1F6D6F3A00E312C5 /* NewsFeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewController.swift; sourceTree = "<group>"; };
+		5BCC66BF1F6D725700E312C5 /* DesignCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignCardView.swift; sourceTree = "<group>"; };
+		5BCDBBED1F624600005EC300 /* FBLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBLoginViewController.swift; sourceTree = "<group>"; };
+		5BCEE8DA1F655D0400593A5C /* MotoBike.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MotoBike.entitlements; sourceTree = "<group>"; };
+		5BD427E11F63A0E300450C1A /* FBDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBDataManager.swift; sourceTree = "<group>"; };
+		5BDBA68A1F5463C7006ECE3A /* MotoBike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotoBike.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5BDBA68D1F5463C7006ECE3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5BDBA6921F5463C7006ECE3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5BDBA6971F5463C7006ECE3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5BDBA6991F5463C7006ECE3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5BDBA69F1F5469E4006ECE3A /* firstStartAppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = firstStartAppViewController.swift; sourceTree = "<group>"; };
+		81408D763E7135FA2B62458D /* Pods_MotoBike.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MotoBike.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7B8A655DD3361C40F56C083 /* Pods-MotoBike.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotoBike.release.xcconfig"; path = "Pods/Target Support Files/Pods-MotoBike/Pods-MotoBike.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5BDBA6871F5463C7006ECE3A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				182B58E41F68EB31003D0ECB /* CoreLocation.framework in Frameworks */,
+				182B58E21F68EB23003D0ECB /* MapKit.framework in Frameworks */,
+				E54DEDA00CE63F73E0AAFF1C /* Pods_MotoBike.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5B0D34BB1F5CEBC700093A65 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5BDBA6911F5463C7006ECE3A /* Main.storyboard */,
+				182B58D71F678B82003D0ECB /* Map.storyboard */,
+				5BDBA6961F5463C7006ECE3A /* LaunchScreen.storyboard */,
+				182990ED1F713B2A00D34DCA /* PinDetailView.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		5BD427E31F63A11700450C1A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5B56CA091F7A0737006B4744 /* UpdatePhpDataManager.swift */,
+				5BD427E11F63A0E300450C1A /* FBDataManager.swift */,
+				5B84618B1F757E4000884339 /* PostViewDataManager.swift */,
+				182B58E51F68EB8A003D0ECB /* DispatchQueue+Once.swift */,
+				182B58E71F69123C003D0ECB /* PinData.swift */,
+				187FFD951F6A7D5800C62593 /* MapDataManager.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		5BD427E41F63A12E00450C1A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5BDBA69F1F5469E4006ECE3A /* firstStartAppViewController.swift */,
+				5BCDBBED1F624600005EC300 /* FBLoginViewController.swift */,
+				182B58D91F678BA6003D0ECB /* MapViewController.swift */,
+				182990EF1F713B4600D34DCA /* PinDetailView.swift */,
+				182B58DF1F67BC98003D0ECB /* PostViewController.swift */,
+				5BA0FCC51F6AC7C200E7E7C8 /* AddNewPostViewController.swift */,
+				5BCC66BF1F6D725700E312C5 /* DesignCardView.swift */,
+				5BCC66BD1F6D6F3A00E312C5 /* NewsFeedTableViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		5BDBA6811F5463C7006ECE3A = {
+			isa = PBXGroup;
+			children = (
+				5BDBA68C1F5463C7006ECE3A /* MotoBike */,
+				5BDBA68B1F5463C7006ECE3A /* Products */,
+				BAC585D25739414A9DB6739D /* Pods */,
+				81864AE3AA5ADCFFFDE43E0A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5BDBA68B1F5463C7006ECE3A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5BDBA68A1F5463C7006ECE3A /* MotoBike.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5BDBA68C1F5463C7006ECE3A /* MotoBike */ = {
+			isa = PBXGroup;
+			children = (
+				5BCEE8DA1F655D0400593A5C /* MotoBike.entitlements */,
+				5BDBA68D1F5463C7006ECE3A /* AppDelegate.swift */,
+				5BD427E31F63A11700450C1A /* Model */,
+				5B0D34BB1F5CEBC700093A65 /* View */,
+				5BD427E41F63A12E00450C1A /* Controller */,
+				5BDBA6991F5463C7006ECE3A /* Info.plist */,
+				182990E51F6B88C600D34DCA /* Assets.xcassets */,
+			);
+			path = MotoBike;
+			sourceTree = "<group>";
+		};
+		81864AE3AA5ADCFFFDE43E0A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				182B58E31F68EB31003D0ECB /* CoreLocation.framework */,
+				182B58E11F68EB23003D0ECB /* MapKit.framework */,
+				81408D763E7135FA2B62458D /* Pods_MotoBike.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BAC585D25739414A9DB6739D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				468AF3DC593D8C35AA20C39B /* Pods-MotoBike.debug.xcconfig */,
+				A7B8A655DD3361C40F56C083 /* Pods-MotoBike.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5BDBA6891F5463C7006ECE3A /* MotoBike */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5BDBA69C1F5463C7006ECE3A /* Build configuration list for PBXNativeTarget "MotoBike" */;
+			buildPhases = (
+				BB71BF8501C99721AB64B2A4 /* [CP] Check Pods Manifest.lock */,
+				5BDBA6861F5463C7006ECE3A /* Sources */,
+				5BDBA6871F5463C7006ECE3A /* Frameworks */,
+				5BDBA6881F5463C7006ECE3A /* Resources */,
+				6C6A59540B78CC3ABE16FD6A /* [CP] Embed Pods Frameworks */,
+				F8BECB8F0BAC266612721B3A /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MotoBike;
+			productName = MotoBike;
+			productReference = 5BDBA68A1F5463C7006ECE3A /* MotoBike.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5BDBA6821F5463C7006ECE3A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = Cherry;
+				TargetAttributes = {
+					5BDBA6891F5463C7006ECE3A = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = Z7353C93M9;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 5BDBA6851F5463C7006ECE3A /* Build configuration list for PBXProject "MotoBike" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5BDBA6811F5463C7006ECE3A;
+			productRefGroup = 5BDBA68B1F5463C7006ECE3A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5BDBA6891F5463C7006ECE3A /* MotoBike */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5BDBA6881F5463C7006ECE3A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				182990EE1F713B2A00D34DCA /* PinDetailView.xib in Resources */,
+				5BDBA6981F5463C7006ECE3A /* LaunchScreen.storyboard in Resources */,
+				5BDBA6931F5463C7006ECE3A /* Main.storyboard in Resources */,
+				182990E61F6B88C600D34DCA /* Assets.xcassets in Resources */,
+				182B58D81F678B82003D0ECB /* Map.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6C6A59540B78CC3ABE16FD6A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MotoBike/Pods-MotoBike-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB71BF8501C99721AB64B2A4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F8BECB8F0BAC266612721B3A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MotoBike/Pods-MotoBike-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5BDBA6861F5463C7006ECE3A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				182B58E01F67BC98003D0ECB /* PostViewController.swift in Sources */,
+				182B58DA1F678BA6003D0ECB /* MapViewController.swift in Sources */,
+				5BDBA6A01F5469E4006ECE3A /* firstStartAppViewController.swift in Sources */,
+				5BCC66BE1F6D6F3A00E312C5 /* NewsFeedTableViewController.swift in Sources */,
+				5BA0FCC61F6AC7C200E7E7C8 /* AddNewPostViewController.swift in Sources */,
+				5B84618C1F757E4000884339 /* PostViewDataManager.swift in Sources */,
+				182B58E61F68EB8A003D0ECB /* DispatchQueue+Once.swift in Sources */,
+				5BCC66C01F6D725700E312C5 /* DesignCardView.swift in Sources */,
+				187FFD961F6A7D5800C62593 /* MapDataManager.swift in Sources */,
+				182990F01F713B4600D34DCA /* PinDetailView.swift in Sources */,
+				182B58E81F69123C003D0ECB /* PinData.swift in Sources */,
+				5BD427E21F63A0E300450C1A /* FBDataManager.swift in Sources */,
+				5BCDBBEE1F624600005EC300 /* FBLoginViewController.swift in Sources */,
+				5BDBA68E1F5463C7006ECE3A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5BDBA6911F5463C7006ECE3A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5BDBA6921F5463C7006ECE3A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5BDBA6961F5463C7006ECE3A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5BDBA6971F5463C7006ECE3A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5BDBA69A1F5463C7006ECE3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5BDBA69B1F5463C7006ECE3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5BDBA69D1F5463C7006ECE3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 468AF3DC593D8C35AA20C39B /* Pods-MotoBike.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Z7353C93M9;
+				INFOPLIST_FILE = MotoBike/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Cherry.MotoBike;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		5BDBA69E1F5463C7006ECE3A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A7B8A655DD3361C40F56C083 /* Pods-MotoBike.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Z7353C93M9;
+				INFOPLIST_FILE = MotoBike/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Cherry.MotoBike;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5BDBA6851F5463C7006ECE3A /* Build configuration list for PBXProject "MotoBike" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BDBA69A1F5463C7006ECE3A /* Debug */,
+				5BDBA69B1F5463C7006ECE3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5BDBA69C1F5463C7006ECE3A /* Build configuration list for PBXNativeTarget "MotoBike" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5BDBA69D1F5463C7006ECE3A /* Debug */,
+				5BDBA69E1F5463C7006ECE3A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5BDBA6821F5463C7006ECE3A /* Project object */;
+}
