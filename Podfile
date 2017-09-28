@@ -11,5 +11,6 @@ target 'MotoBike' do
   pod 'Bolts'
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
+  pod 'InteractiveSideMenu'
 
 end
