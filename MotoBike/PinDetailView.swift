@@ -127,6 +127,46 @@ extension UIView {
     }
     
     
+<<<<<<< HEAD
+=======
+    /// 路線規劃按鈕
+    @IBAction func routeBtn(_ sender: Any) {
+        
+        guard let targetPlaceMark = selectPinData.pinMark else {
+            return
+        }
+        
+        let directionRequest = MKDirectionsRequest()
+        // 設定路徑起始與目的地
+        directionRequest.source = MKMapItem.forCurrentLocation()
+        let destinationPlacemark = MKPlacemark(placemark: targetPlaceMark)
+        directionRequest.destination = MKMapItem(placemark: destinationPlacemark)
+        directionRequest.transportType = MKDirectionsTransportType.automobile
+        
+        // 方位計算
+        let directions = MKDirections(request: directionRequest)
+        
+        directions.calculate(completionHandler: { (response, error) in
+            guard let response = response else {
+                if let error = error {
+                    print("Error: \(error)")
+                }
+                return
+            }
+            let route = response.routes[0]
+            selectPinData.route = route
+            
+            let routeNotification = Notification.Name(rawValue:"ADDROUTE")
+            NotificationCenter.default.post(name: routeNotification, object: nil, userInfo: nil)
+        })
+        
+        confirmBtn(self)
+    }
+    
+
+    
+    
+>>>>>>> parent of 573c351... 1.0.1
     /// 將大頭針資料寫入View
     func refreshPinData() {
         

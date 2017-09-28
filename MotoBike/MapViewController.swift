@@ -42,7 +42,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         longPressGesture.minimumPressDuration = 1.0
         self.mainMapView.addGestureRecognizer(longPressGesture)
         
+<<<<<<< HEAD
         MKUserLocation.self
+=======
+        // 接受畫路徑圖通知
+        NotificationCenter.default.addObserver(self, selector: #selector(addRoute), name: NSNotification.Name(rawValue: "ADDROUTE"), object: nil)
+        
+>>>>>>> parent of 573c351... 1.0.1
     }
     
     // 螢幕消失時，關閉定位功能（省電）

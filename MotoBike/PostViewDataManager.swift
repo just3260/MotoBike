@@ -66,5 +66,39 @@ class PostViewDataManager: NSObject {
         print(postItem)
         
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    
+    let imgTapGesture = UITapGestureRecognizer(target: PostViewController.self, action: #selector(getImageTap(gesture:)))
+    
+    func getImageTap(gesture: UITapGestureRecognizer) {
+        print("image Tap")
+        
+        openActionSheet()
+        
+    }
+    
+    func openActionSheet() {
+        let picActionVC = UIAlertController(title: "功能選擇", message: "", preferredStyle: .actionSheet)
+        
+        let picCamera = UIAlertAction(title: "Camera", style: .default, handler: nil)
+        
+        let picGallery = UIAlertAction(title: "Gallery", style: .default, handler: nil)
+        
+        let picCancel = UIAlertAction(title: "Cacel", style: .default, handler: nil)
+        
+        picActionVC.addAction(picCamera)
+        
+        picActionVC.addAction(picGallery)
+        
+        picActionVC.addAction(picCancel)
+        
+//        AddNewPostViewController.present()
+        
+    }
+=======
+>>>>>>> df4f7138eaee57cc654c7abcf4a50ae87021c303
+>>>>>>> parent of 573c351... 1.0.1
 
 }
