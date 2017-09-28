@@ -17,9 +17,6 @@ struct selectPinData {
     /// 大頭針標記資料
     static var pinMark: CLPlacemark!
     
-    /// 路徑資料
-    static var route: MKRoute!
-    
     /// 呼叫地址方法
     static func getAddress() -> String {
         

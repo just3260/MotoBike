@@ -26,6 +26,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     /// 大頭針鎖（防止重複插針）
     var addPinLock = NSLock()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,10 +42,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         longPressGesture.minimumPressDuration = 1.0
         self.mainMapView.addGestureRecognizer(longPressGesture)
         
-        // 接受畫路徑圖通知
-        NotificationCenter.default.addObserver(self, selector: #selector(addRoute), name: NSNotification.Name(rawValue: "ADDROUTE"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(stepsBtnTap), name: NSNotification.Name(rawValue: "STEPSBTN"), object: nil)
-        
+        MKUserLocation.self
     }
     
     // 螢幕消失時，關閉定位功能（省電）
@@ -64,7 +62,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             mainMapView.showsUserLocation = true
         }
     }
-    
     
     
     // MARK: - Functions
@@ -110,7 +107,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (MapViewController) in
             // 跳轉至Post畫面
-            let postView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddNewPostViewController")
+            let postView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PostViewController")
             postView.modalTransitionStyle = .crossDissolve
             self.present(postView, animated: true, completion: nil)
         }
@@ -118,28 +115,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     }
     
     
-    // 在地圖上畫出路徑
-    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        let renderer = MKPolylineRenderer(overlay: overlay)
-        renderer.strokeColor = #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)
-        renderer.lineWidth = 4.0
+    // 更新地圖畫面
+    func mapRefresh(region: MKCoordinateRegion) {
         
-        return renderer
+        mainMapView.setRegion(region, animated: false)
     }
+
+
     
     
-    /// 路線規劃
-    func addRoute() {
-        
-        guard let route = selectPinData.route else {
-            print("nil")
-            return
-        }
-        self.mainMapView.removeOverlays(self.mainMapView.overlays)
-        self.mainMapView.add(route.polyline, level: MKOverlayLevel.aboveRoads)
-        
-        let rect = route.polyline.boundingMapRect
-        self.mainMapView.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
+    // 在地圖上插上大頭針
+    func addMapPin(annotation: PinData) {
+        mainMapView.addAnnotation(annotation)
     }
     
     
@@ -196,21 +183,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("定位失败：\(error)")
     }
-    
-    // MARK: - Delegate Function
-    
-    // 更新地圖畫面
-    func mapRefresh(region: MKCoordinateRegion) {
-        mainMapView.setRegion(region, animated: false)
-    }
-    
-    
-    // 在地圖上插上大頭針
-    func addMapPin(annotation: PinData) {
-        mainMapView.addAnnotation(annotation)
-    }
-    
-    
 
     
     // MARK: - 螢幕按鈕
@@ -219,7 +191,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (MapViewController) in
             // 跳轉至Post畫面
-            let postView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddNewPostViewController")
+            let postView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PostViewController")
             postView.modalTransitionStyle = .crossDissolve
             self.present(postView, animated: true, completion: nil)
         }
@@ -255,22 +227,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     }
     
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        // 使用 segue.destinationViewController 來取得新的視圖控制器
-        // 傳遞所選的物件至新的視圖控制器
-        if segue.identifier == "showSteps" {
-            let routeTableViewController = segue.destination.childViewControllers[0] as! RouteTableViewController
-            if let steps = selectPinData.route?.steps {
-                routeTableViewController.routeSteps = steps
-            }
-        }
-    }
+    
 
     
-    func stepsBtnTap() {
-        performSegue(withIdentifier: "showSteps", sender: view)
-    }
+    
     
     
 }

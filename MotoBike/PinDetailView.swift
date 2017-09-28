@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MapKit
 import Foundation
 
 
@@ -71,6 +70,7 @@ extension UIView {
 
     @IBOutlet fileprivate weak var confirmView: UIView!
     
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initFromXIB()
@@ -125,51 +125,6 @@ extension UIView {
             
         })
     }
-    
-    
-    /// 路線規劃按鈕
-    @IBAction func routeBtn(_ sender: Any) {
-        
-        guard let targetPlaceMark = selectPinData.pinMark else {
-            return
-        }
-        
-        let directionRequest = MKDirectionsRequest()
-        // 設定路徑起始與目的地
-        directionRequest.source = MKMapItem.forCurrentLocation()
-        let destinationPlacemark = MKPlacemark(placemark: targetPlaceMark)
-        directionRequest.destination = MKMapItem(placemark: destinationPlacemark)
-        directionRequest.transportType = MKDirectionsTransportType.automobile
-        
-        // 方位計算
-        let directions = MKDirections(request: directionRequest)
-        
-        directions.calculate(completionHandler: { (response, error) in
-            guard let response = response else {
-                if let error = error {
-                    print("Error: \(error)")
-                }
-                return
-            }
-            let route = response.routes[0]
-            selectPinData.route = route
-            
-            let routeNotification = Notification.Name(rawValue:"ADDROUTE")
-            NotificationCenter.default.post(name: routeNotification, object: nil, userInfo: nil)
-        })
-        
-        confirmBtn(self)
-    }
-    
-
-    /// 顯示steps路線畫面
-    @IBAction func stepsBtn(_ sender: Any) {
-        let routeNotification = Notification.Name(rawValue:"STEPSBTN")
-        NotificationCenter.default.post(name: routeNotification, object: nil, userInfo: nil)
-        
-        confirmBtn(self)
-    }
-    
     
     
     /// 將大頭針資料寫入View
