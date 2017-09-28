@@ -17,6 +17,7 @@ protocol MapDataDelegate: NSObjectProtocol {
     /// 在地圖上插上大頭針
     func addMapPin(annotation: PinData)
     
+    
 }
 
 class MapDataManager: NSObject, CLLocationManagerDelegate, MKMapViewDelegate {
@@ -112,7 +113,7 @@ class MapDataManager: NSObject, CLLocationManagerDelegate, MKMapViewDelegate {
 
         geoCoder.reverseGeocodeLocation (location) { (address: [CLPlacemark]?, error: Error?) in
             if error == nil {
-                guard let addressData = address?.first else {
+                guard (address?.first) != nil else {
                     return
                 }
             }
@@ -120,8 +121,8 @@ class MapDataManager: NSObject, CLLocationManagerDelegate, MKMapViewDelegate {
     }
     
     
-    
-    
+
+
     
 }
 
