@@ -63,10 +63,10 @@
             </objects>
             <point key="canvasLocation" x="-1310" y="134"/>
         </scene>
-        <!--HostViewController-->
+        <!--MapViewController-->
         <scene sceneID="JUe-xF-8Oy">
             <objects>
-                <viewControllerPlaceholder storyboardName="Map" referencedIdentifier="HostViewController" id="ZK0-9X-3Av" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Map" referencedIdentifier="MapViewController" id="ZK0-9X-3Av" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ft2-4g-XZQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1312" y="658"/>
@@ -535,10 +535,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iha-Ft-j73">
-                                <rect key="frame" x="279" y="552" width="75" height="75"/>
+                                <rect key="frame" x="304" y="575" width="55" height="55"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="75" id="C1p-GZ-gvg"/>
-                                    <constraint firstAttribute="height" constant="75" id="mDq-AF-o7T"/>
+                                    <constraint firstAttribute="width" constant="55" id="C1p-GZ-gvg"/>
+                                    <constraint firstAttribute="height" constant="55" id="mDq-AF-o7T"/>
                                 </constraints>
                                 <state key="normal" image="發表貼文鈕"/>
                                 <connections>
@@ -551,9 +551,9 @@
                             <constraint firstItem="CVh-Jf-I1M" firstAttribute="bottom" secondItem="GXH-2c-HLh" secondAttribute="bottom" id="3gg-xs-maa"/>
                             <constraint firstItem="CVh-Jf-I1M" firstAttribute="leading" secondItem="GXH-2c-HLh" secondAttribute="leading" id="61L-Jh-Syx"/>
                             <constraint firstItem="CVh-Jf-I1M" firstAttribute="top" secondItem="Euv-re-RTS" secondAttribute="top" id="8iJ-Sw-7wX"/>
-                            <constraint firstItem="GXH-2c-HLh" firstAttribute="trailing" secondItem="Iha-Ft-j73" secondAttribute="trailing" constant="21" id="Bzi-QK-1vc"/>
+                            <constraint firstItem="GXH-2c-HLh" firstAttribute="trailing" secondItem="Iha-Ft-j73" secondAttribute="trailing" constant="16" id="Bzi-QK-1vc"/>
                             <constraint firstItem="CVh-Jf-I1M" firstAttribute="trailing" secondItem="GXH-2c-HLh" secondAttribute="trailing" id="hvX-3Z-fPO"/>
-                            <constraint firstItem="GXH-2c-HLh" firstAttribute="bottom" secondItem="Iha-Ft-j73" secondAttribute="bottom" constant="40" id="nE0-cH-Sgt"/>
+                            <constraint firstItem="GXH-2c-HLh" firstAttribute="bottom" secondItem="Iha-Ft-j73" secondAttribute="bottom" constant="37" id="nE0-cH-Sgt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GXH-2c-HLh"/>
                     </view>

@@ -220,7 +220,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (MapViewController) in
             // 跳轉至Post畫面
-            let postView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddNewPostViewController")
+            let postView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PostViewController")
             postView.modalTransitionStyle = .crossDissolve
             self.present(postView, animated: true, completion: nil)
         }
