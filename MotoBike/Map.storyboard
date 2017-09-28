@@ -106,21 +106,31 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+<<<<<<< HEAD
+<<<<<<< HEAD
                             <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K22-mV-VMt">
                                 <rect key="frame" x="16" y="592" width="55" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+=======
+=======
+>>>>>>> 573c35105683f9d96981beea29fea110c1c4f784
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K22-mV-VMt">
                                 <rect key="frame" x="10" y="597" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="pp3-aQ-tlR"/>
                                     <constraint firstAttribute="width" constant="50" id="vlU-aM-mmF"/>
                                 </constraints>
+<<<<<<< HEAD
+>>>>>>> 573c35105683f9d96981beea29fea110c1c4f784
+=======
+>>>>>>> 573c35105683f9d96981beea29fea110c1c4f784
                                 <state key="normal" image="MessageBtn"/>
                                 <state key="highlighted" image="MotoBike Message Enable Button"/>
                                 <connections>
                                     <action selector="addNewEvent:" destination="u77-Z9-c5r" eventType="touchUpInside" id="U3N-63-K3W"/>
                                 </connections>
                             </button>
+<<<<<<< HEAD
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gBn-lJ-Mz7">
                                 <rect key="frame" x="6" y="40" width="44" height="44"/>
                                 <constraints>
@@ -136,10 +146,12 @@
                                 <rect key="frame" x="16" y="91" width="62" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="個人資料"/>
+=======
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ns8-tE-ijO">
                                 <rect key="frame" x="15" y="15" width="45" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="MotoBike ListButton"/>
+>>>>>>> 552a564f104f6133cca3990ca1f2923def574e0b
                                 <connections>
                                     <action selector="userDataView:" destination="u77-Z9-c5r" eventType="touchUpInside" id="1pj-aP-qhT"/>
                                 </connections>
