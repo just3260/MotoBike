@@ -42,16 +42,22 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K22-mV-VMt">
                                 <rect key="frame" x="16" y="592" width="55" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
 =======
+=======
+>>>>>>> 573c35105683f9d96981beea29fea110c1c4f784
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K22-mV-VMt">
                                 <rect key="frame" x="10" y="597" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="pp3-aQ-tlR"/>
                                     <constraint firstAttribute="width" constant="50" id="vlU-aM-mmF"/>
                                 </constraints>
+<<<<<<< HEAD
+>>>>>>> 573c35105683f9d96981beea29fea110c1c4f784
+=======
 >>>>>>> 573c35105683f9d96981beea29fea110c1c4f784
                                 <state key="normal" image="MessageBtn"/>
                                 <state key="highlighted" image="MotoBike Message Enable Button"/>
