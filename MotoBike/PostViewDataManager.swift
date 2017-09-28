@@ -66,7 +66,7 @@ class PostViewDataManager: NSObject {
         print(postItem)
         
     }
-<<<<<<< HEAD
+
     
     let imgTapGesture = UITapGestureRecognizer(target: PostViewController.self, action: #selector(getImageTap(gesture:)))
     
@@ -95,7 +95,6 @@ class PostViewDataManager: NSObject {
 //        AddNewPostViewController.present()
         
     }
-=======
->>>>>>> df4f7138eaee57cc654c7abcf4a50ae87021c303
+
 
 }

@@ -43,6 +43,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         
         // 接受畫路徑圖通知
         NotificationCenter.default.addObserver(self, selector: #selector(addRoute), name: NSNotification.Name(rawValue: "ADDROUTE"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(stepsBtnTap), name: NSNotification.Name(rawValue: "STEPSBTN"), object: nil)
         
     }
     
@@ -109,7 +110,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (MapViewController) in
             // 跳轉至Post畫面
-            let postView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PostViewController")
+            let postView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddNewPostViewController")
             postView.modalTransitionStyle = .crossDissolve
             self.present(postView, animated: true, completion: nil)
         }
@@ -218,7 +219,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (MapViewController) in
             // 跳轉至Post畫面
-            let postView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PostViewController")
+            let postView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddNewPostViewController")
             postView.modalTransitionStyle = .crossDissolve
             self.present(postView, animated: true, completion: nil)
         }
@@ -254,10 +255,22 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     }
     
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // 使用 segue.destinationViewController 來取得新的視圖控制器
+        // 傳遞所選的物件至新的視圖控制器
+        if segue.identifier == "showSteps" {
+            let routeTableViewController = segue.destination.childViewControllers[0] as! RouteTableViewController
+            if let steps = selectPinData.route?.steps {
+                routeTableViewController.routeSteps = steps
+            }
+        }
+    }
 
     
-    
+    func stepsBtnTap() {
+        performSegue(withIdentifier: "showSteps", sender: view)
+    }
     
     
 }

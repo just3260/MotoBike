@@ -162,6 +162,14 @@ extension UIView {
     }
     
 
+    /// 顯示steps路線畫面
+    @IBAction func stepsBtn(_ sender: Any) {
+        let routeNotification = Notification.Name(rawValue:"STEPSBTN")
+        NotificationCenter.default.post(name: routeNotification, object: nil, userInfo: nil)
+        
+        confirmBtn(self)
+    }
+    
     
     
     /// 將大頭針資料寫入View
