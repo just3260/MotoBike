@@ -19,11 +19,14 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
+<<<<<<< HEAD
 		<key>InteractiveSideMenu.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
+=======
+>>>>>>> parent of 48fee49... 1.0.1.1
 		<key>Pods-MotoBike.xcscheme</key>
 		<dict>
 			<key>orderHint</key>

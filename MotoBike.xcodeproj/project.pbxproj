@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		18016AE91F7BF7D5009C1385 /* RouteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18016AE81F7BF7D5009C1385 /* RouteTableViewController.swift */; };
-		18016AEC1F7D23CA009C1385 /* HostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18016AEB1F7D23CA009C1385 /* HostViewController.swift */; };
-		18016AEE1F7D4533009C1385 /* NavigationMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18016AED1F7D4533009C1385 /* NavigationMenuViewController.swift */; };
 		182990E61F6B88C600D34DCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 182990E51F6B88C600D34DCA /* Assets.xcassets */; };
 		182990EE1F713B2A00D34DCA /* PinDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182990ED1F713B2A00D34DCA /* PinDetailView.xib */; };
 		182990F01F713B4600D34DCA /* PinDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182990EF1F713B4600D34DCA /* PinDetailView.swift */; };
@@ -36,8 +34,6 @@
 
 /* Begin PBXFileReference section */
 		18016AE81F7BF7D5009C1385 /* RouteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteTableViewController.swift; sourceTree = "<group>"; };
-		18016AEB1F7D23CA009C1385 /* HostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostViewController.swift; sourceTree = "<group>"; };
-		18016AED1F7D4533009C1385 /* NavigationMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMenuViewController.swift; sourceTree = "<group>"; };
 		182990E51F6B88C600D34DCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		182990ED1F713B2A00D34DCA /* PinDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PinDetailView.xib; sourceTree = "<group>"; };
 		182990EF1F713B4600D34DCA /* PinDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinDetailView.swift; sourceTree = "<group>"; };
@@ -110,8 +106,6 @@
 				5BDBA69F1F5469E4006ECE3A /* firstStartAppViewController.swift */,
 				5BCDBBED1F624600005EC300 /* FBLoginViewController.swift */,
 				182B58D91F678BA6003D0ECB /* MapViewController.swift */,
-				18016AEB1F7D23CA009C1385 /* HostViewController.swift */,
-				18016AED1F7D4533009C1385 /* NavigationMenuViewController.swift */,
 				18016AE81F7BF7D5009C1385 /* RouteTableViewController.swift */,
 				182990EF1F713B4600D34DCA /* PinDetailView.swift */,
 				182B58DF1F67BC98003D0ECB /* PostViewController.swift */,
@@ -310,7 +304,10 @@
 				5BCC66BE1F6D6F3A00E312C5 /* NewsFeedTableViewController.swift in Sources */,
 				5BA0FCC61F6AC7C200E7E7C8 /* AddNewPostViewController.swift in Sources */,
 <<<<<<< HEAD
+<<<<<<< HEAD
 				18016AEE1F7D4533009C1385 /* NavigationMenuViewController.swift in Sources */,
+=======
+>>>>>>> parent of 48fee49... 1.0.1.1
 				5B56CA0A1F7A0737006B4744 /* UpdatePhpDataManager.swift in Sources */,
 =======
 >>>>>>> 552a564f104f6133cca3990ca1f2923def574e0b
@@ -321,7 +318,6 @@
 				182990F01F713B4600D34DCA /* PinDetailView.swift in Sources */,
 				182B58E81F69123C003D0ECB /* PinData.swift in Sources */,
 				5BD427E21F63A0E300450C1A /* FBDataManager.swift in Sources */,
-				18016AEC1F7D23CA009C1385 /* HostViewController.swift in Sources */,
 				5BCDBBEE1F624600005EC300 /* FBLoginViewController.swift in Sources */,
 				5BDBA68E1F5463C7006ECE3A /* AppDelegate.swift in Sources */,
 				18016AE91F7BF7D5009C1385 /* RouteTableViewController.swift in Sources */,

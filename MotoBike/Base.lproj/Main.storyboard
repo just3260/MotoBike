@@ -63,10 +63,10 @@
             </objects>
             <point key="canvasLocation" x="-1310" y="134"/>
         </scene>
-        <!--HostViewController-->
+        <!--MapViewController-->
         <scene sceneID="JUe-xF-8Oy">
             <objects>
-                <viewControllerPlaceholder storyboardName="Map" referencedIdentifier="HostViewController" id="ZK0-9X-3Av" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Map" referencedIdentifier="MapViewController" id="ZK0-9X-3Av" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ft2-4g-XZQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1312" y="658"/>

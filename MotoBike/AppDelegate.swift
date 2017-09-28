@@ -41,8 +41,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         } else {
             
-            let SideVC = UIStoryboard(name: "Map", bundle: nil).instantiateViewController(withIdentifier: "HostViewController")
-            self.window?.rootViewController = SideVC
+            let MapVC = UIStoryboard(name: "Map", bundle: nil).instantiateViewController(withIdentifier: "MapViewController")
+            self.window?.rootViewController = MapVC
             
         }
         

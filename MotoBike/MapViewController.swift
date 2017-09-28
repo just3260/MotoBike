@@ -9,9 +9,8 @@
 import UIKit
 import MapKit
 import CoreLocation
-import InteractiveSideMenu
 
-class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, MapDataDelegate, SideMenuItemContent {
+class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, MapDataDelegate {
     
     /// 主地圖畫面
     @IBOutlet weak var mainMapView: MKMapView!
@@ -268,20 +267,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         }
     }
 
-    /// 顯示路徑按鈕
+    
     func stepsBtnTap() {
         performSegue(withIdentifier: "showSteps", sender: view)
     }
-    
-    
-    /// 側邊欄按鈕
-    @IBAction func menuBtn(_ sender: UIButton) {
-        showSideMenu()
-    }
-    
-    
-    
-    
     
     
 }
