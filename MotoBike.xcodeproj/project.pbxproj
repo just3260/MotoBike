@@ -29,6 +29,7 @@
 		5BDBA6931F5463C7006ECE3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BDBA6911F5463C7006ECE3A /* Main.storyboard */; };
 		5BDBA6981F5463C7006ECE3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BDBA6961F5463C7006ECE3A /* LaunchScreen.storyboard */; };
 		5BDBA6A01F5469E4006ECE3A /* firstStartAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDBA69F1F5469E4006ECE3A /* firstStartAppViewController.swift */; };
+		5BF195BD1F7DDBB200171738 /* MBPhPDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF195BC1F7DDBB200171738 /* MBPhPDataManager.swift */; };
 		E54DEDA00CE63F73E0AAFF1C /* Pods_MotoBike.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81408D763E7135FA2B62458D /* Pods_MotoBike.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		5BDBA6971F5463C7006ECE3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BDBA6991F5463C7006ECE3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BDBA69F1F5469E4006ECE3A /* firstStartAppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = firstStartAppViewController.swift; sourceTree = "<group>"; };
+		5BF195BC1F7DDBB200171738 /* MBPhPDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBPhPDataManager.swift; sourceTree = "<group>"; };
 		81408D763E7135FA2B62458D /* Pods_MotoBike.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MotoBike.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7B8A655DD3361C40F56C083 /* Pods-MotoBike.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotoBike.release.xcconfig"; path = "Pods/Target Support Files/Pods-MotoBike/Pods-MotoBike.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				5BD427E11F63A0E300450C1A /* FBDataManager.swift */,
+				5BF195BC1F7DDBB200171738 /* MBPhPDataManager.swift */,
 				5B84618B1F757E4000884339 /* PostViewDataManager.swift */,
 				182B58E51F68EB8A003D0ECB /* DispatchQueue+Once.swift */,
 				182B58E71F69123C003D0ECB /* PinData.swift */,
@@ -311,6 +314,7 @@
 				182B58E81F69123C003D0ECB /* PinData.swift in Sources */,
 				5BD427E21F63A0E300450C1A /* FBDataManager.swift in Sources */,
 				5BCDBBEE1F624600005EC300 /* FBLoginViewController.swift in Sources */,
+				5BF195BD1F7DDBB200171738 /* MBPhPDataManager.swift in Sources */,
 				5BDBA68E1F5463C7006ECE3A /* AppDelegate.swift in Sources */,
 				18016AE91F7BF7D5009C1385 /* RouteTableViewController.swift in Sources */,
 			);

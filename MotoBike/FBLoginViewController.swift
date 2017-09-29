@@ -19,6 +19,8 @@ class FBLoginViewController: UIViewController, FBKeyinDelegate{
     
     @IBOutlet weak var emailTextLabel: UILabel!
     
+    var MBPostView = MBPhPDataManager()
+    
     var loginData = [String]()
     
     override func viewDidLoad() {
@@ -61,6 +63,8 @@ class FBLoginViewController: UIViewController, FBKeyinDelegate{
         UserDefaults.standard.removeObject(forKey: "FBData")
         self.modalTransitionStyle = .crossDissolve
         dismiss(animated: true, completion: nil)
+        
+         MBPostView.getFBLogionInsert(allPHPURL: URL_DELETE_FBLOGIN)
     }
     
     // 回到地圖畫面

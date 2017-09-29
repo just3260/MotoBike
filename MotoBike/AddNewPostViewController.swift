@@ -123,11 +123,11 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBAction func confirmLocation(_ sender: UIButton) {
         getselectPinDataAddress()
         
-        locationInput = areaLocation.text!
-        
-        AddFinPostViewModel.location = locationInput
-        
-        print(AddFinPostViewModel.location)
+//        locationInput = areaLocation.text!
+//
+//        AddFinPostViewModel.location = locationInput
+//
+//        print(AddFinPostViewModel.location)
         
     }
     
@@ -205,7 +205,7 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     func getselectPinDataAddress() {
-        if(areaLocation.text == nil) {
+        if(areaLocation.text == "") {
             AddFinPostViewModel.location = "無地址"
             
             print("areaLocation is nil")
