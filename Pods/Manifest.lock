@@ -9,17 +9,20 @@ PODS:
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.24.0):
     - FBSDKCoreKit
+  - InteractiveSideMenu (2.0)
 
 DEPENDENCIES:
   - Bolts
   - FBSDKCoreKit
   - FBSDKLoginKit
+  - InteractiveSideMenu
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   FBSDKCoreKit: f8c9eb0dd34a9cd277c7b60da4b32226d142502d
   FBSDKLoginKit: 1214c6d5a1c4995b694d8db8a9ba6910c6028acf
+  InteractiveSideMenu: 337f6d95a3f6543c517a888893531430e18553b3
 
-PODFILE CHECKSUM: 195333c040c02c811d1782e7203f6cb2bffd626c
+PODFILE CHECKSUM: 97d3001a9fc6156d80b213c1bfebab45c798d325
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0

@@ -9,8 +9,9 @@
 import UIKit
 import MapKit
 import CoreLocation
+import InteractiveSideMenu
 
-class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, MapDataDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, MapDataDelegate, SideMenuItemContent {
     
     /// 主地圖畫面
     @IBOutlet weak var mainMapView: MKMapView!
@@ -219,7 +220,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (MapViewController) in
             // 跳轉至Post畫面
-            let postView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddNewPostViewController")
+            let postView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PostViewController")
             postView.modalTransitionStyle = .crossDissolve
             self.present(postView, animated: true, completion: nil)
         }
@@ -267,10 +268,20 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         }
     }
 
-    
+    /// 顯示路徑按鈕
     func stepsBtnTap() {
         performSegue(withIdentifier: "showSteps", sender: view)
     }
+    
+    
+    /// 側邊欄按鈕
+    @IBAction func menuBtn(_ sender: UIButton) {
+        showSideMenu()
+    }
+    
+    
+    
+    
     
     
 }
