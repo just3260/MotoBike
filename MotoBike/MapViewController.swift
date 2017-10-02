@@ -11,7 +11,7 @@ import MapKit
 import CoreLocation
 import InteractiveSideMenu
 
-class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, MapDataDelegate, SideMenuItemContent {
+class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, MapDataDelegate, SideMenuItemContent, URLSessionDelegate, URLSessionDownloadDelegate {
     
     /// 主地圖畫面
     @IBOutlet weak var mainMapView: MKMapView!
@@ -26,6 +26,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     var longPressGesture: UILongPressGestureRecognizer!
     /// 大頭針鎖（防止重複插針）
     var addPinLock = NSLock()
+    /// 儲存加油站資料
+    var gasStationArray = [AnyObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +47,53 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         // 接受畫路徑圖通知
         NotificationCenter.default.addObserver(self, selector: #selector(addRoute), name: NSNotification.Name(rawValue: "ADDROUTE"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(stepsBtnTap), name: NSNotification.Name(rawValue: "STEPSBTN"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(stepsBtnTap), name: NSNotification.Name(rawValue: "ADDNEWPOST"), object: nil)
         
+        // 取得加油站公開資料
+//        let urlString = "http://data.taipei/opendata/datalist/apiAccess?scope=resourceAquire&rid=a8fd6811-ab29-40dd-9b92-383e8ebd2a4e"
+//        guard let url = URL(string: urlString) else {
+//            NSLog("Invalid URL")
+//            return
+//        }
+        let urlString = "http://localhost/MotoBike.php"
+        guard let url = URL(string: urlString) else {
+            NSLog("Invalid URL")
+            return
+        }
+        
+        //(url要加上驚嘆號)
+        let task = URLSession.shared.dataTask(with: url) {
+            (data, response, error) in
+            if error == nil {
+//                var urlContent = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+//                print(urlContent as Any)
+                
+                guard let data = data else {
+                    print("No data was returned by the request!")
+                    
+                    return
+                }
+                
+                print(data)
+            }
+        }
+        task.resume()
+        
+        
+        
+        
+        
+        
+        
+        
+//        //建立一般的session設定
+//        let sessionWithConfigure = URLSessionConfiguration.default
+//        //設定委任對象為自己
+//        let session = URLSession(configuration: sessionWithConfigure, delegate: self, delegateQueue: OperationQueue.main)
+//        //設定下載網址
+//        let dataTask = session.downloadTask(with: url)
+//        //啟動或重新啟動下載動作
+//        dataTask.resume()
     }
     
     // 螢幕消失時，關閉定位功能（省電）
@@ -65,6 +113,28 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             mainMapView.showsUserLocation = true
         }
     }
+    
+    
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+        do {
+            
+            //JSON資料處理
+            let dataDic = try JSONSerialization.jsonObject(with: NSData(contentsOf: location) as Data, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String:[String:AnyObject]]
+            
+            print(dataDic)
+            //依據先前觀察的結構，取得result對應中的results所對應的陣列
+            gasStationArray = dataDic["result"]!["results"] as! [AnyObject]
+            
+            print("加油站資料下載成功")
+            mapManager.addPinWithDownloadData(array: gasStationArray)
+            
+        } catch {
+            print("Error!")
+        }
+    }
+    
+    
+    
     
     
     
