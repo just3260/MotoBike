@@ -23,13 +23,12 @@ var PHP_email = PHP_Array[1]
 
 var PHP_url = PHP_Array[5]
 
+var PHP_ID = ""
+
 class MBPhPDataManager: NSObject {
     var allPHPArray = [String]()
     
     func getFBLogionInsert(allPHPURL: String)  {
-        // 將輸入陣列轉換成其他字串
-        // 資料庫本身有定義 id 欄位，將取得的 id 放到另一個變數，避免存取欄位相同
-        
         // 將字串轉成 URL 型別，判斷是否為 nil
         guard let FBRequestURL = URL(string: allPHPURL) else {
             return
@@ -37,12 +36,24 @@ class MBPhPDataManager: NSObject {
         }
         // 宣告變數，請求 POST 回傳
         let FBRequest = NSMutableURLRequest(url: FBRequestURL)
+        // 將傳輸參數帶入
+        switch allPHPURL {
+        case URL_INSERT_FBLOGIN:
+            let InsertParameters = "FBID=\(PHP_FBID)&name=\(PHP_name)&email=\(PHP_email)&url=\(PHP_url)"
+            // 設置接收方的 HTTP 請求方式
+            FBRequest.httpBody = InsertParameters.data(using: String.Encoding.utf8)
+            
+        case URL_DELETE_FBLOGIN:
+            let DeleteParameters = "id=\(PHP_ID)"
+            // 設置接收方的 HTTP 請求方式
+            FBRequest.httpBody = DeleteParameters.data(using: String.Encoding.utf8)
+            
+        default:
+            break
+            
+        }
         // 設置接收方的請求方式
         FBRequest.httpMethod = "POST"
-        // 將傳輸參數帶入
-        let postFBParameters = "FBID=\(PHP_FBID)&name=\(PHP_name)&email=\(PHP_email)&url=\(PHP_url)"
-        // 設置接收方的 HTTP 請求方式
-        FBRequest.httpBody = postFBParameters.data(using: String.Encoding.utf8)
         // URLSession 的 URLRequest 會夾帶參數進去，傳出去的方式為 task
         // shared: 使用單例模式，在登入新帳號時，只需要初始化一次就好，可以讓 APP 拿到同一個 instance，讓其他的程式可以共用
         // dataTask: 是一個逃逸閉包，當所有 func 執行完，才會執行到閉包裡的程式碼
@@ -54,8 +65,6 @@ class MBPhPDataManager: NSObject {
                 return
                 
             }
-            print("上傳中")
-            print("刪除中")
             // task 回傳資料的訊息參數
             guard let data = data else {
                 print("No data was returned by the request!")

@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Photos
 
-class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, FinPostViewDelegate {
+class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, FinPostViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var pickerItemLabel: UILabel!
     
@@ -24,23 +25,25 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     var locationInput = ""
     
+    let imgPicker = UIImagePickerController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        AddFinPostViewModel.getPostItem = self
-        
-        navigationController?.navigationBar.setBackgroundImage(allNavigationBarAttributes.allNavigationbarBg, for: .default)
-        
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-    
-        getselectPinDataAddress()
-        
-        let imgTapGesture = UITapGestureRecognizer(target: self, action: #selector(getImageTap(gesture:)))
+        let imgTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.getImageTap(gesture:)))
         
         updatePic.isUserInteractionEnabled = true
         
         updatePic.addGestureRecognizer(imgTapGesture)
+        
+        AddFinPostViewModel.getPostItem = self
+        
+        navigationController?.navigationBar.setBackgroundImage(allNavigationBarAttributes.allNavigationbarBg, for: .default)
+
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+    
+        getselectPinDataAddress()
         
     }
 
@@ -123,12 +126,6 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBAction func confirmLocation(_ sender: UIButton) {
         getselectPinDataAddress()
         
-//        locationInput = areaLocation.text!
-//
-//        AddFinPostViewModel.location = locationInput
-//
-//        print(AddFinPostViewModel.location)
-        
     }
     
     @IBAction func FinPostViewBarBtn(_ sender: UIBarButtonItem) {
@@ -205,15 +202,23 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     func getselectPinDataAddress() {
-        if(areaLocation.text == "") {
+        if(areaLocation.text == nil) {
             AddFinPostViewModel.location = "無地址"
             
             print("areaLocation is nil")
             
+        }else {
+            areaLocation.text = selectPinData.getAddress()
+            
+            locationInput = areaLocation.text!
+            
+            AddFinPostViewModel.location = locationInput
+            
+            print(locationInput)
+            
         }
         
     }
-    
     func getImageTap(gesture: UITapGestureRecognizer) {
         print("image Tap")
         
@@ -224,11 +229,13 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
     func openActionSheet() {
         let picActionVC = UIAlertController(title: "功能選擇", message: "", preferredStyle: .actionSheet)
         
-        let picCamera = UIAlertAction(title: "Camera", style: .default, handler: nil)
+        let picCamera = UIAlertAction(title: "Camera", style: .default, handler: cameraAction)
         
-        let picGallery = UIAlertAction(title: "Gallery", style: .default, handler: nil)
+        let picGallery = UIAlertAction(title: "Gallery", style: .default, handler: galleryAction)
         
         let picCancel = UIAlertAction(title: "Cacel", style: .default, handler: nil)
+        
+        imgPicker.delegate = self
         
         picActionVC.addAction(picCamera)
         
@@ -236,7 +243,53 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
         picActionVC.addAction(picCancel)
         
-        present(picActionVC, animated: true, completion: nil)
+        self.present(picActionVC, animated: true, completion: nil)
+        
+    }
+    // 開啟相機
+    func cameraAction(camera: UIAlertAction) {
+        if(UIImagePickerController.isSourceTypeAvailable(.camera)) {
+            imgPicker.sourceType = .camera
+            
+            imgPicker.allowsEditing = true
+            
+            self.present(imgPicker, animated: true, completion: nil)
+            
+        }else {
+            print("Camera is not Aviable")
+            
+        }
+        
+    }
+    // 開啟相簿
+    func galleryAction(gallery: UIAlertAction) {
+        // 打開的相簿樣式
+        imgPicker.sourceType = .photoLibrary
+        
+        self.present(imgPicker, animated: true, completion: nil)
+        
+    }
+    
+    // ImagePickerControllerDelegate 實作
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        // 圖片放到 ImageView 上
+        if let FinimgPicker = info[UIImagePickerControllerEditedImage] as? UIImage {
+            updatePic.image = FinimgPicker
+
+            return
+
+        }
+        
+        dismiss(animated: true, completion: nil)
+        
+        print("gallery is OKOKOK")
+        
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+        
+        print("Img Cancel")
         
     }
 
