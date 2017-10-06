@@ -313,6 +313,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         } else  {
             mainMapView.userTrackingMode = .followWithHeading
         }
+        
     }
     
     

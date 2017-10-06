@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -39,40 +40,67 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="i5G-Dv-BEZ">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuCell" id="RJQ-17-kDJ">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RJQ-17-kDJ" id="WuG-6O-0nj">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="fl8-oL-k4N" id="rec-OJ-6wm"/>
-                                    <outlet property="delegate" destination="fl8-oL-k4N" id="fzP-Mr-13E"/>
-                                </connections>
-                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hAj-Pb-zlV">
+                                <rect key="frame" x="0.0" y="20" width="281.5" height="647"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOG-c1-DL1" userLabel="userImage">
+                                        <rect key="frame" x="40" y="50" width="200" height="200"/>
+                                        <color key="backgroundColor" red="0.27104222770000003" green="0.62518757579999995" blue="0.63415694239999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="Tlu-WN-KGJ"/>
+                                            <constraint firstAttribute="height" constant="200" id="WqN-z9-ecp"/>
+                                        </constraints>
+                                    </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Menu" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="i5G-Dv-BEZ">
+                                        <rect key="frame" x="0.0" y="280" width="282" height="367"/>
+                                        <color key="backgroundColor" red="0.27104222770000003" green="0.62518757579999995" blue="0.63415694239999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MenuCell" rowHeight="100" id="RJQ-17-kDJ" customClass="MenuTableCell" customModule="MotoBike" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="282" height="100"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RJQ-17-kDJ" id="WuG-6O-0nj">
+                                                    <rect key="frame" x="0.0" y="0.0" width="282" height="100"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <color key="backgroundColor" red="0.27104222770000003" green="0.62518757579999995" blue="0.63415694239999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </tableViewCellContentView>
+                                                <color key="backgroundColor" red="0.27104222770000003" green="0.62518757579999995" blue="0.63415694239999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="fl8-oL-k4N" id="rec-OJ-6wm"/>
+                                            <outlet property="delegate" destination="fl8-oL-k4N" id="fzP-Mr-13E"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.27104222770000003" green="0.62518757579999995" blue="0.63415694239999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="MOG-c1-DL1" firstAttribute="top" secondItem="hAj-Pb-zlV" secondAttribute="top" constant="50" id="93K-qo-myY"/>
+                                    <constraint firstItem="i5G-Dv-BEZ" firstAttribute="top" secondItem="MOG-c1-DL1" secondAttribute="bottom" constant="30" id="JQg-Xv-7RE"/>
+                                    <constraint firstItem="MOG-c1-DL1" firstAttribute="centerX" secondItem="hAj-Pb-zlV" secondAttribute="centerX" id="Jq7-LB-vcg"/>
+                                    <constraint firstItem="i5G-Dv-BEZ" firstAttribute="leading" secondItem="hAj-Pb-zlV" secondAttribute="leading" id="Oyd-Ug-7gT"/>
+                                    <constraint firstAttribute="trailing" secondItem="i5G-Dv-BEZ" secondAttribute="trailing" id="UJc-fR-K1U"/>
+                                    <constraint firstAttribute="bottom" secondItem="i5G-Dv-BEZ" secondAttribute="bottom" id="nP5-hz-8nt"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.27104222770000003" green="0.62518757579999995" blue="0.63415694239999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="i5G-Dv-BEZ" firstAttribute="leading" secondItem="Jnl-aU-HyO" secondAttribute="leading" id="Jkm-lY-etJ"/>
-                            <constraint firstItem="PFt-xf-w11" firstAttribute="top" secondItem="i5G-Dv-BEZ" secondAttribute="bottom" id="bNR-b4-4kx"/>
-                            <constraint firstItem="i5G-Dv-BEZ" firstAttribute="top" secondItem="eOx-bL-Zfw" secondAttribute="bottom" id="eOQ-gM-Ebj"/>
-                            <constraint firstAttribute="trailing" secondItem="i5G-Dv-BEZ" secondAttribute="trailing" id="osW-Hc-C9N"/>
+                            <constraint firstItem="hAj-Pb-zlV" firstAttribute="top" secondItem="eOx-bL-Zfw" secondAttribute="bottom" id="G3t-SO-JyN"/>
+                            <constraint firstItem="PFt-xf-w11" firstAttribute="top" secondItem="hAj-Pb-zlV" secondAttribute="bottom" id="azy-6E-JVL"/>
+                            <constraint firstItem="hAj-Pb-zlV" firstAttribute="width" secondItem="Jnl-aU-HyO" secondAttribute="width" multiplier="3/4" id="b2H-AP-mc5"/>
+                            <constraint firstItem="hAj-Pb-zlV" firstAttribute="leading" secondItem="Jnl-aU-HyO" secondAttribute="leading" id="fLH-SU-fvd"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="i5G-Dv-BEZ" id="NOh-5E-j62"/>
+                        <outlet property="menuTableView" destination="i5G-Dv-BEZ" id="VhI-ho-0W5"/>
+                        <outlet property="userImage" destination="MOG-c1-DL1" id="lvY-xx-Tlc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GZm-Wd-k47" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="862" y="-590"/>
+            <point key="canvasLocation" x="861.60000000000002" y="-590.55472263868069"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="ek8-n8-CcT">

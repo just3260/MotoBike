@@ -23,8 +23,13 @@ struct selectPinData {
     /// 呼叫地址方法
     static func getAddress() -> String {
         
+        let fail = "定位失敗"
+        guard self.pinMark != nil else {
+            return fail
+        }
+        
         guard let address = self.pinMark.name else {
-            return "定位失敗"
+            return fail
         }
         return address
     }
