@@ -21,8 +21,11 @@
 		182B58E61F68EB8A003D0ECB /* DispatchQueue+Once.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B58E51F68EB8A003D0ECB /* DispatchQueue+Once.swift */; };
 		182B58E81F69123C003D0ECB /* PinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B58E71F69123C003D0ECB /* PinData.swift */; };
 		187FFD961F6A7D5800C62593 /* MapDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187FFD951F6A7D5800C62593 /* MapDataManager.swift */; };
+		5B7D3A1C1F85E49C00509184 /* NewsFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D3A1B1F85E49C00509184 /* NewsFeedTableViewCell.swift */; };
 		5B84618C1F757E4000884339 /* PostViewDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B84618B1F757E4000884339 /* PostViewDataManager.swift */; };
+		5B94C3AB1F87701E00EB0A3B /* InfoDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B94C3AA1F87701E00EB0A3B /* InfoDataManager.swift */; };
 		5BA0FCC61F6AC7C200E7E7C8 /* AddNewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA0FCC51F6AC7C200E7E7C8 /* AddNewPostViewController.swift */; };
+		5BC722441F862725001AB058 /* DefineDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC722431F862725001AB058 /* DefineDataManager.swift */; };
 		5BCC66BE1F6D6F3A00E312C5 /* NewsFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCC66BD1F6D6F3A00E312C5 /* NewsFeedTableViewController.swift */; };
 		5BCC66C01F6D725700E312C5 /* DesignCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCC66BF1F6D725700E312C5 /* DesignCardView.swift */; };
 		5BCDBBEE1F624600005EC300 /* FBLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCDBBED1F624600005EC300 /* FBLoginViewController.swift */; };
@@ -51,8 +54,11 @@
 		182B58E71F69123C003D0ECB /* PinData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinData.swift; sourceTree = "<group>"; };
 		187FFD951F6A7D5800C62593 /* MapDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDataManager.swift; sourceTree = "<group>"; };
 		468AF3DC593D8C35AA20C39B /* Pods-MotoBike.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotoBike.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MotoBike/Pods-MotoBike.debug.xcconfig"; sourceTree = "<group>"; };
+		5B7D3A1B1F85E49C00509184 /* NewsFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewCell.swift; sourceTree = "<group>"; };
 		5B84618B1F757E4000884339 /* PostViewDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewDataManager.swift; sourceTree = "<group>"; };
+		5B94C3AA1F87701E00EB0A3B /* InfoDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDataManager.swift; sourceTree = "<group>"; };
 		5BA0FCC51F6AC7C200E7E7C8 /* AddNewPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewPostViewController.swift; sourceTree = "<group>"; };
+		5BC722431F862725001AB058 /* DefineDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefineDataManager.swift; sourceTree = "<group>"; };
 		5BCC66BD1F6D6F3A00E312C5 /* NewsFeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewController.swift; sourceTree = "<group>"; };
 		5BCC66BF1F6D725700E312C5 /* DesignCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignCardView.swift; sourceTree = "<group>"; };
 		5BCDBBED1F624600005EC300 /* FBLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBLoginViewController.swift; sourceTree = "<group>"; };
@@ -97,7 +103,9 @@
 		5BD427E31F63A11700450C1A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5BC722431F862725001AB058 /* DefineDataManager.swift */,
 				5BD427E11F63A0E300450C1A /* FBDataManager.swift */,
+				5B94C3AA1F87701E00EB0A3B /* InfoDataManager.swift */,
 				5BF195BC1F7DDBB200171738 /* MBPhPDataManager.swift */,
 				5B84618B1F757E4000884339 /* PostViewDataManager.swift */,
 				182B58E51F68EB8A003D0ECB /* DispatchQueue+Once.swift */,
@@ -120,6 +128,7 @@
 				182B58DF1F67BC98003D0ECB /* PostViewController.swift */,
 				5BA0FCC51F6AC7C200E7E7C8 /* AddNewPostViewController.swift */,
 				5BCC66BF1F6D725700E312C5 /* DesignCardView.swift */,
+				5B7D3A1B1F85E49C00509184 /* NewsFeedTableViewCell.swift */,
 				5BCC66BD1F6D6F3A00E312C5 /* NewsFeedTableViewController.swift */,
 			);
 			name = Controller;
@@ -211,9 +220,12 @@
 				TargetAttributes = {
 					5BDBA6891F5463C7006ECE3A = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = Z7353C93M9;
+						DevelopmentTeam = 7DN3U49FQL;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
 							com.apple.Keychain = {
 								enabled = 0;
 							};
@@ -311,7 +323,9 @@
 				182B58DA1F678BA6003D0ECB /* MapViewController.swift in Sources */,
 				5BDBA6A01F5469E4006ECE3A /* firstStartAppViewController.swift in Sources */,
 				5BCC66BE1F6D6F3A00E312C5 /* NewsFeedTableViewController.swift in Sources */,
+				5B94C3AB1F87701E00EB0A3B /* InfoDataManager.swift in Sources */,
 				5BA0FCC61F6AC7C200E7E7C8 /* AddNewPostViewController.swift in Sources */,
+				5B7D3A1C1F85E49C00509184 /* NewsFeedTableViewCell.swift in Sources */,
 				18016AEE1F7D4533009C1385 /* NavigationMenuViewController.swift in Sources */,
 				5B84618C1F757E4000884339 /* PostViewDataManager.swift in Sources */,
 				182B58E61F68EB8A003D0ECB /* DispatchQueue+Once.swift in Sources */,
@@ -320,6 +334,7 @@
 				182990F01F713B4600D34DCA /* PinDetailView.swift in Sources */,
 				182B58E81F69123C003D0ECB /* PinData.swift in Sources */,
 				5BD427E21F63A0E300450C1A /* FBDataManager.swift in Sources */,
+				5BC722441F862725001AB058 /* DefineDataManager.swift in Sources */,
 				18016AEC1F7D23CA009C1385 /* HostViewController.swift in Sources */,
 				5BCDBBEE1F624600005EC300 /* FBLoginViewController.swift in Sources */,
 				5BF195BD1F7DDBB200171738 /* MBPhPDataManager.swift in Sources */,
@@ -462,7 +477,7 @@
 			baseConfigurationReference = 468AF3DC593D8C35AA20C39B /* Pods-MotoBike.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Z7353C93M9;
+				DEVELOPMENT_TEAM = 7DN3U49FQL;
 				INFOPLIST_FILE = MotoBike/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Cherry.MotoBike;
@@ -476,7 +491,7 @@
 			baseConfigurationReference = A7B8A655DD3361C40F56C083 /* Pods-MotoBike.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Z7353C93M9;
+				DEVELOPMENT_TEAM = 7DN3U49FQL;
 				INFOPLIST_FILE = MotoBike/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Cherry.MotoBike;

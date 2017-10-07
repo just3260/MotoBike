@@ -15,9 +15,9 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     @IBOutlet weak var areaLocation: UITextField!
     
-    @IBOutlet weak var updatePic: UIImageView!
+    @IBOutlet weak var upDatePic: UIImageView!
     
-    let AddFinPostViewModel = PostViewDataManager()
+    var AddFinPostViewModel = PostViewDataManager()
     
     let PinModel = selectPinData()
     
@@ -27,15 +27,14 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     let imgPicker = UIImagePickerController()
     
+    var photoArray = [String]()
+    
+    var MBPhPData = MBPhPDataManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let imgTapGesture = UITapGestureRecognizer(target: self, action: #selector(self.getImageTap(gesture:)))
-        
-        updatePic.isUserInteractionEnabled = true
-        
-        updatePic.addGestureRecognizer(imgTapGesture)
         
         AddFinPostViewModel.getPostItem = self
         
@@ -44,6 +43,14 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
     
         getselectPinDataAddress()
+        
+        imgPicker.delegate = self
+        
+        let imgPost = UITapGestureRecognizer(target: self, action: #selector(getimgTap(gesture:)))
+        
+        upDatePic.isUserInteractionEnabled = true
+        
+        upDatePic.addGestureRecognizer(imgPost)
         
     }
 
@@ -60,6 +67,8 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
         AddFinPostViewModel.weather.append(sun)
         
         print(AddFinPostViewModel.weather)
+        
+        MBPhPData.getPHPData(allPHPURL: URL_SELECT_ALL_INFO)
         
     }
     
@@ -137,9 +146,22 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
         if(AddFinPostViewModel.location.isEmpty) {
             AddFinPostViewModel.location = "無地址"
             
+        }else if(areaLocation.text != selectPinData.getAddress()) {
+            locationInput = areaLocation.text!
+            
+            AddFinPostViewModel.location = locationInput
+            
         }
         
         AddFinPostViewModel.getPostViewData()
+        
+        print(AddFinPostViewModel.postItem)
+        
+        let PostVC = self.storyboard?.instantiateViewController(withIdentifier: "NewsFeedTableViewController") as! NewsFeedTableViewController
+        
+        PostVC.PostData = AddFinPostViewModel.postItem
+        
+        self.present(PostVC, animated: true, completion: nil)
         
     }
     
@@ -155,7 +177,7 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
     func getPickerView() {
         let areaTagVC = UIViewController()
         
-        areaTagVC.preferredContentSize = CGSize(width: 250, height: 300)
+        areaTagVC.preferredContentSize = CGSize(width: 250, height: 250)
         
         let areaPickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: 250, height: 300))
         
@@ -215,81 +237,154 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
             AddFinPostViewModel.location = locationInput
             
             print(locationInput)
-            
+   
         }
         
     }
-    func getImageTap(gesture: UITapGestureRecognizer) {
-        print("image Tap")
-        
+    
+    func getimgTap(gesture: UITapGestureRecognizer) {
         openActionSheet()
         
     }
     
     func openActionSheet() {
-        let picActionVC = UIAlertController(title: "功能選擇", message: "", preferredStyle: .actionSheet)
+        let imgPickerAlert = UIAlertController(title: "選擇功能", message: nil, preferredStyle: .actionSheet)
         
-        let picCamera = UIAlertAction(title: "Camera", style: .default, handler: cameraAction)
+        let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { _ in
+            self.openCamera()
+        })
         
-        let picGallery = UIAlertAction(title: "Gallery", style: .default, handler: galleryAction)
+        let galleryAction = UIAlertAction(title: "Gallery", style: .default, handler: { _ in
+            self.openGallary()
+        })
         
-        let picCancel = UIAlertAction(title: "Cacel", style: .default, handler: nil)
+        let cancelAction = UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil)
         
-        imgPicker.delegate = self
+        imgPickerAlert.addAction(cameraAction)
         
-        picActionVC.addAction(picCamera)
+        imgPickerAlert.addAction(galleryAction)
         
-        picActionVC.addAction(picGallery)
+        imgPickerAlert.addAction(cancelAction)
         
-        picActionVC.addAction(picCancel)
-        
-        self.present(picActionVC, animated: true, completion: nil)
+        self.present(imgPickerAlert, animated: true, completion: nil)
         
     }
     // 開啟相機
-    func cameraAction(camera: UIAlertAction) {
-        if(UIImagePickerController.isSourceTypeAvailable(.camera)) {
-            imgPicker.sourceType = .camera
+    func openCamera() {
+        if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)) {
+            imgPicker.sourceType = UIImagePickerControllerSourceType.camera
             
             imgPicker.allowsEditing = true
             
             self.present(imgPicker, animated: true, completion: nil)
             
+            getStatus()
+            
         }else {
-            print("Camera is not Aviable")
+            let alert  = UIAlertController(title: "Warning", message: "You don't have camera", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+            self.present(alert, animated: true, completion: nil)
             
         }
         
     }
     // 開啟相簿
-    func galleryAction(gallery: UIAlertAction) {
+    func openGallary() {
         // 打開的相簿樣式
-        imgPicker.sourceType = .photoLibrary
+        imgPicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        
+        imgPicker.allowsEditing = true
         
         self.present(imgPicker, animated: true, completion: nil)
+        
+        getStatus()
         
     }
     
     // ImagePickerControllerDelegate 實作
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         // 圖片放到 ImageView 上
-        if let FinimgPicker = info[UIImagePickerControllerEditedImage] as? UIImage {
-            updatePic.image = FinimgPicker
+        upDatePic.image = info[UIImagePickerControllerEditedImage] as? UIImage
+        
+        // 取得圖片路徑
+        let fileManager = FileManager.default
 
-            return
+        let fileURLs = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+
+        let file = fileURLs
+        // 圖片檔名格式
+        let interval = Date.timeIntervalSinceReferenceDate
+        // 圖片檔名
+        let fileName = "\(interval).jpg"
+        
+        let ImgURL = file.appendingPathComponent(fileName)
+        // 把圖片存在 APP 裡，壓縮係數
+        let ImgData = UIImageJPEGRepresentation(upDatePic.image!, 0.9)
+        
+        do {
+            try ImgData?.write(to: ImgURL)
+
+        }catch {
+            print("Can't write ImgURL")
 
         }
         
-        dismiss(animated: true, completion: nil)
+        let ImgURLstr = String(describing: ImgURL)
         
-        print("gallery is OKOKOK")
+        AddFinPostViewModel.cusImg = ImgURLstr
+        
+        print(AddFinPostViewModel.cusImg)
+        
+        dismiss(animated: true, completion: nil)
+
+        print("Gallery is OK")
         
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
         
-        print("Img Cancel")
+        print("ImgPicker Cancel")
+        
+    }
+    
+    func getStatus() {
+        let openstatus = PHPhotoLibrary.authorizationStatus()
+        
+        switch openstatus {
+        // 使用者接受存取照片權限
+        case .authorized:
+            print("PhotoLibrary is authorized")
+        // 使用者拒絕存取照片權限
+        case .denied:
+            print("PhotoLibrary is denied")
+        // 沒有存取照片權限
+        case .restricted:
+            print("PhotoLibrary is restricted")
+        // 使用者沒有對權限作出選擇時
+        case .notDetermined:
+            // 請求權限
+            PHPhotoLibrary.requestAuthorization({ (openstatus) in
+                switch openstatus {
+                case .authorized:
+                    print("PhotoLibrary is authorized")
+                    
+                case .denied:
+                    print("PhotoLibrary is denied")
+                    
+                case .restricted:
+                    print("PhotoLibrary is restricted")
+                    
+                case .notDetermined:
+                    //...
+                    break
+                }
+                
+            })
+            
+        }
         
     }
 

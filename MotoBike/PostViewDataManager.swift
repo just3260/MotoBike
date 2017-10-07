@@ -18,7 +18,7 @@ struct allNavigationBarAttributes {
 
 }
 
-class PostViewDataManager: NSObject {
+struct PostViewDataManager {
     var getPostItem: FinPostViewDelegate!
     
     var weather = [String!]()
@@ -33,9 +33,11 @@ class PostViewDataManager: NSObject {
     
     var location = ""
     
+    var cusImg = ""
+    
     var postItem = [String!]()
     
-    func getPostViewData() {
+    mutating func getPostViewData() {
         guard let weather = weather.first else {
             print("weatherContents is nil")
             
@@ -55,15 +57,13 @@ class PostViewDataManager: NSObject {
         trafficContents = traffic
         
         if(postItem.isEmpty) {
-            postItem = [weatherContents, trafficContents, decideTag, location]
+            postItem = [weatherContents, trafficContents, decideTag, location, cusImg]
             
             print("posItem is nil")
             
         }
         
-        postItem = [weatherContents, trafficContents, decideTag, location]
-        
-        print(postItem)
+        postItem = [weatherContents, trafficContents, decideTag, location, cusImg]
         
     }
 

@@ -71,11 +71,11 @@ class FBDataManager: NSObject {
                 
                 let infoarray = [id, email, firstName, name, lastName, url]
                 
-                PHP_Array = infoarray
+                FBLOGIN_ARRAY = infoarray
                 
                 self.FBLogin.FBLoginData?(LoginKey: infoarray)
                 
-                self.MBPhPData.getFBLogionInsert(allPHPURL: URL_INSERT_FBLOGIN)
+                self.MBPhPData.getPHPData(allPHPURL: URL_INSERT_FBLOGIN)
                 
             })
         }else {

@@ -87,9 +87,9 @@ class firstStartAppViewController: UIViewController, UIScrollViewDelegate, FBKey
     // MARK: UIScrollViewDelegate 實作方法
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset
-        // 随着滑动改变pageControl的状态
+        // 隨著滑動改變 pageControl 的狀態
         pageControl.currentPage = Int(offset.x / view.bounds.width)
-        // 因為 currentPage 是從0開始算，所以numOfPages减1
+        // 因為 currentPage 是從0開始算，所以 numOfPages 减1
         if pageControl.currentPage == numPages - 1  {
             UIView.animate(withDuration: 0.5, animations: {
                 self.firstLoginBtn.alpha = 1.0
@@ -119,11 +119,13 @@ class firstStartAppViewController: UIViewController, UIScrollViewDelegate, FBKey
         
         // 將User FB Data 存進 UserDefaults
         UserDefaults.standard.set(LoginKey, forKey: "FBData")
-        UserDefaults.standard.synchronize()
         
+        UserDefaults.standard.synchronize()
         // 跳轉至Map畫面
         let mapView = UIStoryboard(name: "Map", bundle: nil).instantiateViewController(withIdentifier: "MapViewController")
+        
         mapView.modalTransitionStyle = .crossDissolve
+        
         present(mapView, animated: true, completion: nil)
 
     }

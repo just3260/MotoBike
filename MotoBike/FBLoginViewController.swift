@@ -9,7 +9,7 @@
 import UIKit
 import FBSDKLoginKit
 
-class FBLoginViewController: UIViewController, FBKeyinDelegate{
+class FBLoginViewController: UIViewController {
     
     @IBOutlet weak var profileImg: UIImageView!
     
@@ -37,10 +37,8 @@ class FBLoginViewController: UIViewController, FBKeyinDelegate{
         // Dispose of any resources that can be recreated.
         
     }
-    
     // 登入頁面輸入完畢，顯示個人資訊
     func FBLoginStart() {
-        
         idTextLable.text = loginData[0]
         
         nameTextLabel.text = loginData[3]
@@ -54,19 +52,21 @@ class FBLoginViewController: UIViewController, FBKeyinDelegate{
         profileImg.image = UIImage(data: profileImgData! as Data)
         
     }
-    
     // 登出FB
     @IBAction func FBLoginOutBtn(_ sender: Any) {
         let manger = FBSDKLoginManager()
+        
         manger.logOut()
         
         UserDefaults.standard.removeObject(forKey: "FBData")
+        
         self.modalTransitionStyle = .crossDissolve
+        
         dismiss(animated: true, completion: nil)
         
-         MBPostView.getFBLogionInsert(allPHPURL: URL_DELETE_FBLOGIN)
+        MBPostView.getPHPData(allPHPURL: URL_DELETE_FBLOGIN)
+        
     }
-    
     // 回到地圖畫面
     @IBAction func backToMap(_ sender: Any) {
         self.modalTransitionStyle = .crossDissolve

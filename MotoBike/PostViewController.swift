@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import InteractiveSideMenu
 
-class PostViewController: UIViewController {
+class PostViewController: UIViewController, SideMenuItemContent {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +29,12 @@ class PostViewController: UIViewController {
     
     // 取消貼文，回到地圖畫面
     @IBAction func cancelPostView(_ sender: Any) {
+        // 頁面返回的動畫效果
         self.modalTransitionStyle = .crossDissolve
         
         dismiss(animated: true, completion: nil)
+        // 側邊欄點選返回
+        showSideMenu()
         
     }
 
