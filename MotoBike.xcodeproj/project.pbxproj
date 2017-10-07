@@ -21,6 +21,8 @@
 		182B58E61F68EB8A003D0ECB /* DispatchQueue+Once.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B58E51F68EB8A003D0ECB /* DispatchQueue+Once.swift */; };
 		182B58E81F69123C003D0ECB /* PinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182B58E71F69123C003D0ECB /* PinData.swift */; };
 		187FFD961F6A7D5800C62593 /* MapDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187FFD951F6A7D5800C62593 /* MapDataManager.swift */; };
+		18D49A7C1F88E5960084EE30 /* MenuTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D49A7B1F88E5960084EE30 /* MenuTableCell.swift */; };
+		18D49A7E1F88EE650084EE30 /* MenuTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D49A7D1F88E5A10084EE30 /* MenuTableCell.xib */; };
 		5B7D3A1C1F85E49C00509184 /* NewsFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D3A1B1F85E49C00509184 /* NewsFeedTableViewCell.swift */; };
 		5B84618C1F757E4000884339 /* PostViewDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B84618B1F757E4000884339 /* PostViewDataManager.swift */; };
 		5B94C3AB1F87701E00EB0A3B /* InfoDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B94C3AA1F87701E00EB0A3B /* InfoDataManager.swift */; };
@@ -53,6 +55,8 @@
 		182B58E51F68EB8A003D0ECB /* DispatchQueue+Once.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Once.swift"; sourceTree = "<group>"; };
 		182B58E71F69123C003D0ECB /* PinData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinData.swift; sourceTree = "<group>"; };
 		187FFD951F6A7D5800C62593 /* MapDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDataManager.swift; sourceTree = "<group>"; };
+		18D49A7B1F88E5960084EE30 /* MenuTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableCell.swift; sourceTree = "<group>"; };
+		18D49A7D1F88E5A10084EE30 /* MenuTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableCell.xib; sourceTree = "<group>"; };
 		468AF3DC593D8C35AA20C39B /* Pods-MotoBike.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotoBike.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MotoBike/Pods-MotoBike.debug.xcconfig"; sourceTree = "<group>"; };
 		5B7D3A1B1F85E49C00509184 /* NewsFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewCell.swift; sourceTree = "<group>"; };
 		5B84618B1F757E4000884339 /* PostViewDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewDataManager.swift; sourceTree = "<group>"; };
@@ -96,6 +100,7 @@
 				182B58D71F678B82003D0ECB /* Map.storyboard */,
 				5BDBA6961F5463C7006ECE3A /* LaunchScreen.storyboard */,
 				182990ED1F713B2A00D34DCA /* PinDetailView.xib */,
+				18D49A7D1F88E5A10084EE30 /* MenuTableCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -124,6 +129,7 @@
 				18016AEB1F7D23CA009C1385 /* HostViewController.swift */,
 				18016AED1F7D4533009C1385 /* NavigationMenuViewController.swift */,
 				18016AE81F7BF7D5009C1385 /* RouteTableViewController.swift */,
+				18D49A7B1F88E5960084EE30 /* MenuTableCell.swift */,
 				182990EF1F713B4600D34DCA /* PinDetailView.swift */,
 				182B58DF1F67BC98003D0ECB /* PostViewController.swift */,
 				5BA0FCC51F6AC7C200E7E7C8 /* AddNewPostViewController.swift */,
@@ -261,6 +267,7 @@
 				5BDBA6931F5463C7006ECE3A /* Main.storyboard in Resources */,
 				182990E61F6B88C600D34DCA /* Assets.xcassets in Resources */,
 				182B58D81F678B82003D0ECB /* Map.storyboard in Resources */,
+				18D49A7E1F88EE650084EE30 /* MenuTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +341,7 @@
 				182990F01F713B4600D34DCA /* PinDetailView.swift in Sources */,
 				182B58E81F69123C003D0ECB /* PinData.swift in Sources */,
 				5BD427E21F63A0E300450C1A /* FBDataManager.swift in Sources */,
+				18D49A7C1F88E5960084EE30 /* MenuTableCell.swift in Sources */,
 				5BC722441F862725001AB058 /* DefineDataManager.swift in Sources */,
 				18016AEC1F7D23CA009C1385 /* HostViewController.swift in Sources */,
 				5BCDBBEE1F624600005EC300 /* FBLoginViewController.swift in Sources */,
