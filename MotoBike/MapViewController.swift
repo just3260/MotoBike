@@ -15,8 +15,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     /// 主地圖畫面
     @IBOutlet weak var mainMapView: MKMapView!
-    /// 個人資料按鈕
-    @IBOutlet weak var userDataOutlet: UIButton!
     /// 大頭針詳細資料
     @IBOutlet weak var pinDetailView: PinDetailView!
     
@@ -318,7 +316,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     
     /// 跳轉至個人資料畫面
-    @IBAction func userDataView(_ sender: Any) {
+    func userDataView() {
         
         let loginView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FBLoginViewController") as! FBLoginViewController
         loginView.modalTransitionStyle = .crossDissolve

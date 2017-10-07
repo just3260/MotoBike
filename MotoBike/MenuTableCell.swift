@@ -14,7 +14,7 @@ class MenuTableCell: UITableViewCell {
     
     @IBOutlet weak var menuLabel: UILabel!
     
-    @IBOutlet weak var menuSwitch: UISwitch!
+    @IBOutlet weak var menuSwitchOutlet: UISwitch!
     
     @IBOutlet weak var selectView: UIView!
     
@@ -30,4 +30,30 @@ class MenuTableCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    
+    // Pin開關
+    @IBAction func menuSwitch(_ sender: UISwitch) {
+        let gasStationPin = menuSwitchOutlet.isOn
+        
+        if menuLabel.text == "Gas Station" {
+            
+            if gasStationPin == true {
+                print("加油站插針")
+            } else {
+                print("加油站拔針")
+            }
+            
+        } else if menuLabel.text == "Parking" {
+            
+            if gasStationPin == true {
+                print("停車場插針")
+            } else {
+                print("停車場拔針")
+            }
+        }
+
+    }
+    
+    
+    
 }

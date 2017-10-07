@@ -105,21 +105,26 @@ extension NavigationMenuViewController: UITableViewDelegate, UITableViewDataSour
 
         cell.menuImage.image = cellData[indexPath.row].0
         cell.menuLabel.text = cellData[indexPath.row].1
-        cell.menuSwitch.isHidden = cellData[indexPath.row].2
+        cell.menuSwitchOutlet.isHidden = cellData[indexPath.row].2
         
         return cell
     }
     
     
-    // 選中cell時執行的動作
+    // 選取cell時執行的動作
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         guard let menuContainerViewController = self.menuContainerViewController else {
             return
         }
+
+        if indexPath.row == 1 || indexPath.row == 2 {
+            return
+        }
         
         menuContainerViewController.selectContentViewController(menuContainerViewController.contentViewControllers[indexPath.row])
         menuContainerViewController.hideSideMenu()
+        
     }
     
     
@@ -131,12 +136,23 @@ extension NavigationMenuViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     
-    // 選中cell時的動作(highlight)
+    // 長按cell時的動作(highlight)
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
         let cell = menuTableView.cellForRow(at: indexPath) as! MenuTableCell
         cell.menuLabel.textColor = #colorLiteral(red: 0.9669716954, green: 0.8325224519, blue: 0.4720008373, alpha: 1)
         cell.selectView.backgroundColor = #colorLiteral(red: 0.9669716954, green: 0.8325224519, blue: 0.4720008373, alpha: 1)
     }
+    
+    
+    // 取消長按cell時的動作(highlight)
+    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+//        let cell = menuTableView.cellForRow(at: indexPath) as! MenuTableCell
+//        cell.menuLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+//        cell.selectView.backgroundColor = #colorLiteral(red: 0.2710422277, green: 0.6251875758, blue: 0.6341569424, alpha: 1)
+    }
+    
+    
+    
 }
 
 

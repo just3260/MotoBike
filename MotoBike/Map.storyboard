@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -51,12 +52,12 @@
                                             <constraint firstAttribute="height" constant="200" id="WqN-z9-ecp"/>
                                         </constraints>
                                     </view>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Menu" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="i5G-Dv-BEZ">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Menu" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="i5G-Dv-BEZ">
                                         <rect key="frame" x="0.0" y="280" width="282" height="367"/>
                                         <color key="backgroundColor" red="0.27104222770000003" green="0.62518757579999995" blue="0.63415694239999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MenuCell" rowHeight="100" id="RJQ-17-kDJ" customClass="MenuTableCell" customModule="MotoBike" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MenuCell" id="RJQ-17-kDJ" customClass="MenuTableCell" customModule="MotoBike" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="282" height="100"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RJQ-17-kDJ" id="WuG-6O-0nj">
@@ -117,13 +118,6 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6cb-80-ZFa">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxS-tU-QId">
-                                <rect key="frame" x="319" y="617" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="userTrackingModeChanged:" destination="u77-Z9-c5r" eventType="touchUpInside" id="LB1-E4-unQ"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DGH-7S-NSa" customClass="PinDetailView" customModule="MotoBike" customModuleProvider="target">
                                 <rect key="frame" x="101" y="401" width="84" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -134,11 +128,10 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K22-mV-VMt">
-                                <rect key="frame" x="10" y="597" width="50" height="50"/>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K22-mV-VMt" userLabel="Message">
+                                <rect key="frame" x="10" y="584.5" width="62.5" height="62.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="pp3-aQ-tlR"/>
-                                    <constraint firstAttribute="width" constant="50" id="vlU-aM-mmF"/>
+                                    <constraint firstAttribute="width" secondItem="K22-mV-VMt" secondAttribute="height" multiplier="1:1" id="b5D-2T-mfO"/>
                                 </constraints>
                                 <state key="normal" image="MessageBtn"/>
                                 <state key="highlighted" image="MotoBike Message Enable Button"/>
@@ -146,23 +139,24 @@
                                     <action selector="addNewEvent:" destination="u77-Z9-c5r" eventType="touchUpInside" id="U3N-63-K3W"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gBn-lJ-Mz7">
-                                <rect key="frame" x="6" y="40" width="44" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gBn-lJ-Mz7" userLabel="Menu">
+                                <rect key="frame" x="10" y="40" width="62.5" height="62.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="TFa-a2-eCT"/>
-                                    <constraint firstAttribute="width" constant="44" id="krK-OG-5zn"/>
+                                    <constraint firstAttribute="width" secondItem="gBn-lJ-Mz7" secondAttribute="height" multiplier="1:1" id="4ov-HE-nd7"/>
                                 </constraints>
                                 <state key="normal" image="MotoBike ListButton"/>
                                 <connections>
                                     <action selector="menuBtn:" destination="u77-Z9-c5r" eventType="touchUpInside" id="0p0-AL-0MQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ns8-tE-ijO">
-                                <rect key="frame" x="16" y="91" width="62" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="個人資料"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxS-tU-QId" userLabel="User Location">
+                                <rect key="frame" x="302.5" y="584.5" width="62.5" height="62.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="bxS-tU-QId" secondAttribute="height" multiplier="1:1" id="cf5-QA-TVi"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="userDataView:" destination="u77-Z9-c5r" eventType="touchUpInside" id="1pj-aP-qhT"/>
+                                    <action selector="userTrackingModeChanged:" destination="u77-Z9-c5r" eventType="touchUpInside" id="LB1-E4-unQ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -172,18 +166,20 @@
                             <constraint firstItem="6cb-80-ZFa" firstAttribute="top" secondItem="kKe-91-sni" secondAttribute="top" id="35E-rz-H41"/>
                             <constraint firstItem="6cb-80-ZFa" firstAttribute="leading" secondItem="kKe-91-sni" secondAttribute="leading" id="CkW-GL-vAF"/>
                             <constraint firstAttribute="trailing" secondItem="6cb-80-ZFa" secondAttribute="trailing" id="GFr-5U-FqP"/>
-                            <constraint firstAttribute="trailing" secondItem="bxS-tU-QId" secondAttribute="trailing" constant="10" id="K8K-G2-pf8"/>
                             <constraint firstItem="K22-mV-VMt" firstAttribute="leading" secondItem="kKe-91-sni" secondAttribute="leading" constant="10" id="PxT-UR-33Q"/>
+                            <constraint firstItem="JK8-60-otd" firstAttribute="top" secondItem="bxS-tU-QId" secondAttribute="bottom" constant="20" id="U4y-Cu-Fjl"/>
                             <constraint firstItem="gBn-lJ-Mz7" firstAttribute="top" secondItem="Hdl-TD-tYk" secondAttribute="bottom" constant="20" id="a0Q-Ld-g5A"/>
-                            <constraint firstItem="JK8-60-otd" firstAttribute="top" secondItem="bxS-tU-QId" secondAttribute="bottom" constant="20" id="bvY-Ur-4GC"/>
-                            <constraint firstItem="gBn-lJ-Mz7" firstAttribute="leading" secondItem="kKe-91-sni" secondAttribute="leading" constant="6" id="fWP-6Q-2Zq"/>
+                            <constraint firstItem="gBn-lJ-Mz7" firstAttribute="leading" secondItem="kKe-91-sni" secondAttribute="leading" constant="10" id="fWP-6Q-2Zq"/>
+                            <constraint firstItem="bxS-tU-QId" firstAttribute="width" secondItem="kKe-91-sni" secondAttribute="width" multiplier="1/6" id="llf-gj-HIx"/>
+                            <constraint firstItem="gBn-lJ-Mz7" firstAttribute="width" secondItem="kKe-91-sni" secondAttribute="width" multiplier="1/6" id="mdX-Al-Zip"/>
                             <constraint firstItem="6cb-80-ZFa" firstAttribute="bottom" secondItem="JK8-60-otd" secondAttribute="top" id="nmG-v5-Vn9"/>
+                            <constraint firstAttribute="trailing" secondItem="bxS-tU-QId" secondAttribute="trailing" constant="10" id="obX-Uz-M8L"/>
+                            <constraint firstItem="K22-mV-VMt" firstAttribute="width" secondItem="kKe-91-sni" secondAttribute="width" multiplier="1/6" id="skl-PB-Eqs"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="mainMapView" destination="6cb-80-ZFa" id="7sr-aN-6N2"/>
                         <outlet property="pinDetailView" destination="DGH-7S-NSa" id="75y-ym-0x0"/>
-                        <outlet property="userDataOutlet" destination="Ns8-tE-ijO" id="Okd-LZ-VvO"/>
                         <segue destination="s5N-Y6-dqD" kind="presentation" identifier="showSteps" modalTransitionStyle="crossDissolve" id="EDw-V2-fnh"/>
                     </connections>
                 </viewController>
