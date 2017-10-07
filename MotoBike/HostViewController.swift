@@ -15,7 +15,7 @@ class HostViewController: MenuContainerViewController {
         super.viewDidLoad()
         
         let screenSize: CGRect = UIScreen.main.bounds
-        self.transitionOptions = TransitionOptions(duration: 0.4, visibleContentWidth: screenSize.width / 6)
+        self.transitionOptions = TransitionOptions(duration: 0.5, visibleContentWidth: screenSize.width / 4)
         
         // Instantiate menu view controller by identifier
         self.menuViewController = self.storyboard!.instantiateViewController(withIdentifier: "NavigationMenu") as! MenuViewController
@@ -35,8 +35,10 @@ class HostViewController: MenuContainerViewController {
         var contentList = [UIViewController]()
         
         contentList.append(UIStoryboard(name: "Map", bundle: nil).instantiateViewController(withIdentifier: "MapViewController"))
-        contentList.append(UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PostViewController"))
+        contentList.append(UIStoryboard(name: "Map", bundle: nil).instantiateViewController(withIdentifier: "MapViewController"))
+        contentList.append(UIStoryboard(name: "Map", bundle: nil).instantiateViewController(withIdentifier: "MapViewController"))
         contentList.append(UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddNewPostViewController"))
+        contentList.append(UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PostViewController"))
         contentList.append(UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FBLoginViewController"))
 
         return contentList
