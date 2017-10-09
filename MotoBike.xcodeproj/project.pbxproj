@@ -23,6 +23,7 @@
 		187FFD961F6A7D5800C62593 /* MapDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187FFD951F6A7D5800C62593 /* MapDataManager.swift */; };
 		18D49A7C1F88E5960084EE30 /* MenuTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D49A7B1F88E5960084EE30 /* MenuTableCell.swift */; };
 		18D49A7E1F88EE650084EE30 /* MenuTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D49A7D1F88E5A10084EE30 /* MenuTableCell.xib */; };
+		5B6B6CB51F8A184500B2783B /* PostNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6B6CB41F8A184500B2783B /* PostNewsViewController.swift */; };
 		5B7D3A1C1F85E49C00509184 /* NewsFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D3A1B1F85E49C00509184 /* NewsFeedTableViewCell.swift */; };
 		5B84618C1F757E4000884339 /* PostViewDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B84618B1F757E4000884339 /* PostViewDataManager.swift */; };
 		5B94C3AB1F87701E00EB0A3B /* InfoDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B94C3AA1F87701E00EB0A3B /* InfoDataManager.swift */; };
@@ -31,6 +32,8 @@
 		5BCC66BE1F6D6F3A00E312C5 /* NewsFeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCC66BD1F6D6F3A00E312C5 /* NewsFeedTableViewController.swift */; };
 		5BCC66C01F6D725700E312C5 /* DesignCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCC66BF1F6D725700E312C5 /* DesignCardView.swift */; };
 		5BCDBBEE1F624600005EC300 /* FBLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCDBBED1F624600005EC300 /* FBLoginViewController.swift */; };
+		5BCE7BC21F89D73000A5E4D7 /* PostNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCE7BC01F89D73000A5E4D7 /* PostNewsTableViewCell.swift */; };
+		5BCE7BC31F89D73000A5E4D7 /* PostNewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BCE7BC11F89D73000A5E4D7 /* PostNewsTableViewCell.xib */; };
 		5BD427E21F63A0E300450C1A /* FBDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD427E11F63A0E300450C1A /* FBDataManager.swift */; };
 		5BDBA68E1F5463C7006ECE3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDBA68D1F5463C7006ECE3A /* AppDelegate.swift */; };
 		5BDBA6931F5463C7006ECE3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BDBA6911F5463C7006ECE3A /* Main.storyboard */; };
@@ -58,6 +61,7 @@
 		18D49A7B1F88E5960084EE30 /* MenuTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableCell.swift; sourceTree = "<group>"; };
 		18D49A7D1F88E5A10084EE30 /* MenuTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableCell.xib; sourceTree = "<group>"; };
 		468AF3DC593D8C35AA20C39B /* Pods-MotoBike.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotoBike.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MotoBike/Pods-MotoBike.debug.xcconfig"; sourceTree = "<group>"; };
+		5B6B6CB41F8A184500B2783B /* PostNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNewsViewController.swift; sourceTree = "<group>"; };
 		5B7D3A1B1F85E49C00509184 /* NewsFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewCell.swift; sourceTree = "<group>"; };
 		5B84618B1F757E4000884339 /* PostViewDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewDataManager.swift; sourceTree = "<group>"; };
 		5B94C3AA1F87701E00EB0A3B /* InfoDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDataManager.swift; sourceTree = "<group>"; };
@@ -66,6 +70,8 @@
 		5BCC66BD1F6D6F3A00E312C5 /* NewsFeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsFeedTableViewController.swift; sourceTree = "<group>"; };
 		5BCC66BF1F6D725700E312C5 /* DesignCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignCardView.swift; sourceTree = "<group>"; };
 		5BCDBBED1F624600005EC300 /* FBLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBLoginViewController.swift; sourceTree = "<group>"; };
+		5BCE7BC01F89D73000A5E4D7 /* PostNewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNewsTableViewCell.swift; sourceTree = "<group>"; };
+		5BCE7BC11F89D73000A5E4D7 /* PostNewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostNewsTableViewCell.xib; sourceTree = "<group>"; };
 		5BCEE8DA1F655D0400593A5C /* MotoBike.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MotoBike.entitlements; sourceTree = "<group>"; };
 		5BD427E11F63A0E300450C1A /* FBDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBDataManager.swift; sourceTree = "<group>"; };
 		5BDBA68A1F5463C7006ECE3A /* MotoBike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotoBike.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +107,7 @@
 				5BDBA6961F5463C7006ECE3A /* LaunchScreen.storyboard */,
 				182990ED1F713B2A00D34DCA /* PinDetailView.xib */,
 				18D49A7D1F88E5A10084EE30 /* MenuTableCell.xib */,
+				5BCE7BC11F89D73000A5E4D7 /* PostNewsTableViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -133,6 +140,8 @@
 				182990EF1F713B4600D34DCA /* PinDetailView.swift */,
 				182B58DF1F67BC98003D0ECB /* PostViewController.swift */,
 				5BA0FCC51F6AC7C200E7E7C8 /* AddNewPostViewController.swift */,
+				5BCE7BC01F89D73000A5E4D7 /* PostNewsTableViewCell.swift */,
+				5B6B6CB41F8A184500B2783B /* PostNewsViewController.swift */,
 				5BCC66BF1F6D725700E312C5 /* DesignCardView.swift */,
 				5B7D3A1B1F85E49C00509184 /* NewsFeedTableViewCell.swift */,
 				5BCC66BD1F6D6F3A00E312C5 /* NewsFeedTableViewController.swift */,
@@ -226,7 +235,7 @@
 				TargetAttributes = {
 					5BDBA6891F5463C7006ECE3A = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = Z7353C93M9;
+						DevelopmentTeam = 7DN3U49FQL;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -262,6 +271,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BCE7BC31F89D73000A5E4D7 /* PostNewsTableViewCell.xib in Resources */,
 				182990EE1F713B2A00D34DCA /* PinDetailView.xib in Resources */,
 				5BDBA6981F5463C7006ECE3A /* LaunchScreen.storyboard in Resources */,
 				5BDBA6931F5463C7006ECE3A /* Main.storyboard in Resources */,
@@ -334,6 +344,8 @@
 				5BA0FCC61F6AC7C200E7E7C8 /* AddNewPostViewController.swift in Sources */,
 				5B7D3A1C1F85E49C00509184 /* NewsFeedTableViewCell.swift in Sources */,
 				18016AEE1F7D4533009C1385 /* NavigationMenuViewController.swift in Sources */,
+				5BCE7BC21F89D73000A5E4D7 /* PostNewsTableViewCell.swift in Sources */,
+				5B6B6CB51F8A184500B2783B /* PostNewsViewController.swift in Sources */,
 				5B84618C1F757E4000884339 /* PostViewDataManager.swift in Sources */,
 				182B58E61F68EB8A003D0ECB /* DispatchQueue+Once.swift in Sources */,
 				5BCC66C01F6D725700E312C5 /* DesignCardView.swift in Sources */,
@@ -485,7 +497,7 @@
 			baseConfigurationReference = 468AF3DC593D8C35AA20C39B /* Pods-MotoBike.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Z7353C93M9;
+				DEVELOPMENT_TEAM = 7DN3U49FQL;
 				INFOPLIST_FILE = MotoBike/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Cherry.MotoBike;
@@ -499,7 +511,7 @@
 			baseConfigurationReference = A7B8A655DD3361C40F56C083 /* Pods-MotoBike.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Z7353C93M9;
+				DEVELOPMENT_TEAM = 7DN3U49FQL;
 				INFOPLIST_FILE = MotoBike/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Cherry.MotoBike;

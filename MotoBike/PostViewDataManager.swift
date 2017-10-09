@@ -65,6 +65,8 @@ struct PostViewDataManager {
         
         postItem = [weatherContents, trafficContents, decideTag, location, cusImg]
         
+        self.getPostItem.FinPostArray?(contents: postItem)
+        
     }
 
 }

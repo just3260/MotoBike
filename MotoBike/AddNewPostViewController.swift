@@ -8,8 +8,9 @@
 
 import UIKit
 import Photos
+import InteractiveSideMenu
 
-class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, FinPostViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, FinPostViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, SideMenuItemContent {
     
     @IBOutlet weak var pickerItemLabel: UILabel!
     
@@ -68,7 +69,7 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
         print(AddFinPostViewModel.weather)
         
-        MBPhPData.getPHPData(allPHPURL: URL_SELECT_ALL_INFO)
+        MBPhPData.getPHPData(allPHPURL: URL_SELECT_ONE_INFO)
         
     }
     
@@ -157,7 +158,7 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
         print(AddFinPostViewModel.postItem)
         
-        let PostVC = self.storyboard?.instantiateViewController(withIdentifier: "NewsFeedTableViewController") as! NewsFeedTableViewController
+        let PostVC = self.storyboard?.instantiateViewController(withIdentifier: "PostNewsViewController") as! PostNewsViewController
         
         PostVC.PostData = AddFinPostViewModel.postItem
         
@@ -171,7 +172,7 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
         self.modalTransitionStyle = .crossDissolve
         
         dismiss(animated: true, completion: nil)
-        
+       
     }
     
     func getPickerView() {

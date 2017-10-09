@@ -32,14 +32,14 @@ class MBPhPDataManager: NSObject {
             let DeleteParameters = "id=\(1)"
             // 設置接收方的 HTTP 請求方式
             PHPRequest.httpBody = DeleteParameters.data(using: String.Encoding.utf8)
-        
+        // 重機停車場資料下載全部
         case URL_SELECT_ALL_INFO:
             break
         // 重機停車塲資料庫下載一筆
         case URL_SELECT_ONE_INFO:
-            let SelectOneParameters = "id"
+            let SelectOneParmeters = "id=\(1)"
             // 設置接收方的 HTTP 請求方式
-            PHPRequest.httpBody = SelectOneParameters.data(using: String.Encoding.utf8)
+            PHPRequest.httpBody = SelectOneParmeters.data(using: String.Encoding.utf8)
             
         default:
             break
@@ -68,24 +68,32 @@ class MBPhPDataManager: NSObject {
 
             }
             // InfoJSON 解析下來的資料
-//            let infodecoder = JSONDecoder()
-//
-//            guard let infoDataList = try? infodecoder.decode(InfoData.self, from: data) else {
-//                print("No infoData was returned by the request!")
-//
-//                return
-//
-//            }
-//
-//            print("id:\(infoDataList.id)")
-//
-//            print("name:\(infoDataList.name)")
-//
-//            print("address:\(infoDataList.address)")
-//
-//            print("area_id:\(infoDataList.area_id)")
-//
-//            print("InfoSelectOneJSON is OK")
+            let infodecoder = JSONDecoder()
+
+            guard let infoDataList = try? infodecoder.decode(InfoData.self, from: data) else {
+                print("No infoData was returned by the request!")
+
+                return
+
+            }
+
+            let infoResultID = ["id": infoDataList.id]
+            
+            print("id:\(infoResultID)")
+            
+            let infoResultNAME = ["name": infoDataList.name]
+            
+            print("name:\(infoResultNAME)")
+            
+            let infoResultADDRESS = ["address": infoDataList.address]
+            
+            print("address:\(infoResultADDRESS)")
+            
+            let infoResultAREA_ID = ["address": infoDataList.area_id]
+            
+            print("area_id:\(infoResultAREA_ID)")
+            
+            print("InfoSelectOneJSON is OK")
             // 回傳的訊息結果
             let responseString = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
             
