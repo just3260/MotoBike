@@ -9,15 +9,23 @@
 import UIKit
 import InteractiveSideMenu
 
-class PostViewController: UIViewController, SideMenuItemContent {
+class PostNavigationViewController: UINavigationController, SideMenuItemContent {
+}
+
+//UINavigationItem
+
+
+
+class PostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         navigationController?.navigationBar.setBackgroundImage(allNavigationBarAttributes.allNavigationbarBg, for: .default)
-        
+
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        
         
     }
 
@@ -30,13 +38,11 @@ class PostViewController: UIViewController, SideMenuItemContent {
     // 取消貼文，回到地圖畫面
     @IBAction func cancelPostView(_ sender: Any) {
         // 頁面返回的動畫效果
-        self.modalTransitionStyle = .crossDissolve
-        
-        dismiss(animated: true, completion: nil)
-        // 側邊欄點選返回
-        showSideMenu()
-        
+        if let navigationViewController = self.navigationController as? SideMenuItemContent {
+            navigationViewController.showSideMenu()
+        }
     }
+
 
     /*
     // MARK: - Navigation
