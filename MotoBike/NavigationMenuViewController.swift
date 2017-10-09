@@ -68,9 +68,7 @@ class NavigationMenuViewController: MenuViewController {
         userImage.layer.shadowColor = UIColor(red: 44.0/255.0, green: 62.0/255.0, blue: 80.0/255.0, alpha: 1.0).cgColor
         
 //        idTextLable.text = loginData[0]
-        
 //        nameTextLabel.text = loginData[3]
-        
 //        emailTextLabel.text = loginData[1]
         
         let userID = loginData[0]

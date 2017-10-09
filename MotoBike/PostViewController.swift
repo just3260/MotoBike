@@ -37,6 +37,10 @@ class PostViewController: UIViewController {
     
     // 取消貼文，回到地圖畫面
     @IBAction func cancelPostView(_ sender: Any) {
+        
+        self.modalTransitionStyle = .crossDissolve
+        dismiss(animated: true, completion: nil)
+        
         // 頁面返回的動畫效果
         if let navigationViewController = self.navigationController as? SideMenuItemContent {
             navigationViewController.showSideMenu()

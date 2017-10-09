@@ -321,7 +321,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         let loginView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FBLoginViewController") as! FBLoginViewController
         loginView.modalTransitionStyle = .crossDissolve
         present(loginView, animated: true, completion: nil)
-        
     }
     
     
