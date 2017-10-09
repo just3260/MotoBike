@@ -129,7 +129,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K22-mV-VMt" userLabel="Message">
-                                <rect key="frame" x="10" y="584.5" width="62.5" height="62.5"/>
+                                <rect key="frame" x="10" y="593.5" width="53.5" height="53.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="K22-mV-VMt" secondAttribute="height" multiplier="1:1" id="b5D-2T-mfO"/>
                                 </constraints>
@@ -149,12 +149,12 @@
                                     <action selector="menuBtn:" destination="u77-Z9-c5r" eventType="touchUpInside" id="0p0-AL-0MQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxS-tU-QId" userLabel="User Location">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxS-tU-QId" userLabel="User Location">
                                 <rect key="frame" x="302.5" y="584.5" width="62.5" height="62.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="bxS-tU-QId" secondAttribute="height" multiplier="1:1" id="cf5-QA-TVi"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" image="MotoBike LocationButton"/>
                                 <connections>
                                     <action selector="userTrackingModeChanged:" destination="u77-Z9-c5r" eventType="touchUpInside" id="LB1-E4-unQ"/>
                                 </connections>
@@ -174,7 +174,7 @@
                             <constraint firstItem="gBn-lJ-Mz7" firstAttribute="width" secondItem="kKe-91-sni" secondAttribute="width" multiplier="1/6" id="mdX-Al-Zip"/>
                             <constraint firstItem="6cb-80-ZFa" firstAttribute="bottom" secondItem="JK8-60-otd" secondAttribute="top" id="nmG-v5-Vn9"/>
                             <constraint firstAttribute="trailing" secondItem="bxS-tU-QId" secondAttribute="trailing" constant="10" id="obX-Uz-M8L"/>
-                            <constraint firstItem="K22-mV-VMt" firstAttribute="width" secondItem="kKe-91-sni" secondAttribute="width" multiplier="1/6" id="skl-PB-Eqs"/>
+                            <constraint firstItem="K22-mV-VMt" firstAttribute="width" secondItem="kKe-91-sni" secondAttribute="width" multiplier="1/7" id="skl-PB-Eqs"/>
                         </constraints>
                     </view>
                     <connections>
@@ -245,6 +245,7 @@
     <resources>
         <image name="MessageBtn" width="178" height="178"/>
         <image name="MotoBike ListButton" width="76" height="85"/>
+        <image name="MotoBike LocationButton" width="76" height="85"/>
         <image name="MotoBike Message Enable Button" width="178" height="178"/>
     </resources>
 </document>

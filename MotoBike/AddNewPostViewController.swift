@@ -10,6 +10,10 @@ import UIKit
 import Photos
 import InteractiveSideMenu
 
+class AddNewPostNavigationViewController: UINavigationController, SideMenuItemContent {
+}
+
+
 class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, FinPostViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, SideMenuItemContent {
     
     @IBOutlet weak var pickerItemLabel: UILabel!
@@ -170,9 +174,11 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
         AddFinPostViewModel.postItem.removeAll()
         
         self.modalTransitionStyle = .crossDissolve
-        
         dismiss(animated: true, completion: nil)
-       
+        
+        if let navigationViewController = self.navigationController as? SideMenuItemContent {
+            navigationViewController.showSideMenu()
+        }
     }
     
     func getPickerView() {

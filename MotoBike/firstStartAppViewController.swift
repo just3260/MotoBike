@@ -122,11 +122,9 @@ class firstStartAppViewController: UIViewController, UIScrollViewDelegate, FBKey
         
         UserDefaults.standard.synchronize()
         // 跳轉至Map畫面
-        let mapView = UIStoryboard(name: "Map", bundle: nil).instantiateViewController(withIdentifier: "MapViewController")
-        
-        mapView.modalTransitionStyle = .crossDissolve
-        
-        present(mapView, animated: true, completion: nil)
+        let SideVC = UIStoryboard(name: "Map", bundle: nil).instantiateViewController(withIdentifier: "HostViewController")
+        SideVC.modalTransitionStyle = .crossDissolve
+        present(SideVC, animated: true, completion: nil)
 
     }
     

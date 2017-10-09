@@ -48,10 +48,10 @@
                             <constraint firstItem="lIY-ew-sNJ" firstAttribute="leading" secondItem="YGY-3G-HP3" secondAttribute="leading" id="YqY-NP-7Ds"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YGY-3G-HP3" secondAttribute="trailing" constant="81" id="bYT-9X-JIw"/>
                             <constraint firstItem="lIY-ew-sNJ" firstAttribute="top" secondItem="YGY-3G-HP3" secondAttribute="bottom" constant="40" id="rm6-SI-XbL"/>
-                            <constraint firstItem="OD4-K7-jqf" firstAttribute="centerX" secondItem="udO-Ke-dfb" secondAttribute="centerX" id="svR-BJ-RRv"/>
-                            <constraint firstItem="udO-Ke-dfb" firstAttribute="bottom" secondItem="OD4-K7-jqf" secondAttribute="bottom" constant="20" id="tms-WI-3Gv"/>
+                            <constraint firstItem="OD4-K7-jqf" firstAttribute="centerX" secondItem="2pk-zc-N1N" secondAttribute="centerX" id="svR-BJ-RRv"/>
+                            <constraint firstItem="2pk-zc-N1N" firstAttribute="bottom" secondItem="OD4-K7-jqf" secondAttribute="bottom" constant="20" id="tms-WI-3Gv"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="udO-Ke-dfb"/>
+                        <viewLayoutGuide key="safeArea" id="2pk-zc-N1N"/>
                     </view>
                     <connections>
                         <outlet property="firstLoginBtn" destination="YGY-3G-HP3" id="fXt-ME-Z9a"/>
@@ -122,7 +122,7 @@
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="vMZ-sT-N98"/>
+                        <viewLayoutGuide key="safeArea" id="0gJ-8V-TZ5"/>
                     </view>
                     <connections>
                         <outlet property="emailTextLabel" destination="M1H-Al-3sZ" id="li7-Kh-uwO"/>
@@ -258,6 +258,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="新增文章" translatesAutoresizingMaskIntoConstraints="NO" id="CVh-Jf-I1M">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iha-Ft-j73">
                                 <rect key="frame" x="304" y="575" width="55" height="55"/>
                                 <constraints>
@@ -269,20 +272,17 @@
                                     <segue destination="FJY-yx-Mzm" kind="presentation" modalTransitionStyle="crossDissolve" id="k4n-NA-ZET"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="新增文章" translatesAutoresizingMaskIntoConstraints="NO" id="CVh-Jf-I1M">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="CVh-Jf-I1M" firstAttribute="bottom" secondItem="GXH-2c-HLh" secondAttribute="bottom" id="3gg-xs-maa"/>
-                            <constraint firstItem="CVh-Jf-I1M" firstAttribute="leading" secondItem="GXH-2c-HLh" secondAttribute="leading" id="61L-Jh-Syx"/>
+                            <constraint firstItem="CVh-Jf-I1M" firstAttribute="bottom" secondItem="Yho-BA-fhH" secondAttribute="bottom" id="3gg-xs-maa"/>
+                            <constraint firstItem="CVh-Jf-I1M" firstAttribute="leading" secondItem="Yho-BA-fhH" secondAttribute="leading" id="61L-Jh-Syx"/>
                             <constraint firstItem="CVh-Jf-I1M" firstAttribute="top" secondItem="Euv-re-RTS" secondAttribute="top" id="8iJ-Sw-7wX"/>
-                            <constraint firstItem="GXH-2c-HLh" firstAttribute="trailing" secondItem="Iha-Ft-j73" secondAttribute="trailing" constant="16" id="Bzi-QK-1vc"/>
-                            <constraint firstItem="CVh-Jf-I1M" firstAttribute="trailing" secondItem="GXH-2c-HLh" secondAttribute="trailing" id="hvX-3Z-fPO"/>
-                            <constraint firstItem="GXH-2c-HLh" firstAttribute="bottom" secondItem="Iha-Ft-j73" secondAttribute="bottom" constant="37" id="nE0-cH-Sgt"/>
+                            <constraint firstItem="Yho-BA-fhH" firstAttribute="trailing" secondItem="Iha-Ft-j73" secondAttribute="trailing" constant="16" id="Bzi-QK-1vc"/>
+                            <constraint firstItem="CVh-Jf-I1M" firstAttribute="trailing" secondItem="Yho-BA-fhH" secondAttribute="trailing" id="hvX-3Z-fPO"/>
+                            <constraint firstItem="Yho-BA-fhH" firstAttribute="bottom" secondItem="Iha-Ft-j73" secondAttribute="bottom" constant="37" id="nE0-cH-Sgt"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="GXH-2c-HLh"/>
+                        <viewLayoutGuide key="safeArea" id="Yho-BA-fhH"/>
                     </view>
                     <navigationItem key="navigationItem" title="新增路況" id="V1x-Oe-Rf3">
                         <barButtonItem key="leftBarButtonItem" title="Map" image="返回地圖鈕" id="fcY-iB-DPK">
@@ -296,10 +296,10 @@
             </objects>
             <point key="canvasLocation" x="336.80000000000001" y="133.5832083958021"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Post Navigation View Controller-->
         <scene sceneID="oOL-vD-hLb">
             <objects>
-                <navigationController storyboardIdentifier="PostViewController" automaticallyAdjustsScrollViewInsets="NO" id="2pF-b2-qFF" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="PostViewController" automaticallyAdjustsScrollViewInsets="NO" id="2pF-b2-qFF" customClass="PostNavigationViewController" customModule="MotoBike" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EB8-jl-TGZ">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -538,11 +538,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="MyS-sa-4nt" firstAttribute="top" secondItem="qTz-44-fZj" secondAttribute="top" id="DKN-F5-Cwh"/>
-                            <constraint firstItem="MyS-sa-4nt" firstAttribute="leading" secondItem="qTz-44-fZj" secondAttribute="leading" id="T3L-u9-ywF"/>
-                            <constraint firstAttribute="trailing" secondItem="MyS-sa-4nt" secondAttribute="trailing" id="Td3-c7-JcR"/>
-                            <constraint firstItem="MyS-sa-4nt" firstAttribute="bottom" secondItem="f2q-iE-S6f" secondAttribute="bottom" id="crf-iM-61m"/>
+                            <constraint firstItem="MyS-sa-4nt" firstAttribute="leading" secondItem="qpC-kw-fGX" secondAttribute="leading" id="T3L-u9-ywF"/>
+                            <constraint firstItem="qpC-kw-fGX" firstAttribute="trailing" secondItem="MyS-sa-4nt" secondAttribute="trailing" id="Td3-c7-JcR"/>
+                            <constraint firstItem="MyS-sa-4nt" firstAttribute="bottom" secondItem="qpC-kw-fGX" secondAttribute="bottom" id="crf-iM-61m"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="f2q-iE-S6f"/>
+                        <viewLayoutGuide key="safeArea" id="qpC-kw-fGX"/>
                     </view>
                     <navigationItem key="navigationItem" title="新增貼文" id="uxc-w4-A1U">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="dfv-sr-nVe">
@@ -569,10 +569,10 @@
             </objects>
             <point key="canvasLocation" x="1120.8" y="132.23388305847078"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Add New Post Navigation View Controller-->
         <scene sceneID="iEz-LU-kc8">
             <objects>
-                <navigationController storyboardIdentifier="AddNewPostViewController" automaticallyAdjustsScrollViewInsets="NO" id="FJY-yx-Mzm" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="AddNewPostViewController" automaticallyAdjustsScrollViewInsets="NO" id="FJY-yx-Mzm" customClass="AddNewPostNavigationViewController" customModule="MotoBike" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8Uf-hK-tEd">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
