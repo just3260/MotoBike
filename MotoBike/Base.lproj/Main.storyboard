@@ -296,10 +296,10 @@
             </objects>
             <point key="canvasLocation" x="336.80000000000001" y="133.5832083958021"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Post Navigation View Controller-->
         <scene sceneID="oOL-vD-hLb">
             <objects>
-                <navigationController storyboardIdentifier="PostViewController" automaticallyAdjustsScrollViewInsets="NO" id="2pF-b2-qFF" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="PostViewController" automaticallyAdjustsScrollViewInsets="NO" id="2pF-b2-qFF" customClass="PostNavigationViewController" customModule="MotoBike" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EB8-jl-TGZ">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -621,10 +621,10 @@
             </objects>
             <point key="canvasLocation" x="1908" y="1039"/>
         </scene>
-        <!--Fin Post News View Controller-->
+        <!--Navigation Controller-->
         <scene sceneID="n7E-xf-kHB">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cYF-EI-aml" customClass="FinPostNewsViewController" customModule="MotoBike" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cYF-EI-aml" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wuq-WI-1ky">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
