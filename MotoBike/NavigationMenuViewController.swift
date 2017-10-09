@@ -102,7 +102,7 @@ extension NavigationMenuViewController: UITableViewDelegate, UITableViewDataSour
         
         //取得myTableView的cell，名稱是myTableView輸入的Cell Identifier
         let cell = menuTableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath) as! MenuTableCell
-
+        
         cell.menuImage.image = cellData[indexPath.row].0
         cell.menuLabel.text = cellData[indexPath.row].1
         cell.menuSwitchOutlet.isHidden = cellData[indexPath.row].2
@@ -113,6 +113,10 @@ extension NavigationMenuViewController: UITableViewDelegate, UITableViewDataSour
     
     // 選取cell時執行的動作
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let cell = menuTableView.cellForRow(at: indexPath) as! MenuTableCell
+        cell.menuLabel.textColor = #colorLiteral(red: 0.9669716954, green: 0.8325224519, blue: 0.4720008373, alpha: 1)
+        cell.selectView.backgroundColor = #colorLiteral(red: 0.9669716954, green: 0.8325224519, blue: 0.4720008373, alpha: 1)
         
         guard let menuContainerViewController = self.menuContainerViewController else {
             return
@@ -138,9 +142,9 @@ extension NavigationMenuViewController: UITableViewDelegate, UITableViewDataSour
     
     // 長按cell時的動作(highlight)
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-        let cell = menuTableView.cellForRow(at: indexPath) as! MenuTableCell
-        cell.menuLabel.textColor = #colorLiteral(red: 0.9669716954, green: 0.8325224519, blue: 0.4720008373, alpha: 1)
-        cell.selectView.backgroundColor = #colorLiteral(red: 0.9669716954, green: 0.8325224519, blue: 0.4720008373, alpha: 1)
+//        let cell = menuTableView.cellForRow(at: indexPath) as! MenuTableCell
+//        cell.menuLabel.textColor = #colorLiteral(red: 0.9669716954, green: 0.8325224519, blue: 0.4720008373, alpha: 1)
+//        cell.selectView.backgroundColor = #colorLiteral(red: 0.9669716954, green: 0.8325224519, blue: 0.4720008373, alpha: 1)
     }
     
     

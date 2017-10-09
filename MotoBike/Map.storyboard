@@ -52,16 +52,16 @@
                                             <constraint firstAttribute="height" constant="200" id="WqN-z9-ecp"/>
                                         </constraints>
                                     </view>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Menu" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="i5G-Dv-BEZ">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="Menu" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="i5G-Dv-BEZ">
                                         <rect key="frame" x="0.0" y="280" width="282" height="367"/>
                                         <color key="backgroundColor" red="0.27104222770000003" green="0.62518757579999995" blue="0.63415694239999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MenuCell" id="RJQ-17-kDJ" customClass="MenuTableCell" customModule="MotoBike" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="282" height="100"/>
+                                                <rect key="frame" x="0.0" y="28" width="282" height="60"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RJQ-17-kDJ" id="WuG-6O-0nj">
-                                                    <rect key="frame" x="0.0" y="0.0" width="282" height="100"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="282" height="60"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="backgroundColor" red="0.27104222770000003" green="0.62518757579999995" blue="0.63415694239999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </tableViewCellContentView>
