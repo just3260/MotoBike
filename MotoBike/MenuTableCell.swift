@@ -38,17 +38,21 @@ class MenuTableCell: UITableViewCell {
         if menuLabel.text == "Gas Station" {
             
             if gasStationPin == true {
-                print("加油站插針")
+                let gasOnNotification = Notification.Name(rawValue:"GASON")
+                NotificationCenter.default.post(name: gasOnNotification, object: nil, userInfo: nil)
             } else {
-                print("加油站拔針")
+                let gasOffNotification = Notification.Name(rawValue:"GASOFF")
+                NotificationCenter.default.post(name: gasOffNotification, object: nil, userInfo: nil)
             }
             
         } else if menuLabel.text == "Parking" {
             
             if gasStationPin == true {
-                print("停車場插針")
+                let parkingOnNotification = Notification.Name(rawValue:"PARKINGON")
+                NotificationCenter.default.post(name: parkingOnNotification, object: nil, userInfo: nil)
             } else {
-                print("停車場拔針")
+                let parkingOffNotification = Notification.Name(rawValue:"PARKINGOFF")
+                NotificationCenter.default.post(name: parkingOffNotification, object: nil, userInfo: nil)
             }
         }
 

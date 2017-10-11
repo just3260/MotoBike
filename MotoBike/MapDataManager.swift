@@ -17,7 +17,11 @@ protocol MapDataDelegate: NSObjectProtocol {
     /// 在地圖上插上大頭針
     func addMapPin(annotation: PinData)
     
+    /// 在地圖上插上大頭針群組
+    func addMapPins(annotations: [PinData])
     
+    /// 刪除在地圖上的大頭針群組
+    func deleteMapPins(annotations: [PinData])
 }
 
 class MapDataManager: NSObject, CLLocationManagerDelegate, MKMapViewDelegate {
@@ -30,6 +34,8 @@ class MapDataManager: NSObject, CLLocationManagerDelegate, MKMapViewDelegate {
     /// 地理編碼加載
     var geoCoder: CLGeocoder = CLGeocoder()
     
+    /// 加油站資料群組
+    var gasPinArray = [PinData]()
     
     /// 經緯度轉換（TWD097_to_GWS84）
     func TWD097_to_GWS84(point: CGPoint) -> CLLocationCoordinate2D{
@@ -134,7 +140,7 @@ class MapDataManager: NSObject, CLLocationManagerDelegate, MKMapViewDelegate {
         
         /// 新增大頭針內容
         let annotation = PinData(coordinate:coordinate, title: "錯誤", subtitle: "無法判斷位置")
-        
+        annotation.type = .user
         /// 經緯度
         let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
 
@@ -175,21 +181,18 @@ class MapDataManager: NSObject, CLLocationManagerDelegate, MKMapViewDelegate {
         
         for data in array {
             
-            guard let name = data["S_NAME"] as? String else {
+            guard let name = data["S_NAME"] as? String,
+                
+            let address = data["ADDRESS"] as? String,
+                
+            let addressX = data["ADDR_X"] as? String,
+                
+            let addressY = data["ADDR_Y"] as? String
+            
+            else {
                 return
             }
             
-            guard let address = data["ADDRESS"] as? String else {
-                return
-            }
-            
-            guard let addressX = data["ADDR_X"] as? String else {
-                return
-            }
-            
-            guard let addressY = data["ADDR_Y"] as? String else {
-                return
-            }
 
             let x = addressX as NSString
             let y = addressY as NSString
@@ -202,15 +205,20 @@ class MapDataManager: NSObject, CLLocationManagerDelegate, MKMapViewDelegate {
 
             // 大頭針內容
             let annotation = PinData(coordinate: GWS84, title: name, subtitle: address)
-            print("add")
-            mapView.addMapPin(annotation: annotation)
+            annotation.type = .gasStation
+//            mapView.addMapPin(annotation: annotation)
+            gasPinArray.append(annotation)
         }
+        
+        mapView.addMapPins(annotations: gasPinArray)
         
     }
     
     
-
-    
+    /// 刪除群組大頭針
+    func deleteGasPins() {
+        mapView.deleteMapPins(annotations: gasPinArray)
+    }
 
 
 

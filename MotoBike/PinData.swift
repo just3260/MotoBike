@@ -56,9 +56,14 @@ struct selectPinData {
 // timestamp : 獲取當前定位到的時間
 // distance(from location: CLLocation) : 計算2個位置之間的實際物理距離
 
+enum pinType {
+    case user
+    case gasStation
+    case parking
 
+}
 
-class PinData: NSObject,MKAnnotation {
+class PinData: NSObject, MKAnnotation {
     
     /// 大頭針的經緯度
     var coordinate: CLLocationCoordinate2D
@@ -68,6 +73,9 @@ class PinData: NSObject,MKAnnotation {
     
     /// 大頭針所在地址
     var subtitle: String?
+    
+    /// 大頭針類型
+    var type: pinType = .user
     
     // 初始化
     init(coordinate:CLLocationCoordinate2D!, title:String?, subtitle:String?){
@@ -85,6 +93,8 @@ public class PinAnnotation: MKAnnotationView  {
     var iconImageView: UIImageView!
     /// 底圖
     var DrawView:UIView!
+    /// 大頭針類型
+    var type: pinType = pinType.user
     
     override init(annotation: MKAnnotation!, reuseIdentifier: String!) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
@@ -108,12 +118,20 @@ public class PinAnnotation: MKAnnotationView  {
     
     
     /// 製作地圖圖標
-    public func DrawCustomerView() {
+    public func DrawCustomerView(){
       
         // 圖層框架
         iconImageView.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
 //        iconImageView.layer.cornerRadius = 3
-        iconImageView.image = UIImage(named: "pin")
+        
+        switch self.type {
+        case .user:
+            iconImageView.image = UIImage(named: "pin")
+        case .gasStation:
+            iconImageView.image = UIImage(named: "gas station")
+        case .parking:
+            iconImageView.image = UIImage(named: "pin")
+        }
         
         self.frame = CGRect(x: 0, y: 0, width: iconImageView.frame.width, height: iconImageView.frame.height)
         self.centerOffset = CGPoint(x: 0, y: -20)

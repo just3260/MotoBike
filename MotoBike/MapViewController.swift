@@ -46,52 +46,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         NotificationCenter.default.addObserver(self, selector: #selector(addRoute), name: NSNotification.Name(rawValue: "ADDROUTE"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(stepsBtnTap), name: NSNotification.Name(rawValue: "STEPSBTN"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(stepsBtnTap), name: NSNotification.Name(rawValue: "ADDNEWPOST"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(openGasStationPin), name: NSNotification.Name(rawValue: "GASON"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(closeGasStationPin), name: NSNotification.Name(rawValue: "GASOFF"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(openParkingPin), name: NSNotification.Name(rawValue: "PARKINGON"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(closeParkingPin), name: NSNotification.Name(rawValue: "PARKINGOFF"), object: nil)
         
-        // 取得加油站公開資料
-//        let urlString = "http://data.taipei/opendata/datalist/apiAccess?scope=resourceAquire&rid=a8fd6811-ab29-40dd-9b92-383e8ebd2a4e"
-//        guard let url = URL(string: urlString) else {
-//            NSLog("Invalid URL")
-//            return
-//        }
-        let urlString = "http://localhost/MotoBike.php"
-        guard let url = URL(string: urlString) else {
-            NSLog("Invalid URL")
-            return
-        }
-        
-        //(url要加上驚嘆號)
-        let task = URLSession.shared.dataTask(with: url) {
-            (data, response, error) in
-            if error == nil {
-//                var urlContent = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-//                print(urlContent as Any)
-                
-                guard let data = data else {
-                    print("No data was returned by the request!")
-                    
-                    return
-                }
-                
-                print(data)
-            }
-        }
-        task.resume()
-        
-        
-        
-        
-        
-        
-        
-        
-//        //建立一般的session設定
-//        let sessionWithConfigure = URLSessionConfiguration.default
-//        //設定委任對象為自己
-//        let session = URLSession(configuration: sessionWithConfigure, delegate: self, delegateQueue: OperationQueue.main)
-//        //設定下載網址
-//        let dataTask = session.downloadTask(with: url)
-//        //啟動或重新啟動下載動作
-//        dataTask.resume()
     }
     
     // 螢幕消失時，關閉定位功能（省電）
@@ -113,9 +72,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     }
     
     
+    // 下載url完成時
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+        
         do {
-            
             //JSON資料處理
             let dataDic = try JSONSerialization.jsonObject(with: NSData(contentsOf: location) as Data, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String:[String:AnyObject]]
             
@@ -159,6 +119,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         })
         
     }
+    
     /// 長按時在地圖上新增事件
     func addNewMapEvent(sender: UIGestureRecognizer) {
         
@@ -212,26 +173,40 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     }
     
     
+    
+    
+    
     // 在地圖上插大頭針
     func mapView(_ mainMapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
+
         if(annotation is MKUserLocation){
             // return nil表示用預設值那個藍色發光圓形圖
             return nil
         }
-        
-        var pin: PinAnnotation? = mainMapView.dequeueReusableAnnotationView(withIdentifier: "UserAddPoint") as? PinAnnotation
+
+        var pin: PinAnnotation?  = mainMapView.dequeueReusableAnnotationView(withIdentifier: "pinID") as? PinAnnotation
+        pin?.type = .user
         
         if(pin == nil){
-            pin = PinAnnotation(annotation: annotation, reuseIdentifier: "UserAddPoint")
+            pin = PinAnnotation(annotation: annotation, reuseIdentifier: "pinID")
             // 關閉大頭針詳細資料
             pin?.canShowCallout = false
-            
         }
+        
+        for gasPin in mapManager.gasPinArray {
+            if let viewAddress = annotation.subtitle as? String {
+                if gasPin.subtitle == viewAddress {
+                    pin?.type = .gasStation
+                }
+            }
+        }
+
         pin?.DrawCustomerView()
         pin?.annotation = annotation
         return pin
     }
+
+    
     
     
     // 新增大頭針時呼叫的方法(動畫)
@@ -242,11 +217,22 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             views.last?.canShowCallout = false
             return
         }
-
+        
+        for view in views {
+            if let viewAddress = view.annotation?.subtitle as? String {
+                for gasPin in mapManager.gasPinArray {
+                    if gasPin.subtitle == viewAddress {
+                        return
+                    }
+                }
+            }
+        }
         
         let visibleRect = mapView.annotationVisibleRect
         
         for view:MKAnnotationView in views{
+            
+            
             let endFrame:CGRect = view.frame
             var startFrame:CGRect = endFrame
             startFrame.origin.y = visibleRect.origin.y - startFrame.size.height
@@ -277,6 +263,73 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     // 在地圖上插上大頭針
     func addMapPin(annotation: PinData) {
         mainMapView.addAnnotation(annotation)
+    }
+    
+
+    // 在地圖上插上大頭針群組
+    func addMapPins(annotations: [PinData]) {
+        mainMapView.addAnnotations(annotations)
+    }
+
+    
+    // 刪除在地圖上的大頭針群組
+    func deleteMapPins(annotations: [PinData]) {
+        mainMapView.removeAnnotations(annotations)
+    }
+    
+    
+    /// 啟用加油站大頭針
+    func openGasStationPin() {
+        print("啟用加油站大頭針")
+        // 取得加油站公開資料
+        let urlString = "http://data.taipei/opendata/datalist/apiAccess?scope=resourceAquire&rid=a8fd6811-ab29-40dd-9b92-383e8ebd2a4e"
+        guard let url = URL(string: urlString) else {
+            NSLog("Invalid URL")
+            return
+        }
+        
+        //(url要加上驚嘆號)
+        let task = URLSession.shared.dataTask(with: url) {
+            (data, response, error) in
+            if error == nil {
+                var urlContent = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+                print(urlContent as Any)
+                
+                guard let data = data else {
+                    print("No data was returned by the request!")
+                    return
+                }
+            }
+        }
+        task.resume()
+        
+        //建立一般的session設定
+        let sessionWithConfigure = URLSessionConfiguration.default
+        //設定委任對象為自己
+        let session = URLSession(configuration: sessionWithConfigure, delegate: self, delegateQueue: OperationQueue.main)
+        //設定下載網址
+        let dataTask = session.downloadTask(with: url)
+        //啟動或重新啟動下載動作
+        dataTask.resume()
+        
+    }
+    
+    
+    /// 關閉加油站大頭針
+    func closeGasStationPin() {
+        mapManager.deleteGasPins()
+    }
+    
+    
+    /// 啟用停車場大頭針
+    func openParkingPin() {
+        print("啟用停車場大頭針")
+    }
+    
+    
+    /// 關閉停車場大頭針
+    func closeParkingPin() {
+        print("關閉停車場大頭針")
     }
     
     
