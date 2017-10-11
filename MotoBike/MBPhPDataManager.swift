@@ -71,28 +71,25 @@ class MBPhPDataManager: NSObject {
             // 整筆資料庫抓取
             if(allPHPURL == URL_SELECT_ALL_INFO) {
                 do {
-                    guard let infoDataList = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? NSArray else {
+                    guard let infoAllDataList = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? NSArray else {
                         return
                         
                     }
+                    let id = infoAllDataList[0]
                     
-                    print(infoDataList)
+                    print(id)
                     
-                    let infoResultID = ["id": infoDataList]
+                    let name = infoAllDataList[1]
                     
-                    print("id:\(infoResultID)")
+                    print(name)
                     
-                    let infoResultNAME = ["name": infoDataList]
+                    let address = infoAllDataList[2]
                     
-                    print("name:\(infoResultNAME)")
+                    print(address)
                     
-                    let infoResultADDRESS = ["address": infoDataList]
+                    let area_id = infoAllDataList[3]
                     
-                    print("address:\(infoResultADDRESS)")
-                    
-                    let infoResultAREA_ID = ["area_id": infoDataList]
-                    
-                    print("area_id:\(infoResultAREA_ID)")
+                    print(area_id)
                     
                 } catch {
                     print("error is \(error.localizedDescription)")
