@@ -19,7 +19,8 @@ class PostNewsViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+    
         // Do any additional setup after loading the view.
         let PostNewsnib = UINib.init(nibName: "PostNewsTableViewCell", bundle: nil)
         
@@ -37,13 +38,26 @@ class PostNewsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PostNewsTableViewCell
         
-        // let PostDataItem = self.PostData[indexPath.row]
+    
+        
+        cell.contentView.backgroundColor = UIColor.clear
+        
+        let whiteRoundedView : UIView = UIView(frame: CGRect(x: 10, y: 8, width: self.view.frame.size.width - 20, height: 210))
+        
+        whiteRoundedView.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1.0, 1.0, 1.0, 0.9])
+        whiteRoundedView.layer.masksToBounds = false
+        whiteRoundedView.layer.cornerRadius = 2.0
+        whiteRoundedView.layer.shadowOffset = CGSize(width: -1, height: 1)
+        whiteRoundedView.layer.shadowOpacity = 0.2
+        
+        cell.contentView.addSubview(whiteRoundedView)
+        cell.contentView.sendSubview(toBack: whiteRoundedView)
         
         cell.weatherCellLabel.text = PostData[0]
         
@@ -73,6 +87,31 @@ class PostNewsViewController: UIViewController, UITableViewDelegate, UITableView
         return 215
         
     }
+    
+//    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+//        let shadowView = UIView()
+//
+//
+//
+//
+//        let gradient = CAGradientLayer()
+//        gradient.frame.size = CGSize(width: PostNewsTableView.bounds.width, height: 15)
+//        let stopColor = UIColor.gray.cgColor
+//
+//        let startColor = UIColor.white.cgColor
+//
+//
+//        gradient.colors = [stopColor,startColor]
+//
+//
+//        gradient.locations = [0.0,0.8]
+//
+//        shadowView.layer.addSublayer(gradient)
+//
+//
+//        return shadowView
+//
+//    }
     
     func didPostExpanCell() {
         self.PostisExpanded = !PostisExpanded

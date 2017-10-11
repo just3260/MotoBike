@@ -8,13 +8,9 @@
 
 import UIKit
 import InteractiveSideMenu
-
+//UINavigationItem
 class PostNavigationViewController: UINavigationController, SideMenuItemContent {
 }
-
-//UINavigationItem
-
-
 
 class PostViewController: UIViewController {
     
@@ -25,7 +21,6 @@ class PostViewController: UIViewController {
         navigationController?.navigationBar.setBackgroundImage(allNavigationBarAttributes.allNavigationbarBg, for: .default)
 
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-        
         
     }
 

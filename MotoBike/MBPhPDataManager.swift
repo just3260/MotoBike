@@ -68,32 +68,71 @@ class MBPhPDataManager: NSObject {
 
             }
             // InfoJSON 解析下來的資料
-            let infodecoder = JSONDecoder()
-
-            guard let infoDataList = try? infodecoder.decode(InfoData.self, from: data) else {
-                print("No infoData was returned by the request!")
-
-                return
-
+            // 整筆資料庫抓取
+            if(allPHPURL == URL_SELECT_ALL_INFO) {
+                do {
+                    guard let infoDataList = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? NSArray else {
+                        return
+                        
+                    }
+                    
+                    print(infoDataList)
+                    
+                    let infoResultID = ["id": infoDataList]
+                    
+                    print("id:\(infoResultID)")
+                    
+                    let infoResultNAME = ["name": infoDataList]
+                    
+                    print("name:\(infoResultNAME)")
+                    
+                    let infoResultADDRESS = ["address": infoDataList]
+                    
+                    print("address:\(infoResultADDRESS)")
+                    
+                    let infoResultAREA_ID = ["area_id": infoDataList]
+                    
+                    print("area_id:\(infoResultAREA_ID)")
+                    
+                } catch {
+                    print("error is \(error.localizedDescription)")
+                    
+                }
+                
             }
-
-            let infoResultID = ["id": infoDataList.id]
             
-            print("id:\(infoResultID)")
-            
-            let infoResultNAME = ["name": infoDataList.name]
-            
-            print("name:\(infoResultNAME)")
-            
-            let infoResultADDRESS = ["address": infoDataList.address]
-            
-            print("address:\(infoResultADDRESS)")
-            
-            let infoResultAREA_ID = ["address": infoDataList.area_id]
-            
-            print("area_id:\(infoResultAREA_ID)")
+            if(allPHPURL == URL_SELECT_ONE_INFO) {
+                let infodecoder = JSONDecoder()
+                
+                guard let infoDataList = try? infodecoder.decode(InfoData.self, from: data) else {
+                    print("No infoData was returned by the request!")
+                    
+                    return
+                    
+                }
+                
+                print(infoDataList)
+                
+                let infoResultID = ["id": infoDataList.id]
+                
+                print("id:\(infoResultID)")
+                
+                let infoResultNAME = ["name": infoDataList.name]
+                
+                print("name:\(infoResultNAME)")
+                
+                let infoResultADDRESS = ["address": infoDataList.address]
+                
+                print("address:\(infoResultADDRESS)")
+                
+                let infoResultAREA_ID = ["area_id": infoDataList.area_id]
+                
+                print("area_id:\(infoResultAREA_ID)")
+                
+            }
             
             print("InfoSelectOneJSON is OK")
+            
             // 回傳的訊息結果
             let responseString = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
             

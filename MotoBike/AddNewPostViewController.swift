@@ -11,16 +11,33 @@ import Photos
 import InteractiveSideMenu
 
 class AddNewPostNavigationViewController: UINavigationController, SideMenuItemContent {
+    
 }
 
-
-class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, FinPostViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, SideMenuItemContent {
+class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource,
+UIImagePickerControllerDelegate, UINavigationControllerDelegate, SideMenuItemContent {
     
     @IBOutlet weak var pickerItemLabel: UILabel!
     
     @IBOutlet weak var areaLocation: UITextField!
     
     @IBOutlet weak var upDatePic: UIImageView!
+    
+    @IBOutlet weak var FinSunny: UIButton!
+    
+    @IBOutlet weak var FinOvercastCloudy: UIButton!
+    
+    @IBOutlet weak var FinRainny: UIButton!
+    
+    @IBOutlet weak var FinNormalDriving: UIButton!
+    
+    @IBOutlet weak var FinTakeDanger: UIButton!
+    
+    @IBOutlet weak var FinNoPassing: UIButton!
+    
+    @IBOutlet weak var FinAreaTag: UIButton!
+    
+    @IBOutlet weak var FinConfirmLocation: UIButton!
     
     var AddFinPostViewModel = PostViewDataManager()
     
@@ -40,9 +57,6 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        AddFinPostViewModel.getPostItem = self
-        
         navigationController?.navigationBar.setBackgroundImage(allNavigationBarAttributes.allNavigationbarBg, for: .default)
 
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
@@ -64,6 +78,13 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
         // Dispose of any resources that can be recreated.
     }
     
+    func EnterSunnyBtnImg() {
+        BtnImg()
+        
+        FinSunny.setImage(#imageLiteral(resourceName: "晴天(已點擊)"), for: .normal)
+        
+    }
+    
     @IBAction func Sunny(_ sender: UIButton) {
         let sun = "晴天地乾"
         
@@ -73,7 +94,16 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
         print(AddFinPostViewModel.weather)
         
-        MBPhPData.getPHPData(allPHPURL: URL_SELECT_ONE_INFO)
+        MBPhPData.getPHPData(allPHPURL: URL_SELECT_ALL_INFO)
+        
+        EnterSunnyBtnImg()
+        
+    }
+    
+    func EnterOvercastCloudyBtnImg() {
+        BtnImg()
+        
+        FinOvercastCloudy.setImage(#imageLiteral(resourceName: "陰天(已點擊)"), for: .normal)
         
     }
     
@@ -86,6 +116,15 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
         print(AddFinPostViewModel.weather)
         
+        EnterOvercastCloudyBtnImg()
+        
+    }
+    
+    func EnterRainnyBtnImg() {
+        BtnImg()
+        
+        FinRainny.setImage(#imageLiteral(resourceName: "雨天(已點擊)"), for: .normal)
+        
     }
     
     @IBAction func rainny(_ sender: UIButton) {
@@ -96,6 +135,15 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
         AddFinPostViewModel.weather.append(rain)
         
         print(AddFinPostViewModel.weather)
+        
+        EnterRainnyBtnImg()
+        
+    }
+    
+    func EnterNormalDrivingBtnImg() {
+        BtnImg()
+        
+        FinNormalDriving.setImage(#imageLiteral(resourceName: "正常行駛(已點擊)"), for: .normal)
         
     }
     
@@ -108,6 +156,15 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
         print(AddFinPostViewModel.traffic)
         
+        EnterNormalDrivingBtnImg()
+        
+    }
+    
+    func EnterTakeDangerBtnImg() {
+        BtnImg()
+        
+        FinTakeDanger.setImage(#imageLiteral(resourceName: "注意危險(已點擊)"), for: .normal)
+        
     }
     
     @IBAction func takeDanger(_ sender: UIButton) {
@@ -119,6 +176,15 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
         print(AddFinPostViewModel.traffic)
         
+        EnterTakeDangerBtnImg()
+        
+    }
+    
+    func EnterNoPassingBtnImg() {
+        BtnImg()
+        
+        FinNoPassing.setImage(#imageLiteral(resourceName: "禁止通行(已點擊)"), for: .normal)
+        
     }
     
     @IBAction func noPassing(_ sender: UIButton) {
@@ -129,6 +195,15 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
         AddFinPostViewModel.traffic.append(stop)
         
         print(AddFinPostViewModel.traffic)
+        
+        EnterNoPassingBtnImg()
+        
+    }
+    
+    func EnterAreaTagBtnImg() {
+        BtnImg()
+        
+        FinAreaTag.setImage(#imageLiteral(resourceName: "地區標籤選擇(已點擊)"), for: .normal)
         
     }
     
@@ -166,7 +241,7 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
         PostVC.PostData = AddFinPostViewModel.postItem
         
-        self.present(PostVC, animated: true, completion: nil)
+        self.navigationController?.pushViewController({PostVC}(), animated: true)
         
     }
     
@@ -180,11 +255,26 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
             navigationViewController.showSideMenu()
         }
     }
+    // 顯示原本圖片
+    func BtnImg() {
+        FinSunny.setImage(#imageLiteral(resourceName: "晴天"), for: .normal)
+        
+        FinOvercastCloudy.setImage(#imageLiteral(resourceName: "陰天"), for: .normal)
+        
+        FinRainny.setImage(#imageLiteral(resourceName: "雨天"), for: .normal)
+        
+        FinNormalDriving.setImage(#imageLiteral(resourceName: "正常行駛"), for: .normal)
+        
+        FinTakeDanger.setImage(#imageLiteral(resourceName: "注意危險"), for: .normal)
+        
+        FinNoPassing.setImage(#imageLiteral(resourceName: "禁止通行"), for: .normal)
+        
+    }
     
     func getPickerView() {
         let areaTagVC = UIViewController()
         
-        areaTagVC.preferredContentSize = CGSize(width: 250, height: 250)
+        areaTagVC.preferredContentSize = CGSize(width: 250, height: 200)
         
         let areaPickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: 250, height: 300))
         
@@ -309,7 +399,6 @@ class AddNewPostViewController: UIViewController, UIPickerViewDelegate, UIPicker
         getStatus()
         
     }
-    
     // ImagePickerControllerDelegate 實作
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         // 圖片放到 ImageView 上
