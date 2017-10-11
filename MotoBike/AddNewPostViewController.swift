@@ -242,7 +242,7 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate, SideMenuItemCon
         PostVC.PostData = AddFinPostViewModel.postItem
         
         self.navigationController?.pushViewController({PostVC}(), animated: true)
-        
+
     }
     
     @IBAction func CancelPostViewBtn(_ sender: UIBarButtonItem) {

@@ -26,6 +26,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     var addPinLock = NSLock()
     /// 儲存加油站資料
     var gasStationArray = [AnyObject]()
+    /// 暫存點擊的經緯度
+    var pressLocation: CLLocationCoordinate2D!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +52,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         NotificationCenter.default.addObserver(self, selector: #selector(closeGasStationPin), name: NSNotification.Name(rawValue: "GASOFF"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(openParkingPin), name: NSNotification.Name(rawValue: "PARKINGON"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(closeParkingPin), name: NSNotification.Name(rawValue: "PARKINGOFF"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(addNewMapEventDone), name: NSNotification.Name(rawValue: "ADDNEWEVENT"), object: nil)
         
     }
     
@@ -136,7 +139,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         // 轉換為經緯度
         let touchCoordinate = mainMapView.convert(touchPoint, toCoordinateFrom: mainMapView)
         
-        mapManager.addPinData(coordinate: touchCoordinate)
+//        mapManager.addPinData(coordinate: touchCoordinate)
+        pressLocation = touchCoordinate
         
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (MapViewController) in
             // 跳轉至Post畫面
@@ -145,6 +149,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             self.present(postView, animated: true, completion: nil)
         }
         
+    }
+    
+    
+    /// 確認新增事件
+    func addNewMapEventDone() {
+        guard let location = pressLocation else {
+            return
+        }
+        mapManager.addPinData(coordinate: location)
     }
     
     
