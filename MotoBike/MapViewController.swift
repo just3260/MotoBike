@@ -139,7 +139,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         // 轉換為經緯度
         let touchCoordinate = mainMapView.convert(touchPoint, toCoordinateFrom: mainMapView)
         
-//        mapManager.addPinData(coordinate: touchCoordinate)
+        _ = mapManager.decodeAddress(coordinate: touchCoordinate)
         pressLocation = touchCoordinate
         
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (MapViewController) in
@@ -364,7 +364,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             return
         }
         
-        mapManager.addPinData(coordinate: userCoordinate)
+        _ = mapManager.decodeAddress(coordinate: userCoordinate)
+        pressLocation = userCoordinate
         
     }
     

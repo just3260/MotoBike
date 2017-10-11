@@ -134,28 +134,34 @@ class MapDataManager: NSObject, CLLocationManagerDelegate, MKMapViewDelegate {
         
     }
     
-    
-    /// 新增大頭針資料
-    func addPinData(coordinate: CLLocationCoordinate2D) {
+    /// 解析地址
+    func decodeAddress(coordinate: CLLocationCoordinate2D) -> PinData {
         
         /// 新增大頭針內容
         let annotation = PinData(coordinate:coordinate, title: "錯誤", subtitle: "無法判斷位置")
         annotation.type = .user
         /// 經緯度
         let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
-
+        
         geoCoder.reverseGeocodeLocation(location) { (address:[CLPlacemark]?, error:Error?) in
             
             if error == nil {
                 let pinAddress = address?.first
                 print(pinAddress ?? "位置判斷錯誤")
-
+                
                 annotation.title = pinAddress?.locality
                 annotation.subtitle = pinAddress?.name
-
+                
                 selectPinData.pinMark = pinAddress
             }
         }
+        return annotation
+    }
+    
+    /// 新增大頭針資料
+    func addPinData(coordinate: CLLocationCoordinate2D) {
+        
+        let annotation = decodeAddress(coordinate: coordinate)
         
         mapView.addMapPin(annotation: annotation)
     }
