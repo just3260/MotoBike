@@ -21,10 +21,10 @@ struct InfoData: Codable {
 
 let infoData: InfoData = InfoData(id: "", name: "", address: "", area_id: "")
 
-let infoencoder: JSONEncoder = JSONEncoder()
+let infoEncoder: JSONEncoder = JSONEncoder()
 
-let infoencoded = try? infoencoder.encode(infoData)
+let infoEncoded = try? infoEncoder.encode(infoData)
 
-let infodecoder: JSONDecoder = JSONDecoder()
+let infoDecoder: JSONDecoder = JSONDecoder()
 
-let infodecoded = try? infodecoder.decode(InfoData.self, from: infoencoded!)
+let infoDecoded = try? infoDecoder.decode(InfoData.self, from: infoEncoded!)

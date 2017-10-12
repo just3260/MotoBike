@@ -31,8 +31,6 @@ let URL_SELECT_ALL_INFO = "http://localhost/info.php?func=selectAll"
 
 let URL_SELECT_ONE_INFO = "http://localhost/info.php?func=selectOne"
 
-var Parmeters_ID = 1
-
 var INFO_ID = ""
 
 var INFO_NAME = ""

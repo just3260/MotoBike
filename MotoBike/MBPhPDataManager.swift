@@ -68,28 +68,44 @@ class MBPhPDataManager: NSObject {
 
             }
             // InfoJSON 解析下來的資料
-            // 整筆資料庫抓取
+            // 整筆資料庫解析
             if(allPHPURL == URL_SELECT_ALL_INFO) {
                 do {
                     guard let infoAllDataList = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? NSArray else {
+                        print("No infoAllDataList was returned by the request!")
+                        
                         return
                         
                     }
-                    let id = infoAllDataList[0]
-                    
-                    print(id)
-                    
-                    let name = infoAllDataList[1]
-                    
-                    print(name)
-                    
-                    let address = infoAllDataList[2]
-                    
-                    print(address)
-                    
-                    let area_id = infoAllDataList[3]
-                    
-                    print(area_id)
+                    // 將停車場每筆資料取出，
+                    for infoAllItem in 0...220 {
+                        guard let infoAllDataResult = infoAllDataList[infoAllItem] as? NSDictionary else {
+                            print("infoAllDataResult isn't NSDictionary")
+                            
+                            return
+                            
+                        }
+                        
+                        guard let infoAllResultID = infoAllDataResult["id"] as? String,
+                            
+                              let infoAllReusultNAME = infoAllDataResult["name"] as? String,
+                        
+                              let infoAllResultADDRESS = infoAllDataResult["address"] as? String,
+                        
+                              let infoAllResultAREA_ID = infoAllDataResult["area_id"] as? String else {
+                                print("Can't take infoAllDataRsult.keys to infoAllResult")
+                                
+                                return
+                                
+                        }
+                        
+                        let infoAllResult = ["id": infoAllResultID, "name": infoAllReusultNAME, "address": infoAllResultADDRESS, "area_id": infoAllResultAREA_ID]
+                        
+                        print(infoAllResult)
+                        
+                        
+            
+                    }
                     
                 } catch {
                     print("error is \(error.localizedDescription)")
@@ -97,13 +113,13 @@ class MBPhPDataManager: NSObject {
                 }
                 
             }
-            
+            // 單筆資料庫解析
             if(allPHPURL == URL_SELECT_ONE_INFO) {
-                let infodecoder = JSONDecoder()
-                
-                guard let infoDataList = try? infodecoder.decode(InfoData.self, from: data) else {
+                let infoDecoder = JSONDecoder()
+
+                guard let infoDataList = try? infoDecoder.decode(InfoData.self, from: data) else {
                     print("No infoData was returned by the request!")
-                    
+
                     return
                     
                 }
@@ -111,29 +127,31 @@ class MBPhPDataManager: NSObject {
                 print(infoDataList)
                 
                 let infoResultID = ["id": infoDataList.id]
-                
+
                 print("id:\(infoResultID)")
                 
                 let infoResultNAME = ["name": infoDataList.name]
-                
+
                 print("name:\(infoResultNAME)")
-                
+
                 let infoResultADDRESS = ["address": infoDataList.address]
-                
+
                 print("address:\(infoResultADDRESS)")
-                
+
                 let infoResultAREA_ID = ["area_id": infoDataList.area_id]
                 
                 print("area_id:\(infoResultAREA_ID)")
                 
             }
             
-            print("InfoSelectOneJSON is OK")
-            
+            let InfoOK = "InfoJSON is OK"
             // 回傳的訊息結果
-            let responseString = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
-            
-            print("responseString:\(String(describing: responseString))")
+            if(InfoOK.isEmpty) {
+                let responseString = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
+                
+                print("responseString:\(String(describing: responseString))")
+                
+            }
             
         }
         // resume(): 異步執行，配合上面的 dataTask 逃逸閉包，把 dataTask 變成當需要調用的時候，才恢復執行

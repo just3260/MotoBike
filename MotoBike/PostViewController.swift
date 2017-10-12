@@ -10,6 +10,7 @@ import UIKit
 import InteractiveSideMenu
 //UINavigationItem
 class PostNavigationViewController: UINavigationController, SideMenuItemContent {
+    
 }
 
 class PostViewController: UIViewController {

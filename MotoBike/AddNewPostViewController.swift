@@ -51,8 +51,6 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate, SideMenuItemCon
     
     var photoArray = [String]()
     
-    var MBPhPData = MBPhPDataManager()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -79,7 +77,7 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate, SideMenuItemCon
     }
     
     func EnterSunnyBtnImg() {
-        BtnImg()
+        weatherBtnImg()
         
         FinSunny.setImage(#imageLiteral(resourceName: "晴天(已點擊)"), for: .normal)
         
@@ -94,14 +92,12 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate, SideMenuItemCon
         
         print(AddFinPostViewModel.weather)
         
-        MBPhPData.getPHPData(allPHPURL: URL_SELECT_ALL_INFO)
-        
         EnterSunnyBtnImg()
         
     }
     
     func EnterOvercastCloudyBtnImg() {
-        BtnImg()
+        weatherBtnImg()
         
         FinOvercastCloudy.setImage(#imageLiteral(resourceName: "陰天(已點擊)"), for: .normal)
         
@@ -121,7 +117,7 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate, SideMenuItemCon
     }
     
     func EnterRainnyBtnImg() {
-        BtnImg()
+        weatherBtnImg()
         
         FinRainny.setImage(#imageLiteral(resourceName: "雨天(已點擊)"), for: .normal)
         
@@ -141,7 +137,7 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate, SideMenuItemCon
     }
     
     func EnterNormalDrivingBtnImg() {
-        BtnImg()
+        trafficBtnImg()
         
         FinNormalDriving.setImage(#imageLiteral(resourceName: "正常行駛(已點擊)"), for: .normal)
         
@@ -161,7 +157,7 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate, SideMenuItemCon
     }
     
     func EnterTakeDangerBtnImg() {
-        BtnImg()
+        trafficBtnImg()
         
         FinTakeDanger.setImage(#imageLiteral(resourceName: "注意危險(已點擊)"), for: .normal)
         
@@ -181,7 +177,7 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate, SideMenuItemCon
     }
     
     func EnterNoPassingBtnImg() {
-        BtnImg()
+        trafficBtnImg()
         
         FinNoPassing.setImage(#imageLiteral(resourceName: "禁止通行(已點擊)"), for: .normal)
         
@@ -197,13 +193,6 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate, SideMenuItemCon
         print(AddFinPostViewModel.traffic)
         
         EnterNoPassingBtnImg()
-        
-    }
-    
-    func EnterAreaTagBtnImg() {
-        BtnImg()
-        
-        FinAreaTag.setImage(#imageLiteral(resourceName: "地區標籤選擇(已點擊)"), for: .normal)
         
     }
     
@@ -242,11 +231,11 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate, SideMenuItemCon
         PostVC.PostData = AddFinPostViewModel.postItem
         
         self.navigationController?.pushViewController({PostVC}(), animated: true)
-        
+
         let DoneOnNotification = Notification.Name(rawValue: "ADDNEWEVENT")
         
         NotificationCenter.default.post(name: DoneOnNotification, object: nil, userInfo: nil)
-        
+
     }
     
     @IBAction func CancelPostViewBtn(_ sender: UIBarButtonItem) {
@@ -259,14 +248,17 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate, SideMenuItemCon
             navigationViewController.showSideMenu()
         }
     }
-    // 顯示原本圖片
-    func BtnImg() {
+    // 顯示天氣圖片
+    func weatherBtnImg() {
         FinSunny.setImage(#imageLiteral(resourceName: "晴天"), for: .normal)
         
         FinOvercastCloudy.setImage(#imageLiteral(resourceName: "陰天"), for: .normal)
         
         FinRainny.setImage(#imageLiteral(resourceName: "雨天"), for: .normal)
         
+    }
+    // 顯示交通圖片
+    func trafficBtnImg() {
         FinNormalDriving.setImage(#imageLiteral(resourceName: "正常行駛"), for: .normal)
         
         FinTakeDanger.setImage(#imageLiteral(resourceName: "注意危險"), for: .normal)

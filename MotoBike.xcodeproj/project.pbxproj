@@ -29,14 +29,14 @@
 		5BA0FCC61F6AC7C200E7E7C8 /* AddNewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BA0FCC51F6AC7C200E7E7C8 /* AddNewPostViewController.swift */; };
 		5BC722441F862725001AB058 /* DefineDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC722431F862725001AB058 /* DefineDataManager.swift */; };
 		5BCDBBEE1F624600005EC300 /* FBLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCDBBED1F624600005EC300 /* FBLoginViewController.swift */; };
-		5BCE7BC21F89D73000A5E4D7 /* PostNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BCE7BC01F89D73000A5E4D7 /* PostNewsTableViewCell.swift */; };
-		5BCE7BC31F89D73000A5E4D7 /* PostNewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BCE7BC11F89D73000A5E4D7 /* PostNewsTableViewCell.xib */; };
 		5BD427E21F63A0E300450C1A /* FBDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD427E11F63A0E300450C1A /* FBDataManager.swift */; };
 		5BDBA68E1F5463C7006ECE3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDBA68D1F5463C7006ECE3A /* AppDelegate.swift */; };
 		5BDBA6931F5463C7006ECE3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BDBA6911F5463C7006ECE3A /* Main.storyboard */; };
 		5BDBA6981F5463C7006ECE3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BDBA6961F5463C7006ECE3A /* LaunchScreen.storyboard */; };
 		5BDBA6A01F5469E4006ECE3A /* firstStartAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDBA69F1F5469E4006ECE3A /* firstStartAppViewController.swift */; };
 		5BF195BD1F7DDBB200171738 /* MBPhPDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF195BC1F7DDBB200171738 /* MBPhPDataManager.swift */; };
+		5BFE453A1F8F4B1300ACD476 /* PostNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFE45381F8F4B1300ACD476 /* PostNewsTableViewCell.swift */; };
+		5BFE453B1F8F4B1300ACD476 /* PostNewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BFE45391F8F4B1300ACD476 /* PostNewsTableViewCell.xib */; };
 		E54DEDA00CE63F73E0AAFF1C /* Pods_MotoBike.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81408D763E7135FA2B62458D /* Pods_MotoBike.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,8 +64,6 @@
 		5BA0FCC51F6AC7C200E7E7C8 /* AddNewPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewPostViewController.swift; sourceTree = "<group>"; };
 		5BC722431F862725001AB058 /* DefineDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefineDataManager.swift; sourceTree = "<group>"; };
 		5BCDBBED1F624600005EC300 /* FBLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBLoginViewController.swift; sourceTree = "<group>"; };
-		5BCE7BC01F89D73000A5E4D7 /* PostNewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNewsTableViewCell.swift; sourceTree = "<group>"; };
-		5BCE7BC11F89D73000A5E4D7 /* PostNewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostNewsTableViewCell.xib; sourceTree = "<group>"; };
 		5BCEE8DA1F655D0400593A5C /* MotoBike.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MotoBike.entitlements; sourceTree = "<group>"; };
 		5BD427E11F63A0E300450C1A /* FBDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBDataManager.swift; sourceTree = "<group>"; };
 		5BDBA68A1F5463C7006ECE3A /* MotoBike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotoBike.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +73,8 @@
 		5BDBA6991F5463C7006ECE3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BDBA69F1F5469E4006ECE3A /* firstStartAppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = firstStartAppViewController.swift; sourceTree = "<group>"; };
 		5BF195BC1F7DDBB200171738 /* MBPhPDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBPhPDataManager.swift; sourceTree = "<group>"; };
+		5BFE45381F8F4B1300ACD476 /* PostNewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNewsTableViewCell.swift; sourceTree = "<group>"; };
+		5BFE45391F8F4B1300ACD476 /* PostNewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostNewsTableViewCell.xib; sourceTree = "<group>"; };
 		81408D763E7135FA2B62458D /* Pods_MotoBike.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MotoBike.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7B8A655DD3361C40F56C083 /* Pods-MotoBike.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotoBike.release.xcconfig"; path = "Pods/Target Support Files/Pods-MotoBike/Pods-MotoBike.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,10 +98,10 @@
 			children = (
 				5BDBA6911F5463C7006ECE3A /* Main.storyboard */,
 				182B58D71F678B82003D0ECB /* Map.storyboard */,
-				5BDBA6961F5463C7006ECE3A /* LaunchScreen.storyboard */,
 				182990ED1F713B2A00D34DCA /* PinDetailView.xib */,
 				18D49A7D1F88E5A10084EE30 /* MenuTableCell.xib */,
-				5BCE7BC11F89D73000A5E4D7 /* PostNewsTableViewCell.xib */,
+				5BFE45391F8F4B1300ACD476 /* PostNewsTableViewCell.xib */,
+				5BDBA6961F5463C7006ECE3A /* LaunchScreen.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -134,7 +134,7 @@
 				182990EF1F713B4600D34DCA /* PinDetailView.swift */,
 				182B58DF1F67BC98003D0ECB /* PostViewController.swift */,
 				5BA0FCC51F6AC7C200E7E7C8 /* AddNewPostViewController.swift */,
-				5BCE7BC01F89D73000A5E4D7 /* PostNewsTableViewCell.swift */,
+				5BFE45381F8F4B1300ACD476 /* PostNewsTableViewCell.swift */,
 				5B6B6CB41F8A184500B2783B /* PostNewsViewController.swift */,
 			);
 			name = Controller;
@@ -262,7 +262,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BCE7BC31F89D73000A5E4D7 /* PostNewsTableViewCell.xib in Resources */,
+				5BFE453B1F8F4B1300ACD476 /* PostNewsTableViewCell.xib in Resources */,
 				182990EE1F713B2A00D34DCA /* PinDetailView.xib in Resources */,
 				5BDBA6981F5463C7006ECE3A /* LaunchScreen.storyboard in Resources */,
 				5BDBA6931F5463C7006ECE3A /* Main.storyboard in Resources */,
@@ -333,9 +333,9 @@
 				5B94C3AB1F87701E00EB0A3B /* InfoDataManager.swift in Sources */,
 				5BA0FCC61F6AC7C200E7E7C8 /* AddNewPostViewController.swift in Sources */,
 				18016AEE1F7D4533009C1385 /* NavigationMenuViewController.swift in Sources */,
-				5BCE7BC21F89D73000A5E4D7 /* PostNewsTableViewCell.swift in Sources */,
 				5B6B6CB51F8A184500B2783B /* PostNewsViewController.swift in Sources */,
 				5B84618C1F757E4000884339 /* PostViewDataManager.swift in Sources */,
+				5BFE453A1F8F4B1300ACD476 /* PostNewsTableViewCell.swift in Sources */,
 				182B58E61F68EB8A003D0ECB /* DispatchQueue+Once.swift in Sources */,
 				187FFD961F6A7D5800C62593 /* MapDataManager.swift in Sources */,
 				182990F01F713B4600D34DCA /* PinDetailView.swift in Sources */,
