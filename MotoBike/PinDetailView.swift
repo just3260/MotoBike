@@ -184,6 +184,14 @@ extension UIView {
         PinType.text = (pinData?.annotation?.title)!
         PinImage.image = UIImage(named: "pin")
         
+        for gasPin in selectPinData.gasStationArray {
+            if let address = pinData?.annotation?.subtitle {
+                if address == gasPin.subtitle {
+                    PinImage.image = UIImage(named: "gas station")
+                }
+            }
+        }
+
     }
     
     

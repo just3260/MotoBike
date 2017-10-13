@@ -20,6 +20,9 @@ struct selectPinData {
     /// 路徑資料
     static var route: MKRoute!
     
+    /// 儲存加油站資料
+    static var gasStationArray = [PinData]()
+    
     /// 呼叫地址方法
     static func getAddress() -> String {
         

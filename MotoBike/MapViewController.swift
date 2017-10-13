@@ -112,8 +112,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         
         // 將將大頭針資料暫存
         selectPinData.pinDetailData = view
-        
         pinDetailView.refreshPinData()
+        
+        guard let coordinate = view.annotation?.coordinate else {
+            return
+        }
+        _ = mapManager.decodeAddress(coordinate: coordinate)
         
         print("點擊的位置為：\(address!)")
         pinDetailView.isHidden = false
@@ -252,7 +256,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             view.frame = startFrame
             
             UIView.beginAnimations("drop", context: nil)
-            UIView.setAnimationDuration(0.5)
+            UIView.setAnimationDuration(3.0)
             
             view.frame = endFrame
             
@@ -301,14 +305,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             return
         }
         
-        //(url要加上驚嘆號)
         let task = URLSession.shared.dataTask(with: url) {
             (data, response, error) in
             if error == nil {
-                var urlContent = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+                let urlContent = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
                 print(urlContent as Any)
                 
-                guard let data = data else {
+                guard data != nil else {
                     print("No data was returned by the request!")
                     return
                 }

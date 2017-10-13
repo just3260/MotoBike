@@ -185,6 +185,8 @@ class MapDataManager: NSObject, CLLocationManagerDelegate, MKMapViewDelegate {
     /// 新增群組大頭針
     func addPinWithDownloadData(array: [AnyObject]) {
         
+        gasPinArray = [PinData]()
+        
         for data in array {
             
             guard let name = data["S_NAME"] as? String,
@@ -217,7 +219,7 @@ class MapDataManager: NSObject, CLLocationManagerDelegate, MKMapViewDelegate {
         }
         
         mapView.addMapPins(annotations: gasPinArray)
-        
+        selectPinData.gasStationArray = gasPinArray
     }
     
     
