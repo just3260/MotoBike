@@ -10,6 +10,8 @@ import UIKit
 
 class PostNewsTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var FinCusImgView: UIImageView!
+    
     @IBOutlet weak var weatherCellLabel: UILabel!
     
     @IBOutlet weak var trafficCellLabel: UILabel!

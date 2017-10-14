@@ -51,6 +51,8 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate, SideMenuItemCon
     
     var photoArray = [String]()
     
+    var MBPHP = MBPhPDataManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -91,6 +93,8 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate, SideMenuItemCon
         AddFinPostViewModel.weather.append(sun)
         
         print(AddFinPostViewModel.weather)
+        
+        MBPHP.getPHPData(allPHPURL: URL_SELECT_ALL_INFO)
         
         EnterSunnyBtnImg()
         

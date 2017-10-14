@@ -27,7 +27,7 @@ var FBLOGIN_EMAIL = FBLOGIN_ARRAY[1]
 
 var FBLOGIN_URL = FBLOGIN_ARRAY[5]
 // 重機停車場資料庫
-let URL_SELECT_ALL_INFO = "http://localhost/info.php?func=selectAll"
+let URL_SELECT_ALL_INFO = "https://rt72615.000webhostapp.com/info.php?func=selectAll"
 
 let URL_SELECT_ONE_INFO = "http://localhost/info.php?func=selectOne"
 

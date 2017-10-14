@@ -31,6 +31,15 @@ class PostNewsViewController: UIViewController, UITableViewDelegate, UITableView
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        let verticalIndicator = PostNewsTableView.subviews.last as? UIImageView
+
+        verticalIndicator?.backgroundColor = UIColor.darkGray
+
+        self.PostNewsTableView.flashScrollIndicators()
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -43,19 +52,12 @@ class PostNewsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let PostNewsCell = tableView.dequeueReusableCell(withIdentifier: "PostNewsCell", for: indexPath) as! PostNewsTableViewCell
-        
-//        cell.contentView.backgroundColor = UIColor.clear
-//
-//        let whiteRoundedView : UIView = UIView(frame: CGRect(x: 10, y: 8, width: self.view.frame.size.width - 20, height: 210))
-//
-//        whiteRoundedView.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1.0, 1.0, 1.0, 0.9])
-//        whiteRoundedView.layer.masksToBounds = false
-//        whiteRoundedView.layer.cornerRadius = 2.0
-//        whiteRoundedView.layer.shadowOffset = CGSize(width: -1, height: 1)
-//        whiteRoundedView.layer.shadowOpacity = 0.2
-//
-//        cell.contentView.addSubview(whiteRoundedView)
-//        cell.contentView.sendSubview(toBack: whiteRoundedView)
+        // FinCusImgView 陰影顏色
+        PostNewsCell.FinCusImgView.layer.shadowColor = UIColor.black.cgColor
+        // FinCusImgView 陰影位置
+        PostNewsCell.FinCusImgView.layer.shadowOffset = CGSize(width: 0, height: 2)
+        // FinCusImgView 陰影透明度
+        PostNewsCell.FinCusImgView.layer.shadowOpacity = 0.5
         
         PostNewsCell.weatherCellLabel.text = PostData[0]
         
@@ -82,7 +84,7 @@ class PostNewsViewController: UIViewController, UITableViewDelegate, UITableView
             
         }
         
-        return 215
+        return 223
         
     }
     
@@ -107,13 +109,13 @@ class PostNewsViewController: UIViewController, UITableViewDelegate, UITableView
         // PostContainerView 陰影顏色
         PostContainerView.layer.shadowColor = UIColor.black.cgColor
         // PostContainerView 陰影向左偏移，為負數(x, y)
-        PostContainerView.layer.shadowOffset = CGSize(width: 0, height: 5)
+        PostContainerView.layer.shadowOffset = CGSize(width: 0, height: -2)
         // PostContainerView 右邊陰影效果，為正數(x, y)
         // PostContainerView.layer.shadowOffset = CGSize(width: 5, height: 5)
         // PostContainerView 陰影透明度
-        PostContainerView.layer.shadowOpacity = 0.8
+        PostContainerView.layer.shadowOpacity = 1
         // PostContainerView 陰影半徑
-        PostContainerView.layer.shadowRadius = 5
+        PostContainerView.layer.shadowRadius = 10
         // PostNewsTableView 設置圓角
         PostNewsTableView.layer.cornerRadius = 5
         // PostNewsTableView 上使用

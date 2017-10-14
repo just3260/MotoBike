@@ -77,7 +77,7 @@ class MBPhPDataManager: NSObject {
                         return
                         
                     }
-                    // 將停車場每筆資料取出，
+                    // 將停車場每筆資料取出
                     for infoAllItem in 0...220 {
                         guard let infoAllDataResult = infoAllDataList[infoAllItem] as? NSDictionary else {
                             print("infoAllDataResult isn't NSDictionary")
@@ -103,8 +103,6 @@ class MBPhPDataManager: NSObject {
                         
                         print(infoAllResult)
                         
-                        
-            
                     }
                     
                 } catch {
