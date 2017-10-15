@@ -134,8 +134,8 @@ class MapDataManager: NSObject, CLLocationManagerDelegate, MKMapViewDelegate {
         
     }
     
-    /// 解析地址
-    func decodeAddress(coordinate: CLLocationCoordinate2D) -> PinData {
+    /// 解析經緯度為地址
+    func decodeCoordinateToAddress(coordinate: CLLocationCoordinate2D) -> PinData {
         
         /// 新增大頭針內容
         let annotation = PinData(coordinate:coordinate, title: "錯誤", subtitle: "無法判斷位置")
@@ -158,10 +158,42 @@ class MapDataManager: NSObject, CLLocationManagerDelegate, MKMapViewDelegate {
         return annotation
     }
     
+    
+    /// 解析地址為經緯度
+    func decodeAddressToCoordinate() {
+            
+        
+        for parkingPin in selectPinData.allParkingArray {
+            guard let address = parkingPin["address"] ,
+                let name = parkingPin["name"] else {
+                    return
+            }
+            
+            geoCoder.geocodeAddressString(address) { (placemarks, error) in
+                if error != nil{
+                    print(error!)
+                    return
+                }
+                guard let placemarks = placemarks else{
+                    return
+                }
+                guard let coordinate = placemarks.first?.location?.coordinate else {
+                    return
+                }
+                let pin = PinData(coordinate: coordinate, title: name, subtitle: address)
+                pin.type = .parking
+                selectPinData.parkingArray.append(pin)
+            }
+
+        }
+        
+    }
+    
+    
     /// 新增大頭針資料
     func addPinData(coordinate: CLLocationCoordinate2D) {
         
-        let annotation = decodeAddress(coordinate: coordinate)
+        let annotation = decodeCoordinateToAddress(coordinate: coordinate)
         
         mapView.addMapPin(annotation: annotation)
     }
