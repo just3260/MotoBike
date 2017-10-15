@@ -13,9 +13,9 @@ import Foundation
 // 資料庫本身有定義 id 欄位，將取得的 id 放到另一個變數，避免存取欄位相同
 
 // FB 登入帳號資料庫
-let URL_INSERT_FBLOGIN = "http://localhost/FBLogin.php?func=insert"
+let URL_INSERT_FBLOGIN = "https://rt72615.000webhostapp.com/FBLogin.php?func=insert"
 
-let URL_DELETE_FBLOGIN = "http://localhost/FBLogin.php?func=del"
+let URL_DELETE_FBLOGIN = "https://rt72615.000webhostapp.com/FBLogin.php?func=del"
 
 var FBLOGIN_ARRAY = [String]()
 
@@ -29,7 +29,7 @@ var FBLOGIN_URL = FBLOGIN_ARRAY[5]
 // 重機停車場資料庫
 let URL_SELECT_ALL_INFO = "https://rt72615.000webhostapp.com/info.php?func=selectAll"
 
-let URL_SELECT_ONE_INFO = "http://localhost/info.php?func=selectOne"
+let URL_SELECT_ONE_INFO = "https://rt72615.000webhostapp.com/info.php?func=selectOne"
 
 var INFO_ID = ""
 

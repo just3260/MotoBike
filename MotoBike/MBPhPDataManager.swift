@@ -101,6 +101,8 @@ class MBPhPDataManager: NSObject {
                         
                         let infoAllResult = ["id": infoAllResultID, "name": infoAllReusultNAME, "address": infoAllResultADDRESS, "area_id": infoAllResultAREA_ID]
                         
+                        
+                        
                         print(infoAllResult)
                         
                     }

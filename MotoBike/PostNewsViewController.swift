@@ -17,6 +17,8 @@ class PostNewsViewController: UIViewController, UITableViewDelegate, UITableView
     
     var PostisExpanded = false
     
+    var FinCusImg = UIImageView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // PostNewsTableView 陰影效果
@@ -25,10 +27,16 @@ class PostNewsViewController: UIViewController, UITableViewDelegate, UITableView
         let PostNewsNib = UINib.init(nibName: "PostNewsTableViewCell", bundle: nil)
         
         self.PostNewsTableView.register(PostNewsNib, forCellReuseIdentifier: "PostNewsCell")
+        // 隱藏路況分享頁面的 Navigation 按鈕
+        navigationItem.setHidesBackButton(true, animated:true);
         
         navigationController?.navigationBar.setBackgroundImage(allNavigationBarAttributes.allNavigationbarBg, for: .default)
         
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        
+        
+        // 取得 cusImg 檔案
+        getFinCusImgView()
         
     }
     
@@ -47,7 +55,7 @@ class PostNewsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -58,14 +66,18 @@ class PostNewsViewController: UIViewController, UITableViewDelegate, UITableView
         PostNewsCell.FinCusImgView.layer.shadowOffset = CGSize(width: 0, height: 2)
         // FinCusImgView 陰影透明度
         PostNewsCell.FinCusImgView.layer.shadowOpacity = 0.5
-        
+        // 顯示天氣狀態
         PostNewsCell.weatherCellLabel.text = PostData[0]
-        
+        // 顯示交通狀態
         PostNewsCell.trafficCellLabel.text = PostData[1]
-        
+        // 顯示地區標籤
         PostNewsCell.decideTagCellLabel.text = PostData[2]
-        
+        // 顯示位置狀態
         PostNewsCell.locationCellLabel.text = PostData[3]
+        // 取得 cusImg 檔案
+        getFinCusImgView()
+        // 顯示圖片
+        PostNewsCell.FinCusImgView.image = FinCusImg.image
         
         return PostNewsCell
         
@@ -124,6 +136,33 @@ class PostNewsViewController: UIViewController, UITableViewDelegate, UITableView
         self.view.addSubview(PostContainerView)
         
         self.view.addSubview(PostNewsTableView)
+        
+    }
+    // 取得 cusImg 檔案
+    func getFinCusImgView() {
+        guard let FinCusImgData = PostData[4] else {
+            print("FinCusImgData isn't Image")
+            
+            return
+            
+        }
+        // 將路徑字串，轉換為 URL
+        guard let FinPostImgURL = URL(string: FinCusImgData) else {
+            print("FinPostImgURL is nil")
+            
+            return
+            
+        }
+        // 讀取圖片資料，錯誤狀態判斷
+        do {
+            let FinPostImgData = try Data(contentsOf: FinPostImgURL)
+            
+            FinCusImg.image = UIImage(data: FinPostImgData)
+            
+        }catch {
+            print("FinCusImg.image is Error")
+            
+        }
         
     }
     

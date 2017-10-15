@@ -493,7 +493,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" red="0.93746101856231689" green="0.93693572282791138" blue="0.95687198638916016" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yIz-7h-tcj">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yIz-7h-tcj">
                                 <rect key="frame" x="8" y="67" width="359" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <imageView key="tableFooterView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="IXR-L9-jIl">
@@ -524,7 +524,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="h6l-NY-4Lk"/>
                     </view>
-                    <navigationItem key="navigationItem" title="路況分享" id="zVX-NV-Ck4"/>
+                    <navigationItem key="navigationItem" title="路況分享" id="zVX-NV-Ck4">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="返回地圖鈕" id="GzK-Tz-0lS"/>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="PostNewsTableView" destination="yIz-7h-tcj" id="9XB-X4-vp1"/>
