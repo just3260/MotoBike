@@ -28,6 +28,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     var gasStationArray = [AnyObject]()
     /// 暫存點擊的經緯度
     var pressLocation: CLLocationCoordinate2D!
+    /// 暫存停車場資料
+    var parkingPinArray = [[String : String]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +56,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         NotificationCenter.default.addObserver(self, selector: #selector(closeParkingPin), name: NSNotification.Name(rawValue: "PARKINGOFF"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(addNewMapEventDone), name: NSNotification.Name(rawValue: "ADDNEWEVENT"), object: nil)
         
+        let dataManager = MBPhPDataManager()
+        dataManager.getPHPData(allPHPURL: URL_SELECT_ALL_INFO)
     }
     
     // 螢幕消失時，關閉定位功能（省電）
@@ -117,7 +121,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         guard let coordinate = view.annotation?.coordinate else {
             return
         }
-        _ = mapManager.decodeAddress(coordinate: coordinate)
+        _ = mapManager.decodeCoordinateToAddress(coordinate: coordinate)
         
         print("點擊的位置為：\(address!)")
         pinDetailView.isHidden = false
@@ -143,7 +147,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         // 轉換為經緯度
         let touchCoordinate = mainMapView.convert(touchPoint, toCoordinateFrom: mainMapView)
         
-        _ = mapManager.decodeAddress(coordinate: touchCoordinate)
+        _ = mapManager.decodeCoordinateToAddress(coordinate: touchCoordinate)
         pressLocation = touchCoordinate
         
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (MapViewController) in
@@ -339,13 +343,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     /// 啟用停車場大頭針
     func openParkingPin() {
-        print("啟用停車場大頭針")
+
+        mapManager.decodeAddressToCoordinate()
+        
     }
     
     
     /// 關閉停車場大頭針
     func closeParkingPin() {
         print("關閉停車場大頭針")
+        let parkpin = selectPinData.parkingArray
+        print(parkpin)
     }
     
     
@@ -367,7 +375,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             return
         }
         
-        _ = mapManager.decodeAddress(coordinate: userCoordinate)
+        _ = mapManager.decodeCoordinateToAddress(coordinate: userCoordinate)
         pressLocation = userCoordinate
         
     }

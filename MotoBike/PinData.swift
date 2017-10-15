@@ -23,6 +23,10 @@ struct selectPinData {
     /// 儲存加油站資料
     static var gasStationArray = [PinData]()
     
+    /// 儲存停車場資料
+    static var parkingArray = [PinData]()
+    static var allParkingArray = [[String : String]]()
+    
     /// 呼叫地址方法
     static func getAddress() -> String {
         

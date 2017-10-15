@@ -10,9 +10,9 @@ import Foundation
 
 class MBPhPDataManager: NSObject {
     
-    var allPHPArray = [String]()
+    var allPHPArray = [[String : String]]()
     
-    func getPHPData(allPHPURL: String)  {
+    func getPHPData(allPHPURL: String) {
         // 將字串轉成 URL 型別，判斷是否為 nil
         guard let PHPRequestURL = URL(string: allPHPURL) else {
             return
@@ -105,7 +105,11 @@ class MBPhPDataManager: NSObject {
                         
                         print(infoAllResult)
                         
+//                        print(infoAllResult)
+                        self.allPHPArray.append(infoAllResult)
                     }
+//                    print(self.allPHPArray)
+                    selectPinData.allParkingArray = self.allPHPArray
                     
                 } catch {
                     print("error is \(error.localizedDescription)")
@@ -150,13 +154,16 @@ class MBPhPDataManager: NSObject {
                 let responseString = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
                 
                 print("responseString:\(String(describing: responseString))")
-                
             }
             
         }
+
         // resume(): 異步執行，配合上面的 dataTask 逃逸閉包，把 dataTask 變成當需要調用的時候，才恢復執行
         PHPtask.resume()
-        
     }
+    
+    
+    
+    
     
 }
