@@ -9,7 +9,7 @@
 import Foundation
 
 class MBPhPDataManager: NSObject {
-    
+    // 裝停車場資料
     var allPHPArray = [[String : String]]()
     
     func getPHPData(allPHPURL: String) {
@@ -101,14 +101,14 @@ class MBPhPDataManager: NSObject {
                         
                         let infoAllResult = ["id": infoAllResultID, "name": infoAllReusultNAME, "address": infoAllResultADDRESS, "area_id": infoAllResultAREA_ID]
                         
+                        // print(infoAllResult)
                         
-                        
-                        print(infoAllResult)
-                        
-//                        print(infoAllResult)
                         self.allPHPArray.append(infoAllResult)
+
                     }
-//                    print(self.allPHPArray)
+                    
+                    // print(self.allPHPArray)
+                    
                     selectPinData.allParkingArray = self.allPHPArray
                     
                 } catch {

@@ -495,7 +495,7 @@
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yIz-7h-tcj">
                                 <rect key="frame" x="8" y="67" width="359" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.86684405799999997" green="0.88633131980000002" blue="0.88236927990000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <imageView key="tableFooterView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="IXR-L9-jIl">
                                     <rect key="frame" x="0.0" y="0.0" width="359" height="604"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -512,6 +512,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
+                        <color key="backgroundColor" red="0.86684405799999997" green="0.88633131980000002" blue="0.88236927990000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="6pQ-iY-0Uq" firstAttribute="leading" secondItem="h6l-NY-4Lk" secondAttribute="leading" id="Cox-t8-Vum"/>
                             <constraint firstItem="yIz-7h-tcj" firstAttribute="top" secondItem="h6l-NY-4Lk" secondAttribute="top" constant="3" id="Mfu-N9-II7"/>
@@ -525,7 +526,11 @@
                         <viewLayoutGuide key="safeArea" id="h6l-NY-4Lk"/>
                     </view>
                     <navigationItem key="navigationItem" title="路況分享" id="zVX-NV-Ck4">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="返回地圖鈕" id="GzK-Tz-0lS"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="返回地圖鈕" id="GzK-Tz-0lS">
+                            <connections>
+                                <action selector="CancelPostNews:" destination="vIT-8e-QUI" id="MgY-CQ-KYN"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>

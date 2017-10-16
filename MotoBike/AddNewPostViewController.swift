@@ -246,10 +246,12 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate, SideMenuItemCon
         AddFinPostViewModel.postItem.removeAll()
         
         self.modalTransitionStyle = .crossDissolve
+        
         dismiss(animated: true, completion: nil)
         
         if let navigationViewController = self.navigationController as? SideMenuItemContent {
             navigationViewController.showSideMenu()
+            
         }
     }
     // 顯示天氣圖片

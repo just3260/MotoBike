@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MotoBikeAppStartView" translatesAutoresizingMaskIntoConstraints="NO" id="tIE-nB-GSc">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MotoBike App Start View" translatesAutoresizingMaskIntoConstraints="NO" id="tIE-nB-GSc">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                         </subviews>
@@ -42,6 +42,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="MotoBikeAppStartView" width="375" height="667"/>
+        <image name="MotoBike App Start View" width="375" height="667"/>
     </resources>
 </document>

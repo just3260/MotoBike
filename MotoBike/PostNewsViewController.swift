@@ -33,8 +33,6 @@ class PostNewsViewController: UIViewController, UITableViewDelegate, UITableView
         navigationController?.navigationBar.setBackgroundImage(allNavigationBarAttributes.allNavigationbarBg, for: .default)
         
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-        
-        
         // 取得 cusImg 檔案
         getFinCusImgView()
         
@@ -55,7 +53,7 @@ class PostNewsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -63,9 +61,9 @@ class PostNewsViewController: UIViewController, UITableViewDelegate, UITableView
         // FinCusImgView 陰影顏色
         PostNewsCell.FinCusImgView.layer.shadowColor = UIColor.black.cgColor
         // FinCusImgView 陰影位置
-        PostNewsCell.FinCusImgView.layer.shadowOffset = CGSize(width: 0, height: 2)
+        PostNewsCell.FinCusImgView.layer.shadowOffset = CGSize(width: 0, height: 3)
         // FinCusImgView 陰影透明度
-        PostNewsCell.FinCusImgView.layer.shadowOpacity = 0.5
+        PostNewsCell.FinCusImgView.layer.shadowOpacity = 0.8
         // 顯示天氣狀態
         PostNewsCell.weatherCellLabel.text = PostData[0]
         // 顯示交通狀態
@@ -92,11 +90,11 @@ class PostNewsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if(PostisExpanded && self.NewsSelectedIndex == indexPath) {
-            return 400
+            return 520
             
         }
         
-        return 223
+        return 340
         
     }
     
@@ -163,6 +161,13 @@ class PostNewsViewController: UIViewController, UITableViewDelegate, UITableView
             print("FinCusImg.image is Error")
             
         }
+        
+    }
+    
+    @IBAction func CancelPostNews(_ sender: UIBarButtonItem) {
+        self.modalTransitionStyle = .crossDissolve
+        
+        dismiss(animated: true, completion: nil)
         
     }
     
