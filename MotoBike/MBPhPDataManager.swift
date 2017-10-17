@@ -78,7 +78,7 @@ class MBPhPDataManager: NSObject {
                         
                     }
                     // 將停車場每筆資料取出
-                    for infoAllItem in 0...220 {
+                    for infoAllItem in 0...74 {
                         guard let infoAllDataResult = infoAllDataList[infoAllItem] as? NSDictionary else {
                             print("infoAllDataResult isn't NSDictionary")
                             
@@ -92,16 +92,32 @@ class MBPhPDataManager: NSObject {
                         
                               let infoAllResultADDRESS = infoAllDataResult["address"] as? String,
                         
-                              let infoAllResultAREA_ID = infoAllDataResult["area_id"] as? String else {
+                              let infoAllResultAREA_ID = infoAllDataResult["area_id"] as? String,
+                        
+                              let infoAllResultLONGITUDE = infoAllDataResult["longitude"] as? String,
+                            
+                              let infoAllResultLATITUDE = infoAllDataResult["latitude"] as? String
+                        
+                        else {
                                 print("Can't take infoAllDataRsult.keys to infoAllResult")
                                 
                                 return
                                 
                         }
                         
-                        let infoAllResult = ["id": infoAllResultID, "name": infoAllReusultNAME, "address": infoAllResultADDRESS, "area_id": infoAllResultAREA_ID]
+                        let infoAllResult = ["id": infoAllResultID,
+                                             
+                                             "name": infoAllReusultNAME,
+                                             
+                                             "address": infoAllResultADDRESS,
+                                             
+                                             "area_id": infoAllResultAREA_ID,
+                                             
+                                             "longitude": infoAllResultLONGITUDE,
+                                             
+                                             "latitude": infoAllResultLATITUDE]
                         
-                        // print(infoAllResult)
+                        print(infoAllResult)
                         
                         self.allPHPArray.append(infoAllResult)
 
