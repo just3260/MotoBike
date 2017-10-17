@@ -19,6 +19,8 @@ class PostNewsViewController: UIViewController, UITableViewDelegate, UITableView
     
     var FinCusImg = UIImageView()
     
+    var POSTNEWSMBPHP = MBPhPDataManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // PostNewsTableView 陰影效果
@@ -33,6 +35,9 @@ class PostNewsViewController: UIViewController, UITableViewDelegate, UITableView
         navigationController?.navigationBar.setBackgroundImage(allNavigationBarAttributes.allNavigationbarBg, for: .default)
         
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        
+        POSTNEWSMBPHP.getPHPData(allPHPURL: URL_SELECT_ALL_POSTNEWS)
+        
         // 取得 cusImg 檔案
         getFinCusImgView()
         

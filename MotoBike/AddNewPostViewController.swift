@@ -51,7 +51,7 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate, SideMenuItemCon
     
     var photoArray = [String]()
     
-    var MBPHP = MBPhPDataManager()
+    var ADDPOSTMBPHP = MBPhPDataManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,8 +93,6 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate, SideMenuItemCon
         AddFinPostViewModel.weather.append(sun)
         
         print(AddFinPostViewModel.weather)
-        
-        MBPHP.getPHPData(allPHPURL: URL_SELECT_ALL_INFO)
         
         EnterSunnyBtnImg()
         
@@ -232,10 +230,12 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate, SideMenuItemCon
         
         let PostVC = self.storyboard?.instantiateViewController(withIdentifier: "PostNewsViewController") as! PostNewsViewController
         
+        ADDPOSTMBPHP.getPHPData(allPHPURL: URL_INSERT_POSTNEWS)
+        
         PostVC.PostData = AddFinPostViewModel.postItem
         
         self.navigationController?.pushViewController({PostVC}(), animated: true)
-
+        
         let DoneOnNotification = Notification.Name(rawValue: "ADDNEWEVENT")
         
         NotificationCenter.default.post(name: DoneOnNotification, object: nil, userInfo: nil)

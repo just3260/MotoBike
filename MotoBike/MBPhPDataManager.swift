@@ -24,14 +24,14 @@ class MBPhPDataManager: NSObject {
         switch allPHPURL {
         // FB 登入帳號新增
         case URL_INSERT_FBLOGIN:
-            let InsertParameters = "FBID=\(FBLOGIN_FBID)&name=\(FBLOGIN_NAME)&email=\(FBLOGIN_EMAIL)&url=\(FBLOGIN_URL)"
+            let FBLoginInsertParameters = "FBID=\(FBLOGIN_FBID)&name=\(FBLOGIN_NAME)&email=\(FBLOGIN_EMAIL)&url=\(FBLOGIN_URL)"
             // 設置接收方的 HTTP 請求方式
-            PHPRequest.httpBody = InsertParameters.data(using: String.Encoding.utf8)
+            PHPRequest.httpBody = FBLoginInsertParameters.data(using: String.Encoding.utf8)
         // FB 登出帳號刪除
         case URL_DELETE_FBLOGIN:
-            let DeleteParameters = "id=\(1)"
+            let FBLoginDeleteParameters = "id=\(1)"
             // 設置接收方的 HTTP 請求方式
-            PHPRequest.httpBody = DeleteParameters.data(using: String.Encoding.utf8)
+            PHPRequest.httpBody = FBLoginDeleteParameters.data(using: String.Encoding.utf8)
         // 重機停車場資料下載全部
         case URL_SELECT_ALL_INFO:
             break
@@ -40,6 +40,14 @@ class MBPhPDataManager: NSObject {
             let SelectOneParmeters = "id=\(1)"
             // 設置接收方的 HTTP 請求方式
             PHPRequest.httpBody = SelectOneParmeters.data(using: String.Encoding.utf8)
+            
+        case URL_INSERT_POSTNEWS:
+            let PostNewsParmeters = "weather=\(POSTNEWS_WEATHER)&traffic=\(POSTNEWS_TRAFFIC)&decideTag=\(POSTNEWS_DECIDETAG)&location=\(POSTNEWS_LOCATION)&image=\(POSTNEWS_IMAGE)"
+            
+            PHPRequest.httpBody = PostNewsParmeters.data(using: String.Encoding.utf8)
+            
+        case URL_SELECT_ALL_POSTNEWS:
+            break
             
         default:
             break
@@ -69,107 +77,155 @@ class MBPhPDataManager: NSObject {
             }
             // InfoJSON 解析下來的資料
             // 整筆資料庫解析
-            if(allPHPURL == URL_SELECT_ALL_INFO) {
+//            if(allPHPURL == URL_SELECT_ALL_INFO) {
+//                do {
+//                    guard let infoAllDataList = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? NSArray else {
+//                        print("No infoAllDataList was returned by the request!")
+//
+//                        return
+//
+//                    }
+//                    // 將停車場每筆資料取出
+//                    for infoAllItem in 0...74 {
+//                        guard let infoAllDataResult = infoAllDataList[infoAllItem] as? NSDictionary else {
+//                            print("infoAllDataResult isn't NSDictionary")
+//
+//                            return
+//
+//                        }
+//
+//                        guard let infoAllResultID = infoAllDataResult["id"] as? String,
+//
+//                              let infoAllReusultNAME = infoAllDataResult["name"] as? String,
+//
+//                              let infoAllResultADDRESS = infoAllDataResult["address"] as? String,
+//
+//                              let infoAllResultAREA_ID = infoAllDataResult["area_id"] as? String,
+//
+//                              let infoAllResultLONGITUDE = infoAllDataResult["longitude"] as? String,
+//
+//                              let infoAllResultLATITUDE = infoAllDataResult["latitude"] as? String
+//
+//                        else {
+//                                print("Can't take infoAllDataRsult.keys to infoAllResult")
+//
+//                                return
+//
+//                        }
+//
+//                        let infoAllResult = ["id": infoAllResultID,
+//
+//                                             "name": infoAllReusultNAME,
+//
+//                                             "address": infoAllResultADDRESS,
+//
+//                                             "area_id": infoAllResultAREA_ID,
+//
+//                                             "longitude": infoAllResultLONGITUDE,
+//
+//                                             "latitude": infoAllResultLATITUDE]
+//
+//                        // print(infoAllResult)
+//
+//                        self.allPHPArray.append(infoAllResult)
+//
+//                    }
+//
+//                    // print(self.allPHPArray)
+//
+//                    selectPinData.allParkingArray = self.allPHPArray
+//
+//                } catch {
+//                    print("error is \(error.localizedDescription)")
+//
+//                }
+//
+//            }
+            // 單筆資料庫解析
+//            if(allPHPURL == URL_SELECT_ONE_INFO) {
+//                let infoDecoder = JSONDecoder()
+//
+//                guard let infoDataList = try? infoDecoder.decode(InfoData.self, from: data) else {
+//                    print("No infoData was returned by the request!")
+//
+//                    return
+//                    
+//                }
+//                
+//                print(infoDataList)
+//                
+//                let infoResultID = ["id": infoDataList.id]
+//
+//                print("id:\(infoResultID)")
+//                
+//                let infoResultNAME = ["name": infoDataList.name]
+//
+//                print("name:\(infoResultNAME)")
+//
+//                let infoResultADDRESS = ["address": infoDataList.address]
+//
+//                print("address:\(infoResultADDRESS)")
+//
+//                let infoResultAREA_ID = ["area_id": infoDataList.area_id]
+//                
+//                print("area_id:\(infoResultAREA_ID)")
+//                
+//            }
+            
+            if(allPHPURL == URL_SELECT_ALL_POSTNEWS) {
                 do {
-                    guard let infoAllDataList = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? NSArray else {
-                        print("No infoAllDataList was returned by the request!")
+                    guard let PostNewsAllDataList = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? NSArray else {
+                        print("No PostNewsAllDataList was returned by the request!")
                         
                         return
                         
                     }
-                    // 將停車場每筆資料取出
-                    for infoAllItem in 0...74 {
-                        guard let infoAllDataResult = infoAllDataList[infoAllItem] as? NSDictionary else {
-                            print("infoAllDataResult isn't NSDictionary")
+                    
+                    for PostNewsAllItem in 0...PostNewsAllDataList.count {
+                        guard let PostNewsAllDataResult = PostNewsAllDataList[PostNewsAllItem] as? NSDictionary else {
+                            print("PostNewsAllDataResult isn't NSDictionary")
                             
                             return
                             
                         }
                         
-                        guard let infoAllResultID = infoAllDataResult["id"] as? String,
-                            
-                              let infoAllReusultNAME = infoAllDataResult["name"] as? String,
-                        
-                              let infoAllResultADDRESS = infoAllDataResult["address"] as? String,
-                        
-                              let infoAllResultAREA_ID = infoAllDataResult["area_id"] as? String,
-                        
-                              let infoAllResultLONGITUDE = infoAllDataResult["longitude"] as? String,
-                            
-                              let infoAllResultLATITUDE = infoAllDataResult["latitude"] as? String
-                        
-                        else {
-                                print("Can't take infoAllDataRsult.keys to infoAllResult")
-                                
+                        guard let PostNewsAllDataResultWEATHER = PostNewsAllDataResult["weather"] as? String,
+
+                            let PostNewsAllDataResultTRAFFIC = PostNewsAllDataResult["traffic"] as? String,
+
+                            let PostNewsAllDataResultDECIDETAG = PostNewsAllDataResult["decideTag"] as? String,
+
+                            let PostNewsAllDataResultLOCATION = PostNewsAllDataResult["location"] as? String,
+
+                            let PostNewsAllDataResultIMAGE = PostNewsAllDataResult["image"] as? String
+
+                            else {
+                                print("Can't take PostNewsAllDataResult.keys to PostNewsAllDataResult")
+
                                 return
                                 
                         }
                         
-                        let infoAllResult = ["id": infoAllResultID,
-                                             
-                                             "name": infoAllReusultNAME,
-                                             
-                                             "address": infoAllResultADDRESS,
-                                             
-                                             "area_id": infoAllResultAREA_ID,
-                                             
-                                             "longitude": infoAllResultLONGITUDE,
-                                             
-                                             "latitude": infoAllResultLATITUDE]
+                        print(PostNewsAllDataResult)
                         
-                        print(infoAllResult)
-                        
-                        self.allPHPArray.append(infoAllResult)
-
                     }
-                    
-                    // print(self.allPHPArray)
-                    
-                    selectPinData.allParkingArray = self.allPHPArray
                     
                 } catch {
                     print("error is \(error.localizedDescription)")
                     
                 }
                 
-            }
-            // 單筆資料庫解析
-            if(allPHPURL == URL_SELECT_ONE_INFO) {
-                let infoDecoder = JSONDecoder()
-
-                guard let infoDataList = try? infoDecoder.decode(InfoData.self, from: data) else {
-                    print("No infoData was returned by the request!")
-
-                    return
-                    
-                }
-                
-                print(infoDataList)
-                
-                let infoResultID = ["id": infoDataList.id]
-
-                print("id:\(infoResultID)")
-                
-                let infoResultNAME = ["name": infoDataList.name]
-
-                print("name:\(infoResultNAME)")
-
-                let infoResultADDRESS = ["address": infoDataList.address]
-
-                print("address:\(infoResultADDRESS)")
-
-                let infoResultAREA_ID = ["area_id": infoDataList.area_id]
-                
-                print("area_id:\(infoResultAREA_ID)")
                 
             }
             
+            
             let InfoOK = "InfoJSON is OK"
-            // 回傳的訊息結果
+//            // 回傳的訊息結果
             if(InfoOK.isEmpty) {
                 let responseString = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
                 
                 print("responseString:\(String(describing: responseString))")
+                
             }
             
         }
