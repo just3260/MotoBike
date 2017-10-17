@@ -168,7 +168,7 @@ class PostNewsViewController: UIViewController, UITableViewDelegate, UITableView
     @IBAction func CancelPostNews(_ sender: UIBarButtonItem) {
         
         let DoneOnNotification = Notification.Name(rawValue: "ADDNEWEVENT")
-        NotificationCenter.default.post(name: DoneOnNotification, object: nil, userInfo: nil)
+        NotificationCenter.default.post(name: DoneOnNotification, object: nil, userInfo: ["postData": PostData])
         
         self.modalTransitionStyle = .crossDissolve
 
