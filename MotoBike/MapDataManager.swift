@@ -160,31 +160,28 @@ class MapDataManager: NSObject, CLLocationManagerDelegate, MKMapViewDelegate {
     
     
     /// 解析地址為經緯度
-    func decodeAddressToCoordinate() {
+    func decodeParkingData() {
             
-        
-        for parkingPin in selectPinData.allParkingArray {
-            guard let address = parkingPin["address"] ,
-                let name = parkingPin["name"] else {
+        for parkingData in selectPinData.allParkingArray {
+            guard let address = parkingData["address"] ,
+                    let name = parkingData["name"],
+                    let parkingLatitude = parkingData["longitude"],   // 經緯度是相反的！！！
+                    let parkingLongitude = parkingData["latitude"]   // 經緯度是相反的！！！
+            else {
                     return
             }
             
-            geoCoder.geocodeAddressString(address) { (placemarks, error) in
-                if error != nil{
-                    print(error!)
-                    return
-                }
-                guard let placemarks = placemarks else{
-                    return
-                }
-                guard let coordinate = placemarks.first?.location?.coordinate else {
-                    return
-                }
-                let pin = PinData(coordinate: coordinate, title: name, subtitle: address)
-                pin.type = .parking
-                selectPinData.parkingArray.append(pin)
-            }
-
+            let latitudeString = parkingLatitude as NSString
+            let longitudeString = parkingLongitude as NSString
+            
+            let latitude = latitudeString.doubleValue
+            let longitude = longitudeString.doubleValue
+            
+            let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            
+            let pin = PinData(coordinate: coordinate, title: name, subtitle: address)
+            pin.type = .parking
+            selectPinData.parkingArray.append(pin)
         }
         
     }

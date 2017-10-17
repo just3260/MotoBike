@@ -365,6 +365,10 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate, SideMenuItemCon
         
         imgPickerAlert.addAction(cancelAction)
         
+        imgPickerAlert.popoverPresentationController?.sourceView = self.view
+        imgPickerAlert.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection()
+        imgPickerAlert.popoverPresentationController?.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY + 300, width: 0, height: 0)
+        
         self.present(imgPickerAlert, animated: true, completion: nil)
         
     }

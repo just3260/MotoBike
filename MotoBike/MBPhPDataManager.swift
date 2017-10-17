@@ -207,6 +207,19 @@ class MBPhPDataManager: NSObject {
                         }
                         
                         print(PostNewsAllDataResult)
+                        let infoAllResult = ["id": infoAllResultID,
+                                             
+                                             "name": infoAllReusultNAME,
+                                             
+                                             "address": infoAllResultADDRESS,
+                                             
+                                             "area_id": infoAllResultAREA_ID,
+                                             
+                                             "longitude": infoAllResultLONGITUDE,
+                                             
+                                             "latitude": infoAllResultLATITUDE]
+                        
+//                        print(infoAllResult)
                         
                     }
                     

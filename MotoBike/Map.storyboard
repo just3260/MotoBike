@@ -150,7 +150,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxS-tU-QId" userLabel="User Location">
-                                <rect key="frame" x="302.5" y="584.5" width="62.5" height="62.5"/>
+                                <rect key="frame" x="290" y="582" width="75" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="bxS-tU-QId" secondAttribute="height" multiplier="1:1" id="cf5-QA-TVi"/>
                                 </constraints>
@@ -167,10 +167,10 @@
                             <constraint firstItem="6cb-80-ZFa" firstAttribute="leading" secondItem="kKe-91-sni" secondAttribute="leading" id="CkW-GL-vAF"/>
                             <constraint firstAttribute="trailing" secondItem="6cb-80-ZFa" secondAttribute="trailing" id="GFr-5U-FqP"/>
                             <constraint firstItem="K22-mV-VMt" firstAttribute="leading" secondItem="kKe-91-sni" secondAttribute="leading" constant="10" id="PxT-UR-33Q"/>
-                            <constraint firstItem="JK8-60-otd" firstAttribute="top" secondItem="bxS-tU-QId" secondAttribute="bottom" constant="20" id="U4y-Cu-Fjl"/>
+                            <constraint firstItem="JK8-60-otd" firstAttribute="top" secondItem="bxS-tU-QId" secondAttribute="bottom" constant="10" id="U4y-Cu-Fjl"/>
                             <constraint firstItem="gBn-lJ-Mz7" firstAttribute="top" secondItem="Hdl-TD-tYk" secondAttribute="bottom" id="a0Q-Ld-g5A"/>
                             <constraint firstItem="gBn-lJ-Mz7" firstAttribute="leading" secondItem="kKe-91-sni" secondAttribute="leading" constant="10" id="fWP-6Q-2Zq"/>
-                            <constraint firstItem="bxS-tU-QId" firstAttribute="width" secondItem="kKe-91-sni" secondAttribute="width" multiplier="1/6" id="llf-gj-HIx"/>
+                            <constraint firstItem="bxS-tU-QId" firstAttribute="width" secondItem="kKe-91-sni" secondAttribute="width" multiplier="1/5" id="llf-gj-HIx"/>
                             <constraint firstItem="gBn-lJ-Mz7" firstAttribute="width" secondItem="kKe-91-sni" secondAttribute="width" multiplier="1/6" id="mdX-Al-Zip"/>
                             <constraint firstItem="6cb-80-ZFa" firstAttribute="bottom" secondItem="JK8-60-otd" secondAttribute="top" id="nmG-v5-Vn9"/>
                             <constraint firstAttribute="trailing" secondItem="bxS-tU-QId" secondAttribute="trailing" constant="10" id="obX-Uz-M8L"/>

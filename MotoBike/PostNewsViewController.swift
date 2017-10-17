@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import InteractiveSideMenu
 
-class PostNewsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class PostNewsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SideMenuItemContent {
     @IBOutlet var PostNewsTableView: UITableView!
     
     var PostData = [String!]()
@@ -58,7 +59,7 @@ class PostNewsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -170,9 +171,21 @@ class PostNewsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     @IBAction func CancelPostNews(_ sender: UIBarButtonItem) {
-        self.modalTransitionStyle = .crossDissolve
         
+        let DoneOnNotification = Notification.Name(rawValue: "ADDNEWEVENT")
+        NotificationCenter.default.post(name: DoneOnNotification, object: nil, userInfo: nil)
+        
+        self.modalTransitionStyle = .crossDissolve
+
         dismiss(animated: true, completion: nil)
+        
+        if let navigationViewController = self.navigationController as? SideMenuItemContent {
+            navigationViewController.showSideMenu()
+            return
+        }
+        
+        let cancelPostNotification = Notification.Name(rawValue:"CANCELPOST")
+        NotificationCenter.default.post(name: cancelPostNotification, object: nil, userInfo: nil)
         
     }
     

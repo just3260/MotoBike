@@ -221,6 +221,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                 }
             }
         }
+        
+        for parkingPin in selectPinData.parkingArray {
+            if let viewAddress = annotation.subtitle as? String {
+                if parkingPin.subtitle == viewAddress {
+                    pin?.type = .parking
+                }
+            }
+        }
 
         pin?.DrawCustomerView()
         pin?.annotation = annotation
@@ -232,40 +240,55 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     // 新增大頭針時呼叫的方法(動畫)
     func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
-        
-        if views.last?.annotation is MKUserLocation {
-            // 關閉userLocation資訊
-            views.last?.canShowCallout = false
-            return
-        }
-        
-        for view in views {
-            if let viewAddress = view.annotation?.subtitle as? String {
-                for gasPin in mapManager.gasPinArray {
-                    if gasPin.subtitle == viewAddress {
-                        return
-                    }
-                }
-            }
-        }
-        
+
         let visibleRect = mapView.annotationVisibleRect
+        var allAddress = [String]()
         
+        for parkingPin in selectPinData.parkingArray {
+            guard let address = parkingPin.subtitle else {
+                continue
+            }
+            allAddress.append(address)
+        }
+        
+        for parkingPin in mapManager.gasPinArray {
+            guard let address = parkingPin.subtitle else {
+                continue
+            }
+            allAddress.append(address)
+        }
+
         for view:MKAnnotationView in views{
             
+            var pinAnimation = true
             
-            let endFrame:CGRect = view.frame
-            var startFrame:CGRect = endFrame
-            startFrame.origin.y = visibleRect.origin.y - startFrame.size.height
-            view.frame = startFrame
+            if view.annotation is MKUserLocation {
+                continue
+            }
+
+            let viewAddress = view.annotation?.subtitle as? String
             
-            UIView.beginAnimations("drop", context: nil)
-            UIView.setAnimationDuration(3.0)
+            for address in allAddress {
+                if viewAddress == address {
+                    pinAnimation = false
+                }
+            }
             
-            view.frame = endFrame
-            
-            UIView.commitAnimations()
+            if pinAnimation {
+                let endFrame:CGRect = view.frame
+                var startFrame:CGRect = endFrame
+                startFrame.origin.y = visibleRect.origin.y - startFrame.size.height
+                view.frame = startFrame
+                
+                UIView.beginAnimations("drop", context: nil)
+                UIView.setAnimationDuration(1.0)
+                
+                view.frame = endFrame
+                UIView.commitAnimations()
+            }
+
         }
+        
     }
     
     // 定位失敗時
@@ -343,17 +366,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     /// 啟用停車場大頭針
     func openParkingPin() {
-
-        mapManager.decodeAddressToCoordinate()
-        
+        mapManager.decodeParkingData()
+        let parkingPin = selectPinData.parkingArray
+        mainMapView.addAnnotations(parkingPin)
     }
     
     
     /// 關閉停車場大頭針
     func closeParkingPin() {
-        print("關閉停車場大頭針")
-        let parkpin = selectPinData.parkingArray
-        print(parkpin)
+        let parkingPin = selectPinData.parkingArray
+        mainMapView.removeAnnotations(parkingPin)
+        selectPinData.parkingArray = [PinData]()
     }
     
     

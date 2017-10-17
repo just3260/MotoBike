@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "gas station.png",
+      "filename" : "parkingPin.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "gas station@2x.png",
+      "filename" : "parkingPin-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "gas station@3x.png",
+      "filename" : "parkingPin-2.png",
       "scale" : "3x"
     }
   ],
