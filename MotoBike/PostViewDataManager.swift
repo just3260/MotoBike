@@ -63,7 +63,9 @@ struct PostViewDataManager {
             
         }
         
-         postItem = [weatherContents, trafficContents, decideTag, location, cusImg]
+        postItem = [weatherContents, trafficContents, decideTag, location, cusImg]
+        
+        POSTNEWS_ARRAY = postItem
         
     }
 
