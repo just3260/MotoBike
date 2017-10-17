@@ -54,7 +54,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         NotificationCenter.default.addObserver(self, selector: #selector(closeGasStationPin), name: NSNotification.Name(rawValue: "GASOFF"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(openParkingPin), name: NSNotification.Name(rawValue: "PARKINGON"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(closeParkingPin), name: NSNotification.Name(rawValue: "PARKINGOFF"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(addNewMapEventDone(noti:)), name: NSNotification.Name(rawValue: "ADDNEWEVENT"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(addNewMapEventDone), name: NSNotification.Name(rawValue: "ADDNEWEVENT"), object: nil)
         
         let dataManager = MBPhPDataManager()
         dataManager.getPHPData(allPHPURL: URL_SELECT_ALL_INFO)
@@ -161,16 +161,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     
     /// 確認新增事件
-    func addNewMapEventDone(noti: Notification) {
+    func addNewMapEventDone() {
         guard let location = pressLocation else {
             return
         }
         mapManager.addPinData(coordinate: location)
-        guard let postData = noti.userInfo!["postData"] as? [String] else {
-            print("資料格式錯誤")
-            return
-        }
-        selectPinData.postData = postData
     }
     
     

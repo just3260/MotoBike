@@ -187,6 +187,8 @@ extension UIView {
         PinAddress.text = (pinData?.annotation?.subtitle)!
         PinType.text = (pinData?.annotation?.title)!
         PinImage.image = UIImage(named: "pin")
+        weather.text = "無天氣資訊"
+        condition.text = "無路況資訊"
         
         for gasPin in selectPinData.gasStationArray {
             if let address = pinData?.annotation?.subtitle {
