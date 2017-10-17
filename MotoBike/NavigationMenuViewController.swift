@@ -39,17 +39,23 @@ class NavigationMenuViewController: MenuViewController {
         menuTableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: UITableViewScrollPosition.none)
         menuTableView.separatorStyle = .none
         
-        cellData.append((UIImage(named: "pin")!, "Map", true))
-        cellData.append((UIImage(named: "pin")!, "Gas Station", false))
-        cellData.append((UIImage(named: "pin")!, "Parking", false))
-        cellData.append((UIImage(named: "MessageBtn")!, "Post", true))
-        cellData.append((UIImage(named: "MessageBtn")!, "Message", true))
-        cellData.append((UIImage(named: "MessageBtn")!, "Facebook", true))
+        cellData.append((UIImage(named: "map")!, "Map", true))
+        cellData.append((UIImage(named: "gas")!, "Gas Station", false))
+        cellData.append((UIImage(named: "parking")!, "Parking", false))
+        cellData.append((UIImage(named: "post")!, "Post", true))
+        cellData.append((UIImage(named: "message")!, "Message", true))
+        cellData.append((UIImage(named: "facebook")!, "Facebook", true))
         
-        loginData = UserDefaults.standard.array(forKey: "FBData") as! [String]
+        userImage.layer.contents = UIImage(named: "people")?.cgImage
+        userImage.layer.contentsGravity = kCAGravityResize
+        userImage.layer.masksToBounds = true
+//        let background = UIImage(named: "people")
+//        userImage.backgroundColor = UIColor(patternImage: background!)
         
-        FBUserData()
-        
+        if UserDefaults.standard.array(forKey: "FBData") != nil {
+            loginData = UserDefaults.standard.array(forKey: "FBData") as! [String]
+            FBUserData()
+        }
         // 設置Row的高度
 //        let cellHeight = Int(menuTableView.frame.size.height) / cellData.count
 //        menuTableView.rowHeight = CGFloat(cellHeight)
@@ -74,9 +80,12 @@ class NavigationMenuViewController: MenuViewController {
         let userID = loginData[0]
         let imageURL = "http://graph.facebook.com/\(userID)/picture?type=large"
         let profileImgURL = NSURL(string: imageURL)
-        let profileImgData = NSData(contentsOf: profileImgURL! as URL)
         
-        userImage.layer.contents = UIImage(data: profileImgData! as Data)?.cgImage
+        guard let profileImgData = NSData(contentsOf: profileImgURL! as URL) else {
+            return
+        }
+        
+        userImage.layer.contents = UIImage(data: profileImgData as Data)?.cgImage
         userImage.layer.contentsGravity = kCAGravityResize
         userImage.layer.masksToBounds = true
         
@@ -119,7 +128,7 @@ extension NavigationMenuViewController: UITableViewDelegate, UITableViewDataSour
         guard let menuContainerViewController = self.menuContainerViewController else {
             return
         }
-
+        
         if indexPath.row == 1 || indexPath.row == 2 {
             return
         }

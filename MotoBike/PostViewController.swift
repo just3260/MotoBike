@@ -23,6 +23,8 @@ class PostViewController: UIViewController {
 
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
+        NotificationCenter.default.addObserver(self, selector: #selector(cancelPostView(_:)), name: NSNotification.Name(rawValue: "CANCELPOST"), object: nil)
+        
     }
 
     override func didReceiveMemoryWarning() {

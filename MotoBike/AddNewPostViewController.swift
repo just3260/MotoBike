@@ -236,10 +236,6 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate, SideMenuItemCon
         
         self.navigationController?.pushViewController({PostVC}(), animated: true)
 
-        let DoneOnNotification = Notification.Name(rawValue: "ADDNEWEVENT")
-        
-        NotificationCenter.default.post(name: DoneOnNotification, object: nil, userInfo: nil)
-
     }
     
     @IBAction func CancelPostViewBtn(_ sender: UIBarButtonItem) {
@@ -364,6 +360,10 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate, SideMenuItemCon
         imgPickerAlert.addAction(galleryAction)
         
         imgPickerAlert.addAction(cancelAction)
+        
+        imgPickerAlert.popoverPresentationController?.sourceView = self.view
+        imgPickerAlert.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection()
+        imgPickerAlert.popoverPresentationController?.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY + 300, width: 0, height: 0)
         
         self.present(imgPickerAlert, animated: true, completion: nil)
         

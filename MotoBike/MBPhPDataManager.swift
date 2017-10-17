@@ -117,7 +117,7 @@ class MBPhPDataManager: NSObject {
                                              
                                              "latitude": infoAllResultLATITUDE]
                         
-                        print(infoAllResult)
+//                        print(infoAllResult)
                         
                         self.allPHPArray.append(infoAllResult)
 

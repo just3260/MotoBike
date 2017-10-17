@@ -128,7 +128,7 @@ public class PinAnnotation: MKAnnotationView  {
     public func DrawCustomerView(){
       
         // 圖層框架
-        iconImageView.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+        iconImageView.frame = CGRect(x: 0, y: 0, width: 24, height: 35)
 //        iconImageView.layer.cornerRadius = 3
         
         switch self.type {
@@ -137,11 +137,11 @@ public class PinAnnotation: MKAnnotationView  {
         case .gasStation:
             iconImageView.image = UIImage(named: "gas station")
         case .parking:
-            iconImageView.image = UIImage(named: "pin")
+            iconImageView.image = UIImage(named: "parkingPin")
         }
         
         self.frame = CGRect(x: 0, y: 0, width: iconImageView.frame.width, height: iconImageView.frame.height)
-        self.centerOffset = CGPoint(x: 0, y: -20)
+        self.centerOffset = CGPoint(x: 0, y: -12)
     }
 }
 

@@ -191,6 +191,14 @@ extension UIView {
                 }
             }
         }
+        
+        for parkingPin in selectPinData.parkingArray {
+            if let address = pinData?.annotation?.subtitle {
+                if address == parkingPin.subtitle {
+                    PinImage.image = UIImage(named: "parkingPin")
+                }
+            }
+        }
 
     }
     
