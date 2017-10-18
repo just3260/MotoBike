@@ -77,42 +77,136 @@ class MBPhPDataManager: NSObject {
             }
             // InfoJSON 解析下來的資料
             // 整筆資料庫解析
-//            if(allPHPURL == URL_SELECT_ALL_INFO) {
+            if(allPHPURL == URL_SELECT_ALL_INFO) {
+                do {
+                    guard let infoAllDataList = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? NSArray else {
+                        print("No infoAllDataList was returned by the request!")
+
+                        return
+
+                    }
+                    // 將停車場每筆資料取出
+                    for infoAllItem in 0...74 {
+                        guard let infoAllDataResult = infoAllDataList[infoAllItem] as? NSDictionary else {
+                            print("infoAllDataResult isn't NSDictionary")
+
+                            return
+
+                        }
+
+                        guard let infoAllResultID = infoAllDataResult["id"] as? String,
+
+                              let infoAllReusultNAME = infoAllDataResult["name"] as? String,
+
+                              let infoAllResultADDRESS = infoAllDataResult["address"] as? String,
+
+                              let infoAllResultAREA_ID = infoAllDataResult["area_id"] as? String,
+
+                              let infoAllResultLONGITUDE = infoAllDataResult["longitude"] as? String,
+
+                              let infoAllResultLATITUDE = infoAllDataResult["latitude"] as? String
+
+                        else {
+                                print("Can't take infoAllDataRsult.keys to infoAllResult")
+
+                                return
+
+                        }
+
+                        let infoAllResult = ["id": infoAllResultID,
+
+                                             "name": infoAllReusultNAME,
+
+                                             "address": infoAllResultADDRESS,
+
+                                             "area_id": infoAllResultAREA_ID,
+
+                                             "longitude": infoAllResultLONGITUDE,
+
+                                             "latitude": infoAllResultLATITUDE]
+
+                        // print(infoAllResult)
+
+                        self.allPHPArray.append(infoAllResult)
+
+                    }
+
+                    // print(self.allPHPArray)
+
+                    selectPinData.allParkingArray = self.allPHPArray
+
+                } catch {
+                    print("error is \(error.localizedDescription)")
+
+                }
+
+            }
+            // 單筆資料庫解析
+            if(allPHPURL == URL_SELECT_ONE_INFO) {
+                let infoDecoder = JSONDecoder()
+
+                guard let infoDataList = try? infoDecoder.decode(InfoData.self, from: data) else {
+                    print("No infoData was returned by the request!")
+
+                    return
+                    
+                }
+                
+                print(infoDataList)
+                
+                let infoResultID = ["id": infoDataList.id]
+
+                print("id:\(infoResultID)")
+                
+                let infoResultNAME = ["name": infoDataList.name]
+
+                print("name:\(infoResultNAME)")
+
+                let infoResultADDRESS = ["address": infoDataList.address]
+
+                print("address:\(infoResultADDRESS)")
+
+                let infoResultAREA_ID = ["area_id": infoDataList.area_id]
+                
+                print("area_id:\(infoResultAREA_ID)")
+                
+            }
+            
+//            if(allPHPURL == URL_SELECT_ALL_POSTNEWS) {
 //                do {
-//                    guard let infoAllDataList = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? NSArray else {
-//                        print("No infoAllDataList was returned by the request!")
+//                    guard let PostNewsAllDataList = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? NSArray else {
+//                        print("No PostNewsAllDataList was returned by the request!")
 //
 //                        return
 //
 //                    }
-//                    // 將停車場每筆資料取出
-//                    for infoAllItem in 0...74 {
-//                        guard let infoAllDataResult = infoAllDataList[infoAllItem] as? NSDictionary else {
-//                            print("infoAllDataResult isn't NSDictionary")
+//
+//                    for PostNewsAllItem in 0...PostNewsAllDataList.count {
+//                        guard let PostNewsAllDataResult = PostNewsAllDataList[PostNewsAllItem] as? NSDictionary else {
+//                            print("PostNewsAllDataResult isn't NSDictionary")
 //
 //                            return
 //
 //                        }
 //
-//                        guard let infoAllResultID = infoAllDataResult["id"] as? String,
+//                        guard let PostNewsAllDataResultWEATHER = PostNewsAllDataResult["weather"] as? String,
 //
-//                              let infoAllReusultNAME = infoAllDataResult["name"] as? String,
+//                            let PostNewsAllDataResultTRAFFIC = PostNewsAllDataResult["traffic"] as? String,
 //
-//                              let infoAllResultADDRESS = infoAllDataResult["address"] as? String,
+//                            let PostNewsAllDataResultDECIDETAG = PostNewsAllDataResult["decideTag"] as? String,
 //
-//                              let infoAllResultAREA_ID = infoAllDataResult["area_id"] as? String,
+//                            let PostNewsAllDataResultLOCATION = PostNewsAllDataResult["location"] as? String,
 //
-//                              let infoAllResultLONGITUDE = infoAllDataResult["longitude"] as? String,
+//                            let PostNewsAllDataResultIMAGE = PostNewsAllDataResult["image"] as? String
 //
-//                              let infoAllResultLATITUDE = infoAllDataResult["latitude"] as? String
-//
-//                        else {
-//                                print("Can't take infoAllDataRsult.keys to infoAllResult")
+//                            else {
+//                                print("Can't take PostNewsAllDataResult.keys to PostNewsAllDataResult")
 //
 //                                return
 //
 //                        }
 //
+//                        print(PostNewsAllDataResult)
 //                        let infoAllResult = ["id": infoAllResultID,
 //
 //                                             "name": infoAllReusultNAME,
@@ -125,51 +219,16 @@ class MBPhPDataManager: NSObject {
 //
 //                                             "latitude": infoAllResultLATITUDE]
 //
-//                        // print(infoAllResult)
-//
-//                        self.allPHPArray.append(infoAllResult)
+////                        print(infoAllResult)
 //
 //                    }
-//
-//                    // print(self.allPHPArray)
-//
-//                    selectPinData.allParkingArray = self.allPHPArray
 //
 //                } catch {
 //                    print("error is \(error.localizedDescription)")
 //
 //                }
 //
-//            }
-            // 單筆資料庫解析
-//            if(allPHPURL == URL_SELECT_ONE_INFO) {
-//                let infoDecoder = JSONDecoder()
 //
-//                guard let infoDataList = try? infoDecoder.decode(InfoData.self, from: data) else {
-//                    print("No infoData was returned by the request!")
-//
-//                    return
-//                    
-//                }
-//                
-//                print(infoDataList)
-//                
-//                let infoResultID = ["id": infoDataList.id]
-//
-//                print("id:\(infoResultID)")
-//                
-//                let infoResultNAME = ["name": infoDataList.name]
-//
-//                print("name:\(infoResultNAME)")
-//
-//                let infoResultADDRESS = ["address": infoDataList.address]
-//
-//                print("address:\(infoResultADDRESS)")
-//
-//                let infoResultAREA_ID = ["area_id": infoDataList.area_id]
-//                
-//                print("area_id:\(infoResultAREA_ID)")
-//                
 //            }
             
             if(allPHPURL == URL_SELECT_ALL_POSTNEWS) {

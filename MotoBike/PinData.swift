@@ -27,6 +27,9 @@ struct selectPinData {
     static var parkingArray = [PinData]()
     static var allParkingArray = [[String : String]]()
     
+    /// 發文資料
+    static var postData: [String]!
+    
     /// 呼叫地址方法
     static func getAddress() -> String {
         

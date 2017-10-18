@@ -71,6 +71,10 @@ extension UIView {
 
     @IBOutlet fileprivate weak var confirmView: UIView!
     
+    @IBOutlet weak var weather: UILabel!
+    
+    @IBOutlet weak var condition: UILabel!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initFromXIB()
@@ -183,11 +187,14 @@ extension UIView {
         PinAddress.text = (pinData?.annotation?.subtitle)!
         PinType.text = (pinData?.annotation?.title)!
         PinImage.image = UIImage(named: "pin")
+        weather.text = "無天氣資訊"
+        condition.text = "無路況資訊"
         
         for gasPin in selectPinData.gasStationArray {
             if let address = pinData?.annotation?.subtitle {
                 if address == gasPin.subtitle {
                     PinImage.image = UIImage(named: "gas station")
+                    return
                 }
             }
         }
@@ -196,9 +203,34 @@ extension UIView {
             if let address = pinData?.annotation?.subtitle {
                 if address == parkingPin.subtitle {
                     PinImage.image = UIImage(named: "parkingPin")
+                    return
                 }
             }
         }
+        
+        switch selectPinData.postData[0] {
+        case "晴天地乾":
+            weather.text = "天氣狀況：☀️"
+        case "陰天有雲":
+            weather.text = "天氣狀況：☁️"
+        case "雨天地濕":
+            weather.text = "天氣狀況：🌧"
+        default:
+            weather.text = "無天氣資訊"
+        }
+        
+        switch selectPinData.postData[1] {
+        case "正常行駛":
+            condition.text = "路況：👍"
+        case "注意危險":
+            condition.text = "路況：⚠️"
+        case "禁止通行":
+            condition.text = "路況：⛔️"
+        default:
+            condition.text = "無路況資訊"
+        }
+        
+        PinType.text = selectPinData.postData[2]
 
     }
     

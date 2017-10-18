@@ -175,6 +175,12 @@ class PostNewsViewController: UIViewController, UITableViewDelegate, UITableView
         let DoneOnNotification = Notification.Name(rawValue: "ADDNEWEVENT")
         NotificationCenter.default.post(name: DoneOnNotification, object: nil, userInfo: nil)
         
+        guard let postData = PostData as? [String] else {
+            print("資料格式錯誤")
+            return
+        }
+        selectPinData.postData = postData
+        
         self.modalTransitionStyle = .crossDissolve
 
         dismiss(animated: true, completion: nil)
