@@ -40,7 +40,7 @@ class MBPhPDataManager: NSObject {
             let SelectOneParmeters = "id=\(1)"
             // 設置接收方的 HTTP 請求方式
             PHPRequest.httpBody = SelectOneParmeters.data(using: String.Encoding.utf8)
-            
+        // 抓取發文頁面資料
         case URL_INSERT_POSTNEWS:
             let PostNewsParmeters = "weather=\(POSTNEWS_WEATHER)&traffic=\(POSTNEWS_TRAFFIC)&decideTag=\(POSTNEWS_DECIDETAG)&location=\(POSTNEWS_LOCATION)&image=\(POSTNEWS_IMAGE)"
             
@@ -206,20 +206,23 @@ class MBPhPDataManager: NSObject {
                                 
                         }
                         
+
                         print(PostNewsAllDataResult)
-                        let infoAllResult = ["id": infoAllResultID,
-                                             
-                                             "name": infoAllReusultNAME,
-                                             
-                                             "address": infoAllResultADDRESS,
-                                             
-                                             "area_id": infoAllResultAREA_ID,
-                                             
-                                             "longitude": infoAllResultLONGITUDE,
-                                             
-                                             "latitude": infoAllResultLATITUDE]
+
+//                        let infoAllResult = ["id": infoAllResultID,
+//                                             
+//                                             "name": infoAllReusultNAME,
+//                                             
+//                                             "address": infoAllResultADDRESS,
+//                                             
+//                                             "area_id": infoAllResultAREA_ID,
+//                                             
+//                                             "longitude": infoAllResultLONGITUDE,
+//                                             
+//                                             "latitude": infoAllResultLATITUDE]
                         
 //                        print(infoAllResult)
+
                         
                     }
                     
@@ -230,7 +233,6 @@ class MBPhPDataManager: NSObject {
                 
                 
             }
-            
             
             let InfoOK = "InfoJSON is OK"
 //            // 回傳的訊息結果
