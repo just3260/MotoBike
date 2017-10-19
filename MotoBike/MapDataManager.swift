@@ -122,7 +122,6 @@ class MapDataManager: NSObject, CLLocationManagerDelegate, MKMapViewDelegate {
             return
         }
         let coordinate = currentLocation.coordinate
-        //        NSLog("Lat: \(coordinate.latitude), Lon: \(coordinate.longitude)")
         
         DispatchQueue.once(token: "MoveAndZoomMap") {
             
@@ -161,7 +160,7 @@ class MapDataManager: NSObject, CLLocationManagerDelegate, MKMapViewDelegate {
     
     /// 解析地址為經緯度
     func decodeParkingData() {
-            
+        // 拆解php端Data
         for parkingData in selectPinData.allParkingArray {
             guard let address = parkingData["address"] ,
                     let name = parkingData["name"],
@@ -171,9 +170,9 @@ class MapDataManager: NSObject, CLLocationManagerDelegate, MKMapViewDelegate {
                     return
             }
             
+            // 轉String為double
             let latitudeString = parkingLatitude as NSString
             let longitudeString = parkingLongitude as NSString
-            
             let latitude = latitudeString.doubleValue
             let longitude = longitudeString.doubleValue
             

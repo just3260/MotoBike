@@ -53,6 +53,43 @@ extension UIView {
         }
     }
     
+    @discardableResult func addRightBorder(color: UIColor, width: CGFloat) -> UIView {
+        let layer = CALayer()
+        layer.borderColor = color.cgColor
+        layer.borderWidth = width
+        layer.frame = CGRect(x: self.frame.size.width-width, y: 0, width: width, height: self.frame.size.height)
+        self.layer.addSublayer(layer)
+        return self
+    }
+    
+    @discardableResult func addLeftBorder(color: UIColor, width: CGFloat) -> UIView {
+        let layer = CALayer()
+        layer.borderColor = color.cgColor
+        layer.borderWidth = width
+        layer.frame = CGRect(x: 0, y: 0, width: width, height: self.frame.size.height)
+        self.layer.addSublayer(layer)
+        return self
+    }
+    
+    @discardableResult func addTopBorder(color: UIColor, width: CGFloat) -> UIView {
+        let layer = CALayer()
+        layer.borderColor = color.cgColor
+        layer.borderWidth = width
+        layer.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: width)
+        self.layer.addSublayer(layer)
+        return self
+    }
+    
+    @discardableResult func addBottomBorder(color: UIColor, width: CGFloat) -> UIView {
+        let layer = CALayer()
+        layer.borderColor = color.cgColor
+        layer.borderWidth = width
+        layer.frame = CGRect(x: 0, y: self.frame.size.height-width, width: self.frame.size.width, height: width)
+        self.layer.addSublayer(layer)
+        return self
+    }
+    
+    
 
 }
 
@@ -74,6 +111,10 @@ extension UIView {
     @IBOutlet weak var weather: UILabel!
     
     @IBOutlet weak var condition: UILabel!
+    
+    @IBOutlet weak var stepsOutlet: UIButton!
+    
+    @IBOutlet weak var routeOutlet: UIButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -114,7 +155,15 @@ extension UIView {
         RectangularView.addSubview(PinAddress)
         RectangularView.addSubview(PinType)
         RectangularView.addSubview(PinImage)
+        
+        let borderColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        stepsOutlet.addTopBorder(color: borderColor, width: 2.0)
+        stepsOutlet.addRightBorder(color: borderColor, width: 1.0)
+        routeOutlet.addTopBorder(color: borderColor, width: 2.0)
+        routeOutlet.addLeftBorder(color: borderColor, width: 1.0)
+        
     }
+
     
     
     /// 確認按鈕

@@ -235,10 +235,6 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate, SideMenuItemCon
         PostVC.PostData = AddFinPostViewModel.postItem
         
         self.navigationController?.pushViewController({PostVC}(), animated: true)
-        
-        let DoneOnNotification = Notification.Name(rawValue: "ADDNEWEVENT")
-        
-        NotificationCenter.default.post(name: DoneOnNotification, object: nil, userInfo: nil)
 
     }
     

@@ -43,7 +43,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         
         // 長按手勢動作
         longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(addNewMapEvent))
-        longPressGesture.minimumPressDuration = 1.0
+        longPressGesture.minimumPressDuration = 0.5
         self.mainMapView.addGestureRecognizer(longPressGesture)
         
         // 接受畫路徑圖通知
@@ -73,8 +73,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
         let status = mapManager.locationSetting()
         // 判斷使用者是否有同意App使用位置訊息，有的話即顯示當前位置
-        if status == CLAuthorizationStatus.authorizedAlways {
+        if status == CLAuthorizationStatus.authorizedAlways || status == CLAuthorizationStatus.authorizedWhenInUse{
             mainMapView.showsUserLocation = true
+        } else {
+            let alertController = UIAlertController(title: "警告", message: "沒有同意App使用位置", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title:"確定",style: .default, handler: nil))
+            present(alertController, animated: true,completion: nil)
         }
     }
     
@@ -243,25 +247,25 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
 
         let visibleRect = mapView.annotationVisibleRect
         var allAddress = [String]()
-        
+        // 抓出所有的停車場地址
         for parkingPin in selectPinData.parkingArray {
             guard let address = parkingPin.subtitle else {
                 continue
             }
             allAddress.append(address)
         }
-        
+        // 抓出所有的加油站地址
         for parkingPin in mapManager.gasPinArray {
             guard let address = parkingPin.subtitle else {
                 continue
             }
             allAddress.append(address)
         }
-
+        
         for view:MKAnnotationView in views{
             
             var pinAnimation = true
-            
+            // 避開UserLocation
             if view.annotation is MKUserLocation {
                 continue
             }
@@ -273,7 +277,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                     pinAnimation = false
                 }
             }
-            
+            // 掉落動畫
             if pinAnimation {
                 let endFrame:CGRect = view.frame
                 var startFrame:CGRect = endFrame
