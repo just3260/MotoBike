@@ -226,7 +226,7 @@
 				TargetAttributes = {
 					5BDBA6891F5463C7006ECE3A = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = Z7353C93M9;
+						DevelopmentTeam = HR8MYWV77P;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -485,7 +485,7 @@
 			baseConfigurationReference = 468AF3DC593D8C35AA20C39B /* Pods-MotoBike.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Z7353C93M9;
+				DEVELOPMENT_TEAM = HR8MYWV77P;
 				INFOPLIST_FILE = MotoBike/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -500,7 +500,7 @@
 			baseConfigurationReference = A7B8A655DD3361C40F56C083 /* Pods-MotoBike.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = Z7353C93M9;
+				DEVELOPMENT_TEAM = HR8MYWV77P;
 				INFOPLIST_FILE = MotoBike/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

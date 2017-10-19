@@ -40,7 +40,7 @@ class MBPhPDataManager: NSObject {
             let SelectOneParmeters = "id=\(1)"
             // 設置接收方的 HTTP 請求方式
             PHPRequest.httpBody = SelectOneParmeters.data(using: String.Encoding.utf8)
-            
+        // 抓取發文頁面資料
         case URL_INSERT_POSTNEWS:
             let PostNewsParmeters = "weather=\(POSTNEWS_WEATHER)&traffic=\(POSTNEWS_TRAFFIC)&decideTag=\(POSTNEWS_DECIDETAG)&location=\(POSTNEWS_LOCATION)&image=\(POSTNEWS_IMAGE)"
             
@@ -231,6 +231,67 @@ class MBPhPDataManager: NSObject {
 //
 //            }
             
+            if(allPHPURL == URL_SELECT_ALL_POSTNEWS) {
+                do {
+                    guard let PostNewsAllDataList = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? NSArray else {
+                        print("No PostNewsAllDataList was returned by the request!")
+                        
+                        return
+                        
+                    }
+                    
+                    for PostNewsAllItem in 0...PostNewsAllDataList.count {
+                        guard let PostNewsAllDataResult = PostNewsAllDataList[PostNewsAllItem] as? NSDictionary else {
+                            print("PostNewsAllDataResult isn't NSDictionary")
+                            
+                            return
+                            
+                        }
+                        
+                        guard let PostNewsAllDataResultWEATHER = PostNewsAllDataResult["weather"] as? String,
+
+                            let PostNewsAllDataResultTRAFFIC = PostNewsAllDataResult["traffic"] as? String,
+
+                            let PostNewsAllDataResultDECIDETAG = PostNewsAllDataResult["decideTag"] as? String,
+
+                            let PostNewsAllDataResultLOCATION = PostNewsAllDataResult["location"] as? String,
+
+                            let PostNewsAllDataResultIMAGE = PostNewsAllDataResult["image"] as? String
+
+                            else {
+                                print("Can't take PostNewsAllDataResult.keys to PostNewsAllDataResult")
+
+                                return
+                                
+                        }
+                        
+
+                        print(PostNewsAllDataResult)
+
+//                        let infoAllResult = ["id": infoAllResultID,
+//                                             
+//                                             "name": infoAllReusultNAME,
+//                                             
+//                                             "address": infoAllResultADDRESS,
+//                                             
+//                                             "area_id": infoAllResultAREA_ID,
+//                                             
+//                                             "longitude": infoAllResultLONGITUDE,
+//                                             
+//                                             "latitude": infoAllResultLATITUDE]
+                        
+//                        print(infoAllResult)
+
+                        
+                    }
+                    
+                } catch {
+                    print("error is \(error.localizedDescription)")
+                    
+                }
+                
+                
+            }
             
             let InfoOK = "InfoJSON is OK"
 //            // 回傳的訊息結果

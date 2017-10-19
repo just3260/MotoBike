@@ -37,10 +37,10 @@ class PostNewsViewController: UIViewController, UITableViewDelegate, UITableView
         
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
-        POSTNEWSMBPHP.getPHPData(allPHPURL: URL_SELECT_ALL_POSTNEWS)
-        
         // 取得 cusImg 檔案
         getFinCusImgView()
+        
+        // POSTNEWSMBPHP.getPHPData(allPHPURL: URL_SELECT_ALL_POSTNEWS)
         
     }
     
